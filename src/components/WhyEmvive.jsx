@@ -104,36 +104,9 @@ const benefits = [
   },
 ];
 
-// Flowing wave-mesh that fills the empty space beside the heading
-const SideWave = ({ className }) => {
-  const W = 550;
-  const H = 720;
-  const N = 26;
-  const lines = [];
-  for (let i = 0; i < N; i++) {
-    let d = '';
-    for (let x = 0; x <= W; x += 24) {
-      const t = x / W;
-      const y = 70 + i * 22 + Math.sin(x * 0.011 + i * 0.34) * (26 + i) * (1 - t * 0.25);
-      d += (x === 0 ? 'M' : 'L') + ` ${x} ${y.toFixed(1)} `;
-    }
-    lines.push(
-      <path key={i} d={d} stroke="#6b8dff" strokeWidth="1" fill="none" opacity={(0.05 + (i / N) * 0.1).toFixed(3)} />,
-    );
-  }
-  return (
-    <svg className={className} viewBox={`0 0 ${W} ${H}`} preserveAspectRatio="xMidYMid slice" fill="none" aria-hidden="true">
-      {lines}
-    </svg>
-  );
-};
-
 const WhyEmvive = () => {
   return (
     <section className="why-emvive-section" id="why-emvive">
-      <SideWave className="why-wave-left" />
-      <SideWave className="why-wave-right" />
-
       <div className="why-emvive-container">
         {/* Section Header */}
         <div className="why-header">

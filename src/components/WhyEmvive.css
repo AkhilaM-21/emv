@@ -13,29 +13,6 @@
   z-index: 30;
 }
 
-/* Flowing wave mesh decorations beside the heading */
-.why-wave-left,
-.why-wave-right {
-  position: absolute;
-  top: -6%;
-  width: 620px;
-  height: 112%;
-  pointer-events: none;
-  z-index: 0;
-  /* fade out toward the centre so the lines never clash with the text */
-  -webkit-mask-image: linear-gradient(to right, #000 0%, #000 32%, transparent 88%);
-  mask-image: linear-gradient(to right, #000 0%, #000 32%, transparent 88%);
-}
-
-.why-wave-left {
-  left: -70px;
-}
-
-.why-wave-right {
-  right: -70px;
-  transform: scaleX(-1); /* mirror so both sides flow symmetrically */
-}
-
 .why-emvive-container {
   max-width: 1200px;
   margin: 0 auto;
