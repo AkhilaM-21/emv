@@ -47,6 +47,50 @@ body.dark-theme .btn-get-started {
 body.dark-theme .theme-toggle { color: #ffd76a; }
 body.dark-theme .theme-toggle:hover { background: rgba(255, 255, 255, 0.08); color: #ffe08a; }
 
+/* Mobile nav (hamburger panel) */
+body.dark-theme .mobile-menu-toggle { color: #e8ecf5; }
+body.dark-theme .mobile-menu-toggle:hover { background: rgba(255, 255, 255, 0.08); color: #5a9bff; }
+body.dark-theme .mobile-nav {
+  background: #0d1330;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+body.dark-theme .mobile-nav-links a {
+  color: #e8ecf5;
+  border-bottom-color: rgba(255, 255, 255, 0.08);
+}
+body.dark-theme .mobile-select-label { color: #64748b; }
+body.dark-theme .mobile-chip {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.1);
+  color: #e8ecf5;
+}
+body.dark-theme .mobile-chip.active {
+  background: rgba(59, 130, 246, 0.15);
+  border-color: rgba(90, 155, 255, 0.4);
+  color: #5a9bff;
+}
+
+/* Products accordion (mobile mega menu) */
+body.dark-theme .mobile-nav-group { border-bottom-color: rgba(255, 255, 255, 0.08); }
+body.dark-theme .mobile-nav-link-btn { color: #e8ecf5; }
+body.dark-theme .mobile-nav-link-btn.open { color: #5a9bff; }
+body.dark-theme .mobile-nav-caret { color: #94a3b8; }
+body.dark-theme .mobile-mega-tab {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.1);
+  color: #cbd5e1;
+}
+body.dark-theme .mobile-mega-tab.active { background: #2563eb; border-color: #2563eb; color: #ffffff; }
+body.dark-theme .mobile-mega-ind { color: #cbd5e1; }
+body.dark-theme .mobile-mega-ind.active { background: rgba(59, 130, 246, 0.15); color: #5a9bff; }
+body.dark-theme .mobile-module-card {
+  background: #141b3a;
+  border-color: rgba(255, 255, 255, 0.08);
+}
+body.dark-theme .mobile-module-card:hover { border-color: rgba(90, 155, 255, 0.4); }
+body.dark-theme .mobile-module-card .module-text h3 { color: #ffffff; }
+body.dark-theme .mobile-module-card .module-text p { color: #94a3b8; }
+
 /* Mega menu */
 body.dark-theme .mega-menu-wrapper {
   background: #0d1330;

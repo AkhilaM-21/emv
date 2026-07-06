@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import './Clients.css';
 import { Target, Layers, Cpu, Cloud, Box, Database } from 'lucide-react';
 
@@ -17,6 +18,7 @@ const CLIENTS = [
 ];
 
 const Clients = () => {
+  const { t } = useTranslation();
   return (
     <section className="neurox-clients-section">
       <div className="nc-dark-bg">
@@ -41,7 +43,7 @@ const Clients = () => {
         <div className="nc-bottom-cutout">
           <div className="nc-cutout-inner">
             <span className="nc-cutout-text">
-              <span className="text-blue">3600+</span> Trusted companies all over the world
+              <span className="text-blue">3600+</span> {t('clients.trusted', 'Trusted companies all over the world').replace('3600+ ', '')}
             </span>
           </div>
         </div>

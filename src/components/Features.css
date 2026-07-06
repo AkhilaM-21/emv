@@ -294,30 +294,67 @@
   color: rgba(255, 255, 255, 0.85);
 }
 
-/* Responsive */
-@media (max-width: 992px) {
+/* Responsive
+   KEEP the 3-column hub layout on tablets/small screens — just scale it down.
+   Only stack to a single column on real phones (<=560px). */
+
+/* ---- KEEP 3 COLUMNS, scale down (<=1024px) ---- */
+@media (max-width: 1024px) {
+  .features-section { padding: 6rem 0; }
+  .features-container { padding: 0 1.25rem; }
+  .features-header { margin-bottom: 3.5rem; }
+  .features-title { font-size: 2.6rem; letter-spacing: -1px; }
+
+  .features-layout { min-height: 0; }
+  .features-column { width: 34%; gap: 1.25rem; }
+  .features-center { width: 24%; }
+
+  .feature-card { padding: 1.25rem; border-radius: 18px; }
+  .feature-icon-box { width: 42px; height: 42px; margin-bottom: 0.8rem; }
+  .feature-card-title { font-size: 1rem; margin-bottom: 0.5rem; }
+  .feature-card-desc { font-size: 0.8rem; line-height: 1.45; }
+
+  .hub-logo-box { width: 130px; height: 100px; border-radius: 22px; }
+  .hub-icon { width: 34px; height: 34px; }
+  .hub-text { font-size: 1.05rem; }
+}
+
+/* ---- Still 3 columns, tighter (<=720px) ---- */
+@media (max-width: 720px) {
+  .features-section { padding: 5rem 0; }
+  .features-title { font-size: 2.2rem; }
+  .features-column { gap: 0.9rem; }
+  .feature-card { padding: 1rem; border-radius: 16px; }
+  .feature-card-title { font-size: 0.9rem; }
+  .feature-card-desc { font-size: 0.72rem; line-height: 1.4; }
+  .feature-icon-box { width: 38px; height: 38px; }
+  .hub-logo-box { width: 104px; height: 86px; }
+  .hub-text { font-size: 0.9rem; }
+}
+
+/* ---- PHONES: finally stack to ONE column (<=560px) ---- */
+@media (max-width: 560px) {
+  .features-section { padding: 4rem 0; }
+  .features-title { font-size: 1.9rem; letter-spacing: -0.5px; }
+  .features-header { margin-bottom: 2.25rem; }
+
   .features-layout {
     flex-direction: column;
     align-items: center;
-    gap: 3rem;
+    gap: 2rem;
   }
-  
-  .connector-svg {
-    display: none;
-  }
-  
-  .features-column {
-    width: 100%;
-    max-width: 500px;
-  }
-  
-  .left-col .feature-card,
-  .right-col .feature-card {
-    text-align: center;
-  }
-  
-  .left-col .feature-icon-box,
-  .right-col .feature-icon-box {
-    margin: 0 auto 1.2rem auto;
-  }
+  .connector-svg { display: none; }
+
+  /* Hub goes to the TOP of the stack, back to full size */
+  .features-center { width: 100%; order: -1; margin-bottom: 0.5rem; }
+  .hub-logo-box { width: 170px; height: 120px; border-radius: 30px; }
+  .hub-icon { width: 44px; height: 44px; }
+  .hub-text { font-size: 1.3rem; }
+
+  .features-column { width: 100%; max-width: 460px; gap: 1.25rem; }
+  .left-col, .right-col { align-items: stretch; }
+  .feature-card { padding: 1.5rem; border-radius: 20px; text-align: center; }
+  .feature-card-title { font-size: 1.1rem; margin-bottom: 0.8rem; }
+  .feature-card-desc { font-size: 0.9rem; line-height: 1.6; }
+  .feature-icon-box { width: 50px; height: 50px; margin: 0 auto 1.2rem auto; }
 }

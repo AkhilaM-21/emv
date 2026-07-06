@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Zap, Users, LineChart, PieChart, GitMerge, FileCheck, Search, LayoutDashboard, Briefcase, Headphones, Folder, Handshake, MessageSquare, Settings, LogOut, ChevronDown, Bell, User, CheckCircle, Clock } from 'lucide-react';
 import './Products.css';
 
@@ -343,6 +344,7 @@ const DotWave = () => {
 };
 
 const Products = () => {
+  const { t } = useTranslation();
   const [activeIndex, setActiveIndex] = useState(0);
   const itemRefs = useRef([]);
 
@@ -372,8 +374,8 @@ const Products = () => {
     <section id="products" className="products-section">
       <div className="container">
         <div className="section-title" style={{ textAlign: 'center', marginBottom: '4rem' }}>
-          <span className="global-section-badge"><span className="global-badge-dot"></span> Our Products</span>
-          <h2 className="product-title-top">Intelligent Enterprise Solutions</h2>
+          <span className="global-section-badge"><span className="global-badge-dot"></span> {t('products.badge', 'Our Products')}</span>
+          <h2 className="product-title-top">{t('products.title', 'Intelligent Enterprise Solutions')}</h2>
         </div>
 
         <div className="timeline-container">
@@ -400,19 +402,19 @@ const Products = () => {
                   <div className="product-icon-3d">
                     {product.icon}
                   </div>
-                  <h3 className="product-title-top">{product.title}</h3>
+                  <h3 className="product-title-top">{t(`productsData.p${product.id}_title`, product.title)}</h3>
                 </div>
 
                 <div className="timeline-content">
                   <div className="product-info">
-                    <p className="product-desc">{product.description}</p>
+                    <p className="product-desc">{t(`productsData.p${product.id}_desc`, product.description)}</p>
 
                     {/* Industries Tags */}
                     <div className="product-industries">
-                      <span className="industry-label">Target Industries</span>
+                      <span className="industry-label">{t('productsData.targetIndustries', 'Target Industries')}</span>
                       <div className="industry-tags">
                         {product.industries.map((ind, i) => (
-                          <span key={i} className="industry-tag">{ind}</span>
+                          <span key={i} className="industry-tag">{t(`productsData.industries.${ind.replace(/\\s+/g, '')}`, ind)}</span>
                         ))}
                       </div>
                     </div>

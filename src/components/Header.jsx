@@ -1,15 +1,13 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { ArrowRight, MapPin, Globe, ChevronDown, ShoppingCart, Calculator, Truck, Activity, FileText, Users, Settings, Box, CheckCircle, Package, PenTool, BarChart2, X, Moon, Sun } from 'lucide-react';
+import { ArrowRight, MapPin, Globe, ChevronDown, ShoppingCart, Calculator, Truck, Activity, FileText, Users, Settings, Box, CheckCircle, Package, PenTool, BarChart2, X, Moon, Sun, Menu } from 'lucide-react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import './Header.css';
 
-const NAV_ITEMS = ['Products', 'Enterprise', 'Customers', 'Partners', 'Resources'];
-const REGIONS = ['India', 'Saudi Arabia', 'Dubai'];
-const LANGUAGES = ['English', 'العربية'];
-
-import { MEGA_MENU_DATA } from '../data/megaMenuData';
+import { getMegaMenuData } from '../data/megaMenuData';
 
 const Header = () => {
+  const { t, i18n } = useTranslation();
   const navigate = useNavigate();
   const location = useLocation();
   // The home hero is dark; every other route has a light background, so the
@@ -17,10 +15,33 @@ const Header = () => {
   const isHome = location.pathname === '/';
   const [isScrolled, setIsScrolled] = useState(false);
   const [openMenu, setOpenMenu] = useState(null); // 'region' | 'lang' | null
-  const [region, setRegion] = useState('India');
-  const [lang, setLang] = useState('English');
+  const [region, setRegion] = useState('india'); // Store region key
+  const [lang, setLang] = useState(i18n.language || 'en');
   const [openNav, setOpenNav] = useState(null);
   const [isDark, setIsDark] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [mobileProductsOpen, setMobileProductsOpen] = useState(false);
+
+  const NAV_ITEMS = [
+    { key: 'Products', label: t('header.nav.products', 'Products') },
+    { key: 'Enterprise', label: t('header.nav.enterprises', 'Enterprise') },
+    { key: 'Customers', label: t('header.nav.customers', 'Customers') },
+    { key: 'Partners', label: t('header.nav.partners', 'Partners') },
+    { key: 'Resources', label: t('header.nav.resources', 'Resources') }
+  ];
+
+  const REGIONS = [
+    { key: 'india', label: t('header.regions.india', 'India') },
+    { key: 'saudi', label: t('header.regions.saudi', 'Saudi Arabia') },
+    { key: 'dubai', label: t('header.regions.dubai', 'Dubai') }
+  ];
+
+  const LANGUAGES = [
+    { key: 'en', label: 'English' },
+    { key: 'ar', label: 'العربية' }
+  ];
+
+  const MEGA_MENU_DATA = getMegaMenuData(t);
 
   // Apply / persist the dark theme
   useEffect(() => {
@@ -41,8 +62,16 @@ const Header = () => {
   };
 
   // Mega Menu State
-  const [activeProductTab, setActiveProductTab] = useState('Cloud ERP');
-  const [activeIndustryTab, setActiveIndustryTab] = useState('Retail & POS');
+  const [activeProductIndex, setActiveProductIndex] = useState(0);
+  const [activeIndustryIndex, setActiveIndustryIndex] = useState(0);
+  
+  // Compute active data based on indices (safe for i18n key swaps)
+  const productKeys = Object.keys(MEGA_MENU_DATA);
+  const activeProductTab = productKeys[activeProductIndex] || productKeys[0];
+  const activeProductData = MEGA_MENU_DATA[activeProductTab] || {};
+  const industryKeys = Object.keys(activeProductData);
+  const activeIndustryTab = industryKeys[activeIndustryIndex] || industryKeys[0];
+  const activeIndustryData = activeProductData[activeIndustryTab] || {};
   
   const actionsRef = useRef(null);
 
@@ -71,7 +100,7 @@ const Header = () => {
   const toggle = (menu) => setOpenMenu((prev) => (prev === menu ? null : menu));
 
   return (
-    <header className={`neurox-header ${isScrolled || openNav || !isHome ? 'scrolled' : ''}`}>
+    <header className={`neurox-header ${isScrolled || openNav || mobileOpen || !isHome ? 'scrolled' : ''}`}>
       {/* Static Announcement Bar */}
       <div className="announcement-bar">
         <span className="announcement-item">🚀 Introducing E-Invoicing: Secure, compliant, and seamless electronic billing.</span>
@@ -99,7 +128,9 @@ const Header = () => {
         <div className={`header-right-bg ${isScrolled ? 'scrolled' : ''}`}>
 
           <nav className="header-nav">
-            {NAV_ITEMS.map((item) => {
+            {NAV_ITEMS.map((itemObj) => {
+              const item = itemObj.key;
+              const label = itemObj.label;
               const isOpen = openNav === item;
               const hasMegaMenu = item === 'Products';
               
@@ -114,12 +145,12 @@ const Header = () => {
                       }
                     }}
                   >
-                    {item}
+                    {label}
                   </a>
                   <button
                     className={`nav-toggle ${isOpen ? 'open' : ''}`}
                     onClick={() => setOpenNav(isOpen ? null : item)}
-                    aria-label={`${isOpen ? 'Close' : 'Open'} ${item} menu`}
+                    aria-label={`${isOpen ? 'Close' : 'Open'} ${label} menu`}
                     aria-expanded={isOpen}
                   >
                     <ChevronDown size={16} />
@@ -145,7 +176,7 @@ const Header = () => {
                 aria-expanded={openMenu === 'region'}
               >
                 <MapPin size={16} />
-                {region}
+                {REGIONS.find(r => r.key === region)?.label}
                 <ChevronDown size={14} className={`selector-caret ${openMenu === 'region' ? 'flip' : ''}`} />
               </button>
 
@@ -154,12 +185,23 @@ const Header = () => {
                   <div className="dropdown-title">Region</div>
                   {REGIONS.map((r) => (
                     <button
-                      key={r}
-                      className={`dropdown-row ${region === r ? 'active' : ''}`}
-                      onClick={() => { setRegion(r); setOpenMenu(null); }}
+                      key={r.key}
+                      className={`dropdown-row ${region === r.key ? 'active' : ''}`}
+                      onClick={() => { 
+                        setRegion(r.key); 
+                        setOpenMenu(null);
+                        // Force arabic if dubai or saudi is selected
+                        if (r.key === 'dubai' || r.key === 'saudi') {
+                          setLang('ar');
+                          i18n.changeLanguage('ar');
+                        } else {
+                          setLang('en');
+                          i18n.changeLanguage('en');
+                        }
+                      }}
                     >
                       <MapPin size={16} />
-                      {r}
+                      {r.label}
                     </button>
                   ))}
                 </div>
@@ -173,7 +215,7 @@ const Header = () => {
                 aria-expanded={openMenu === 'lang'}
               >
                 <Globe size={16} />
-                {lang}
+                {LANGUAGES.find(l => l.key === lang)?.label}
                 <ChevronDown size={14} className={`selector-caret ${openMenu === 'lang' ? 'flip' : ''}`} />
               </button>
 
@@ -182,11 +224,15 @@ const Header = () => {
                   <div className="dropdown-title">Language</div>
                   {LANGUAGES.map((l) => (
                     <button
-                      key={l}
-                      className={`dropdown-row ${lang === l ? 'active' : ''}`}
-                      onClick={() => { setLang(l); setOpenMenu(null); }}
+                      key={l.key}
+                      className={`dropdown-row ${lang === l.key ? 'active' : ''}`}
+                      onClick={() => { 
+                        setLang(l.key);
+                        i18n.changeLanguage(l.key);
+                        setOpenMenu(null); 
+                      }}
                     >
-                      {l}
+                      {l.label}
                     </button>
                   ))}
                 </div>
@@ -194,16 +240,180 @@ const Header = () => {
             </div>
 
             <a href="#started" className="btn-get-started">
-              Get Started
+              {t('header.getStarted', 'Get Started')}
               <span className="arrow-circle">
                 <ArrowRight size={14} color="#fff" />
               </span>
             </a>
+
+            {/* Hamburger — only visible on tablet/mobile */}
+            <button
+              className="mobile-menu-toggle"
+              onClick={() => setMobileOpen((o) => !o)}
+              aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
+              aria-expanded={mobileOpen}
+            >
+              {mobileOpen ? <X size={22} /> : <Menu size={22} />}
+            </button>
           </div>
 
         </div>
 
       </div>
+
+      {/* MOBILE NAV PANEL */}
+      {mobileOpen && (
+        <div className="mobile-nav">
+          <nav className="mobile-nav-links">
+            {NAV_ITEMS.map((itemObj) => {
+              const item = itemObj.key;
+
+              // Products expands into a mobile version of the mega menu
+              if (item === 'Products') {
+                return (
+                  <div key={item} className="mobile-nav-group">
+                    <button
+                      className={`mobile-nav-link-btn ${mobileProductsOpen ? 'open' : ''}`}
+                      onClick={() => setMobileProductsOpen((o) => !o)}
+                      aria-expanded={mobileProductsOpen}
+                    >
+                      {itemObj.label}
+                      <ChevronDown size={18} className="mobile-nav-caret" />
+                    </button>
+
+                    {mobileProductsOpen && (
+                      <div className="mobile-mega">
+                        {/* Product categories */}
+                        <div className="mobile-mega-tabs">
+                          {productKeys.map((tab, pIdx) => (
+                            <button
+                              key={tab}
+                              className={`mobile-mega-tab ${activeProductIndex === pIdx ? 'active' : ''}`}
+                              onClick={() => {
+                                setActiveProductIndex(pIdx);
+                                setActiveIndustryIndex(0);
+                              }}
+                            >
+                              {tab}
+                            </button>
+                          ))}
+                        </div>
+
+                        {/* Industries for the active category */}
+                        <div className="mobile-mega-industries">
+                          {industryKeys.map((ind, iIdx) => (
+                            <button
+                              key={ind}
+                              className={`mobile-mega-ind ${activeIndustryIndex === iIdx ? 'active' : ''}`}
+                              onClick={() => setActiveIndustryIndex(iIdx)}
+                            >
+                              {ind}
+                            </button>
+                          ))}
+                        </div>
+
+                        {/* Modules for the active industry */}
+                        {activeIndustryData.modules && (
+                          <div className="mobile-mega-modules">
+                            {activeIndustryData.modules.map((mod, i) => {
+                              const Icon = mod.icon;
+                              return (
+                                <div
+                                  key={i}
+                                  className="mobile-module-card"
+                                  onClick={() => {
+                                    // Use a stable identifier or check if the title matches either language
+                                    if (mod.id === 'retail-inventory' || mod.title === 'Inventory for Retail & POS' || mod.title === t('megaMenu.retail.inventory', "Inventory for Retail & POS")) {
+                                      navigate('/products/retail-inventory');
+                                      setMobileOpen(false);
+                                    }
+                                  }}
+                                >
+                                  <div className="module-icon"><Icon size={20} /></div>
+                                  <div className="module-text">
+                                    <h3>{mod.title}</h3>
+                                    <p>{mod.desc}</p>
+                                  </div>
+                                </div>
+                              );
+                            })}
+                          </div>
+                        )}
+                      </div>
+                    )}
+                  </div>
+                );
+              }
+
+              return (
+                <a
+                  key={item}
+                  href={`#${item.toLowerCase()}`}
+                  onClick={() => setMobileOpen(false)}
+                >
+                  {itemObj.label}
+                </a>
+              );
+            })}
+          </nav>
+
+          <div className="mobile-nav-selectors">
+            <div className="mobile-select-group">
+              <span className="mobile-select-label">Region</span>
+              <div className="mobile-chip-row">
+                {REGIONS.map((r) => (
+                  <button
+                    key={r.key}
+                    className={`mobile-chip ${region === r.key ? 'active' : ''}`}
+                    onClick={() => {
+                      setRegion(r.key);
+                      if (r.key === 'dubai' || r.key === 'saudi') {
+                        setLang('ar');
+                        i18n.changeLanguage('ar');
+                      } else {
+                        setLang('en');
+                        i18n.changeLanguage('en');
+                      }
+                    }}
+                  >
+                    <MapPin size={15} />
+                    {r.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <div className="mobile-select-group">
+              <span className="mobile-select-label">Language</span>
+              <div className="mobile-chip-row">
+                {LANGUAGES.map((l) => (
+                  <button
+                    key={l.key}
+                    className={`mobile-chip ${lang === l.key ? 'active' : ''}`}
+                    onClick={() => {
+                      setLang(l.key);
+                      i18n.changeLanguage(l.key);
+                    }}
+                  >
+                    {l.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <a
+            href="#started"
+            className="btn-get-started mobile-get-started"
+            onClick={() => setMobileOpen(false)}
+          >
+            {t('header.getStarted', 'Get Started')}
+            <span className="arrow-circle">
+              <ArrowRight size={14} color="#fff" />
+            </span>
+          </a>
+        </div>
+      )}
 
       {/* PRODUCTS MEGA MENU */}
       {openNav === 'Products' && (
@@ -213,14 +423,13 @@ const Header = () => {
             {/* Top Navigation Tabs */}
             <div className="mega-top-nav">
               <div className="mega-tabs">
-                {Object.keys(MEGA_MENU_DATA).map((tab) => (
+                {productKeys.map((tab, pIdx) => (
                   <button 
                     key={tab} 
-                    className={`mega-tab ${activeProductTab === tab ? 'active' : ''}`}
+                    className={`mega-tab ${activeProductIndex === pIdx ? 'active' : ''}`}
                     onClick={() => {
-                      setActiveProductTab(tab);
-                      const firstIndustry = Object.keys(MEGA_MENU_DATA[tab])[0];
-                      setActiveIndustryTab(firstIndustry);
+                      setActiveProductIndex(pIdx);
+                      setActiveIndustryIndex(0);
                     }}
                   >
                     {tab}
@@ -228,7 +437,7 @@ const Header = () => {
                 ))}
               </div>
               <div className="mega-top-actions">
-                <a href="#all-products" className="explore-all">EXPLORE ALL PRODUCTS &rarr;</a>
+                <a href="#all-products" className="explore-all">{t('header.exploreProducts', 'EXPLORE ALL PRODUCTS').toUpperCase()} &rarr;</a>
                 <button className="mega-close" onClick={() => setOpenNav(null)}><X size={20} /></button>
               </div>
             </div>
@@ -236,36 +445,36 @@ const Header = () => {
             <div className="mega-body">
               {/* Left Sidebar (Industries) */}
               <div className="mega-sidebar">
-                {Object.keys(MEGA_MENU_DATA[activeProductTab] || {}).map((ind) => (
+                {industryKeys.map((ind, iIdx) => (
                   <button 
                     key={ind}
-                    className={`sidebar-tab ${activeIndustryTab === ind ? 'active' : ''}`}
-                    onClick={() => setActiveIndustryTab(ind)}
+                    className={`sidebar-tab ${activeIndustryIndex === iIdx ? 'active' : ''}`}
+                    onClick={() => setActiveIndustryIndex(iIdx)}
                   >
                     {ind}
-                    {activeIndustryTab === ind && <span className="arrow">&rarr;</span>}
+                    {activeIndustryIndex === iIdx && <span className="arrow">&rarr;</span>}
                   </button>
                 ))}
               </div>
 
               {/* Main Content Grid */}
               <div className="mega-content">
-                {MEGA_MENU_DATA[activeProductTab] && MEGA_MENU_DATA[activeProductTab][activeIndustryTab] && (
+                {activeIndustryData.title && (
                   <>
                     <div className="mega-content-header">
-                      <h2>{MEGA_MENU_DATA[activeProductTab][activeIndustryTab].title}</h2>
-                      <p>{MEGA_MENU_DATA[activeProductTab][activeIndustryTab].subtitle}</p>
+                      <h2>{activeIndustryData.title}</h2>
+                      <p>{activeIndustryData.subtitle}</p>
                     </div>
 
                     <div className="mega-modules-grid">
-                      {(MEGA_MENU_DATA[activeProductTab][activeIndustryTab].modules || []).map((mod, i) => {
+                      {(activeIndustryData.modules || []).map((mod, i) => {
                         const Icon = mod.icon;
                         return (
                           <div 
                             key={i} 
                             className="module-card"
                             onClick={() => {
-                              if (mod.title === 'Inventory for Retail & POS') {
+                              if (mod.id === 'retail-inventory' || mod.title === 'Inventory for Retail & POS' || mod.title === t('megaMenu.retail.inventory', "Inventory for Retail & POS")) {
                                 navigate('/products/retail-inventory');
                                 setOpenNav(null);
                               }

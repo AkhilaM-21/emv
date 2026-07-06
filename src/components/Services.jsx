@@ -1,52 +1,58 @@
 import React from 'react';
-import { Cloud, Code, Database, Server } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
+import { Cloud, Code, Database, Server, Smartphone, Zap } from 'lucide-react';
 import './Services.css';
 
-const services = [
+const SERVICES = [
   {
-    icon: <Database size={40} />,
+    icon: Database,
     title: 'Microsoft Dynamics',
-    description: 'Empower your business with comprehensive ERP and CRM solutions tailored to streamline operations.'
+    desc: 'Empower your business with comprehensive ERP and CRM solutions tailored to streamline operations.'
   },
   {
-    icon: <Cloud size={40} />,
+    icon: Cloud,
     title: 'Cloud Computing',
-    description: 'Secure, scalable, and efficient cloud infrastructure solutions to modernize your IT environment.'
+    desc: 'Secure, scalable, and efficient cloud infrastructure solutions to modernize your IT environment.'
   },
   {
-    icon: <Code size={40} />,
+    icon: Code,
     title: 'App Development',
-    description: 'Custom application development leveraging the latest technologies for maximum performance.'
+    desc: 'Custom application development leveraging the latest technologies for maximum performance.'
   },
   {
-    icon: <Server size={40} />,
+    icon: Server,
     title: 'IT Infrastructure',
-    description: 'Robust and resilient IT infrastructure setup and management for uninterrupted business flow.'
+    desc: 'Robust and resilient IT infrastructure setup and management for uninterrupted business flow.'
   }
 ];
 
 const Services = () => {
+  const { t } = useTranslation();
+
   return (
     <section id="services" className="services-section section-padding">
       <div className="container">
-        <div className="section-title">
-          <span className="text-gradient font-bold" style={{textTransform: 'uppercase', letterSpacing: '2px'}}>Our Services</span>
-          <h2>Intelligent Solutions for<br />Modern Enterprises</h2>
+        <div className="section-title text-center">
+          <span className="global-section-badge"><span className="global-badge-dot"></span> {t('services.badge', 'Our Services')}</span>
+          <h2>{t('services.title', 'Intelligent Solutions for Modern Enterprises')}</h2>
         </div>
-        
+
         <div className="services-grid">
-          {services.map((service, index) => (
-            <div className="service-card glass-panel" key={index}>
-              <div className="service-icon">
-                {service.icon}
+          {SERVICES.map((service, index) => {
+            const Icon = service.icon;
+            return (
+              <div key={index} className="service-card glass-panel group">
+                <div className="service-icon-wrapper">
+                  <Icon className="service-icon group-hover:scale-110 transition-transform duration-300" />
+                </div>
+                <h3>{t(`servicesData.s${index + 1}_title`, service.title)}</h3>
+                <p>{t(`servicesData.s${index + 1}_desc`, service.desc)}</p>
+                <a href="#services" className="service-link">
+                  {t('services.readMore', 'Read More')} &rarr;
+                </a>
               </div>
-              <h3 className="service-title">{service.title}</h3>
-              <p className="service-desc">{service.description}</p>
-              <a href="#contact" className="service-link">
-                Read More <span className="arrow">→</span>
-              </a>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

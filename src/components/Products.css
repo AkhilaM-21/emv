@@ -54,8 +54,11 @@
   margin-bottom: 0;
 }
 
+/* Gives the LAST sticky card real in-flow room below it so it can stay pinned
+   and fully reveal (dashboard included) before the section ends. */
 .timeline-end-spacer {
-  display: none;
+  display: block;
+  height: 55vh;
 }
 
 .product-header-top {
@@ -135,26 +138,28 @@
   pointer-events: none;
 }
 
-/* Content Layout — STACKED: text on top, dashboard moved DOWN below it */
+/* Content Layout — TWO COLUMN: info on the LEFT, dashboard on the RIGHT */
 .timeline-content {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   width: 100%;
   align-items: center;
-  gap: 2rem;
+  gap: 3rem;
   z-index: 10;
   padding-top: 0;
 }
 
 .product-info {
   position: relative;
-  width: 100%;
-  max-width: 720px;
-  text-align: center;
+  flex: 1 1 45%;
+  min-width: 0;
+  max-width: 46%;
+  text-align: left;
 }
 
 .product-dashboard {
-  width: 100%;
+  flex: 1 1 55%;
+  min-width: 0;
   padding: 0;
   display: flex;
   justify-content: center;
@@ -185,7 +190,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 @keyframes border-spin {
@@ -500,10 +505,10 @@
   .product-icon-3d { width: 54px; height: 54px; border-radius: 15px; }
   .product-header-top .product-title-top { font-size: 2rem !important; }
 
-  .timeline-content { gap: 2rem; }
-  .product-info { padding-right: 1rem; }
+  .timeline-content { gap: 1.75rem; }
+  .product-info { flex-basis: 42%; max-width: 42%; }
   .product-desc { font-size: 1rem; line-height: 1.6; }
-  .detailed-dashboard { height: 60vh; max-height: 440px; }
+  .detailed-dashboard { height: auto; min-height: 380px; max-height: 460px; }
 
   .industry-tag { padding: 9px 16px; font-size: 0.9rem; }
 }
@@ -533,7 +538,13 @@
     align-items: stretch;
     gap: 1.5rem;
   }
-  .product-info { padding-right: 0; }
+  .product-info {
+    padding-right: 0;
+    flex-basis: auto;
+    max-width: 100%;
+    text-align: center;
+  }
+  .industry-tags { justify-content: center; }
   .product-desc { font-size: 0.95rem; line-height: 1.55; }
 
   .product-dashboard { width: 100%; }

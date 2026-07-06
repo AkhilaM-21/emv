@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { ShoppingCart, BarChart2, Truck, RefreshCcw, ShieldCheck, Box, Package, Check, ArrowRight, Diamond, Gem, Hexagon } from 'lucide-react';
 import Clients from '../components/Clients';
 import './RetailInventory.css';
@@ -39,6 +40,7 @@ const ACCORDION_DATA = [
 ];
 
 const RetailInventory = () => {
+  const { t } = useTranslation();
   useReveal();
   const [activeSection, setActiveSection] = useState(0);
   const [progress, setProgress] = useState(0);
@@ -140,11 +142,11 @@ const RetailInventory = () => {
         <div className="ri-subnav-inner">
           <a href="#top" className="ri-subnav-brand">
             <span className="ri-subnav-icon"><Package size={20} /></span>
-            <span className="ri-subnav-name">Retail Inventory</span>
+            <span className="ri-subnav-name">{t('retail.title', 'Retail Inventory')}</span>
           </a>
           <nav className="ri-subnav-links">
-            <a href="#ri-features">Features</a>
-            <a href="#ri-pricing">Pricing</a>
+            <a href="#ri-features">{t('retail.nav.features', 'Features')}</a>
+            <a href="#ri-pricing">{t('retail.nav.pricing', 'Pricing')}</a>
           </nav>
         </div>
       </div>
@@ -152,29 +154,28 @@ const RetailInventory = () => {
       {/* HERO SECTION (Dropship.io Style) */}
       <section className="ri-hero dropship-style">
         <div className="ri-hero-content reveal">
-          <div className="ri-hero-badge">Inventory for Retail & POS 2.0 is live!</div>
-          <h1><span>Rooting Out</span> Stockouts <br />in Your Retail Operations</h1>
+          <div className="ri-hero-badge">{t('retail.hero.badge', 'Inventory for Retail & POS 2.0 is live!')}</div>
+          <h1><span>{t('retail.hero.titleHighlight', 'Rooting Out')}</span> {t('retail.hero.titleMain', 'Stockouts in Your Retail Operations')}</h1>
           <p>
-            Secure your supply chain and manage your inventory from a single platform. 
-            Real-time stock tracking tailored specifically for fast-paced Retail environments.
+            {t('retail.hero.desc', 'Secure your supply chain and manage your inventory from a single platform. Real-time stock tracking tailored specifically for fast-paced Retail environments.')}
           </p>
           <div className="ri-hero-actions">
             <a href="#demo" className="ri-btn-secondary">
-              <span className="icon">🚀</span> Book a Demo
+              <span className="icon">🚀</span> {t('retail.hero.cta', 'Book a Demo')}
             </a>
           </div>
         </div>
 
         {/* Continuous Scrolling Cards & Central Line */}
         <div className="ri-hero-graphics">
-          
+
           {/* ROW 1 */}
           <div className="card-row row-1">
             <div className="card-track">
               {[...Array(2)].map((_, setIdx) => (
                 <React.Fragment key={`r1-${setIdx}`}>
                   <div className="product-card">
-                    <div className="pc-avatar" style={{background:'#fde68a'}}></div>
+                    <div className="pc-avatar" style={{ background: '#fde68a' }}></div>
                     <div className="pc-info">
                       <span className="pc-name">Kids ATM Bank</span>
                       <span className="pc-price">Price $34.99</span>
@@ -186,7 +187,7 @@ const RetailInventory = () => {
                     <span className="pc-badge up">↗ 16%</span>
                   </div>
                   <div className="product-card">
-                    <div className="pc-avatar" style={{background:'#bfdbfe'}}></div>
+                    <div className="pc-avatar" style={{ background: '#bfdbfe' }}></div>
                     <div className="pc-info">
                       <span className="pc-name">Mini Drone</span>
                       <span className="pc-price">Price $39.99</span>
@@ -198,7 +199,7 @@ const RetailInventory = () => {
                     <span className="pc-badge up">↗ 8.5%</span>
                   </div>
                   <div className="product-card">
-                    <div className="pc-avatar" style={{background:'#fecaca'}}></div>
+                    <div className="pc-avatar" style={{ background: '#fecaca' }}></div>
                     <div className="pc-info">
                       <span className="pc-name">Wine Dispenser</span>
                       <span className="pc-price">Price $19.99</span>
@@ -210,7 +211,7 @@ const RetailInventory = () => {
                     <span className="pc-badge up">↗ 9.8%</span>
                   </div>
                   <div className="product-card">
-                    <div className="pc-avatar" style={{background:'#d9f99d'}}></div>
+                    <div className="pc-avatar" style={{ background: '#d9f99d' }}></div>
                     <div className="pc-info">
                       <span className="pc-name">Portable Warmer</span>
                       <span className="pc-price">Price $26.99</span>
@@ -232,7 +233,7 @@ const RetailInventory = () => {
               {[...Array(2)].map((_, setIdx) => (
                 <React.Fragment key={`r2-${setIdx}`}>
                   <div className="product-card">
-                    <div className="pc-avatar" style={{background:'#c4b5fd'}}></div>
+                    <div className="pc-avatar" style={{ background: '#c4b5fd' }}></div>
                     <div className="pc-info">
                       <span className="pc-name">Galaxy Projector</span>
                       <span className="pc-price">Price $32.99</span>
@@ -244,7 +245,7 @@ const RetailInventory = () => {
                     <span className="pc-badge up">↗ 18.4%</span>
                   </div>
                   <div className="product-card">
-                    <div className="pc-avatar" style={{background:'#fbcfe8'}}></div>
+                    <div className="pc-avatar" style={{ background: '#fbcfe8' }}></div>
                     <div className="pc-info">
                       <span className="pc-name">Hair Straightener</span>
                       <span className="pc-price">Price $29.99</span>
@@ -256,7 +257,7 @@ const RetailInventory = () => {
                     <span className="pc-badge up">↗ 2.1%</span>
                   </div>
                   <div className="product-card">
-                    <div className="pc-avatar" style={{background:'#e2e8f0'}}></div>
+                    <div className="pc-avatar" style={{ background: '#e2e8f0' }}></div>
                     <div className="pc-info">
                       <span className="pc-name">Moon Lamp</span>
                       <span className="pc-price">Price $24.99</span>
@@ -268,7 +269,7 @@ const RetailInventory = () => {
                     <span className="pc-badge up">↗ 11.5%</span>
                   </div>
                   <div className="product-card">
-                    <div className="pc-avatar" style={{background:'#fed7aa'}}></div>
+                    <div className="pc-avatar" style={{ background: '#fed7aa' }}></div>
                     <div className="pc-info">
                       <span className="pc-name">LED Strip</span>
                       <span className="pc-price">Price $14.99</span>
@@ -290,7 +291,7 @@ const RetailInventory = () => {
               {[...Array(2)].map((_, setIdx) => (
                 <React.Fragment key={`r3-${setIdx}`}>
                   <div className="product-card">
-                    <div className="pc-avatar" style={{background:'#fca5a5'}}></div>
+                    <div className="pc-avatar" style={{ background: '#fca5a5' }}></div>
                     <div className="pc-info">
                       <span className="pc-name">Mosquito Slapper</span>
                       <span className="pc-price">Price $29.99</span>
@@ -302,7 +303,7 @@ const RetailInventory = () => {
                     <span className="pc-badge up">↗ 18.7%</span>
                   </div>
                   <div className="product-card">
-                    <div className="pc-avatar" style={{background:'#a5b4fc'}}></div>
+                    <div className="pc-avatar" style={{ background: '#a5b4fc' }}></div>
                     <div className="pc-info">
                       <span className="pc-name">Popcorn Maker</span>
                       <span className="pc-price">Price $34.99</span>
@@ -314,7 +315,7 @@ const RetailInventory = () => {
                     <span className="pc-badge up">↗ 12%</span>
                   </div>
                   <div className="product-card">
-                    <div className="pc-avatar" style={{background:'#bbf7d0'}}></div>
+                    <div className="pc-avatar" style={{ background: '#bbf7d0' }}></div>
                     <div className="pc-info">
                       <span className="pc-name">Mini Sealing Machine</span>
                       <span className="pc-price">Price $12.99</span>
@@ -326,7 +327,7 @@ const RetailInventory = () => {
                     <span className="pc-badge up">↗ 6.3%</span>
                   </div>
                   <div className="product-card">
-                    <div className="pc-avatar" style={{background:'#fde68a'}}></div>
+                    <div className="pc-avatar" style={{ background: '#fde68a' }}></div>
                     <div className="pc-info">
                       <span className="pc-name">Car Humidifier</span>
                       <span className="pc-price">Price $22.99</span>
@@ -344,7 +345,7 @@ const RetailInventory = () => {
 
           {/* Skeleton Overlay (clips left half to show wireframes) */}
           <div className="skeleton-overlay">
-            {[1,2,3].map(row => (
+            {[1, 2, 3].map(row => (
               <div className={`skel-row skel-row-${row}`} key={row}>
                 <div className="skel-track">
                   {[...Array(8)].map((_, i) => (
@@ -381,13 +382,13 @@ const RetailInventory = () => {
       {/* ACCORDION + IMAGE SECTION */}
       <section className="ri-accordion-section reveal">
         <div className="ri-accordion-container">
-          
+
           {/* LEFT: Image */}
           <div className="ri-accordion-image">
             {ACCORDION_DATA.map((item, idx) => (
-              <img 
+              <img
                 key={idx}
-                src={item.image} 
+                src={item.image}
                 alt={item.title}
                 className={`acc-img ${activeSection === idx ? 'active' : ''}`}
               />
@@ -397,21 +398,21 @@ const RetailInventory = () => {
           {/* RIGHT: Accordion */}
           <div className="ri-accordion-list">
             {ACCORDION_DATA.map((item, idx) => (
-              <div 
-                key={idx} 
+              <div
+                key={idx}
                 className={`ri-accordion-item ${activeSection === idx ? 'active' : ''}`}
                 onClick={() => handleAccordionClick(idx)}
               >
                 <div className="acc-header">
-                  <h3>{item.title}</h3>
+                  <h3>{t(`retail.accordion.a${idx}_title`, item.title)}</h3>
                   <span className="acc-toggle">{activeSection === idx ? '−' : '+'}</span>
                 </div>
                 <div className="acc-body">
-                  <p>{item.desc}</p>
+                  <p>{t(`retail.accordion.a${idx}_desc`, item.desc)}</p>
                   {/* Progress bar */}
                   <div className="acc-progress-bar">
-                    <div 
-                      className="acc-progress-fill" 
+                    <div
+                      className="acc-progress-fill"
                       style={{ width: activeSection === idx ? `${progress}%` : '0%' }}
                     ></div>
                   </div>
@@ -426,7 +427,7 @@ const RetailInventory = () => {
       {/* STATS SECTION in Dark Background Marquee Style */}
       <section className="neurox-clients-section">
         <div className="nc-dark-bg" style={{ paddingBottom: '8rem', paddingTop: '10rem' }}>
-          
+
           {/* Top Cutout */}
           <div className="nc-top-cutout">
             <div className="nc-top-cutout-inner">
@@ -445,7 +446,7 @@ const RetailInventory = () => {
                   <div className="nc-logo-content stat-card-content">
                     <span className="stat-brand">{stat.brand}</span>
                     <span className="stat-number">{stat.number}</span>
-                    <span className="stat-desc">{stat.desc}</span>
+                    <span className="stat-desc">{t(`retail.stat.desc_${idx}`, stat.desc)}</span>
                   </div>
                 </div>
               ))}
@@ -472,8 +473,8 @@ const RetailInventory = () => {
                   <div className="ri-feature-icon">
                     {feature.icon}
                   </div>
-                  <h3>{feature.title}</h3>
-                  <p>{feature.desc}</p>
+                  <h3>{t(`retail.feature.f${idx}_title`, feature.title)}</h3>
+                  <p>{t(`retail.feature.f${idx}_desc`, feature.desc)}</p>
                 </div>
               </div>
             ))}
@@ -485,9 +486,9 @@ const RetailInventory = () => {
       <section className="ri-pricing" id="ri-pricing">
         <div className="ri-pricing-container reveal">
           <div className="ri-pricing-header" style={{ textAlign: 'center' }}>
-            <span className="global-section-badge"><span className="global-badge-dot"></span> Pricing</span>
-            <h2 className="global-section-title">Simple pricing for every retail team</h2>
-            <p>Start free, scale as you grow. No hidden fees — cancel anytime.</p>
+            <span className="global-section-badge"><span className="global-badge-dot"></span> {t('retail.pricing.badge', 'Pricing')}</span>
+            <h2 className="global-section-title">{t('retail.pricing.title', 'Simple pricing for every retail team')}</h2>
+            <p>{t('retail.pricing.subtitle', 'Start free, scale as you grow. No hidden fees — cancel anytime.')}</p>
           </div>
 
           <div className="ri-pricing-grid">
@@ -524,20 +525,20 @@ const RetailInventory = () => {
               },
             ].map((plan, idx) => (
               <div className={`ri-price-card ${plan.featured ? 'featured' : ''}`} key={idx}>
-                {plan.featured && <span className="ri-price-badge">Most Popular</span>}
+                {plan.featured && <span className="ri-price-badge">{t('retail.pricing.popular', 'Most Popular')}</span>}
                 <span className="ri-price-icon"><plan.Icon size={22} /></span>
-                <h3 className="ri-price-name">{plan.name}</h3>
+                <h3 className="ri-price-name">{t(`retail.pricing.p${idx}_name`, plan.name)}</h3>
                 <div className="ri-price-amount">
-                  <span className="ri-price-value">{plan.price}</span>
-                  <span className="ri-price-period">{plan.period}</span>
+                  <span className="ri-price-value">{t(`retail.pricing.p${idx}_price`, plan.price)}</span>
+                  <span className="ri-price-period">{t(`retail.pricing.p${idx}_period`, plan.period)}</span>
                 </div>
-                <p className="ri-price-desc">{plan.desc}</p>
+                <p className="ri-price-desc">{t(`retail.pricing.p${idx}_desc`, plan.desc)}</p>
                 <ul className="ri-price-features">
                   {plan.features.map((f, i) => (
-                    <li key={i}><Check size={16} /> {f}</li>
+                    <li key={i}><Check size={16} /> {t(`retail.pricing.p${idx}_f${i}`, f)}</li>
                   ))}
                 </ul>
-                <a href="#demo" className="ri-price-cta">{plan.cta}</a>
+                <a href="#demo" className="ri-price-cta">{t(`retail.pricing.p${idx}_cta`, plan.cta)}</a>
               </div>
             ))}
           </div>

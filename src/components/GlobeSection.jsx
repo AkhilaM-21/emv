@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import { useTranslation } from 'react-i18next';
 import { geoOrthographic, geoPath } from 'd3-geo';
 import { feature, mesh } from 'topojson-client';
 import './GlobeSection.css';
@@ -297,18 +298,18 @@ const Globe = () => {
 };
 
 const GlobeSection = () => {
+  const { t } = useTranslation();
   return (
     <section className="globe-section" id="global">
       <div className="globe-container">
         <div className="globe-header">
           <span className="globe-eyebrow">
             <span className="eyebrow-dot" />
-            GLOBAL PRESENCE
+            {t('globe.badge', 'GLOBAL PRESENCE')}
           </span>
-          <h2 className="globe-title">One platform, offices across the globe</h2>
+          <h2 className="globe-title">{t('globe.title', 'One platform, offices across the globe')}</h2>
           <p className="globe-subtitle">
-            From India to Saudi Arabia and Dubai, Emvive powers enterprises across regions —
-            drag the globe to explore where we operate.
+            {t('globe.desc', 'From India to Saudi Arabia and Dubai, Emvive powers enterprises across regions — drag the globe to explore where we operate.')}
           </p>
         </div>
       </div>

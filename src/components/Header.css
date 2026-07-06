@@ -311,23 +311,211 @@
   transform: scale(1.05);
 }
 
-@media (max-width: 1200px) {
-  .header-nav {
-    gap: 1.2rem;
-  }
-  .header-logo {
-    padding-left: 2rem;
-  }
-  .header-right-bg {
-    padding-right: 2rem;
-  }
+/* Tighten the full desktop nav so it fits on smaller laptops (down to ~1200px)
+   BEFORE the hamburger takes over — prevents the nav from sliding under the logo. */
+@media (max-width: 1450px) {
+  .header-logo { padding-left: 2.5rem; width: auto; }
+  .header-right-bg { padding: 0 2.5rem; gap: 1.25rem; }
+  .header-nav { gap: 1rem; }
+  .header-nav a { font-size: 0.95rem; }
+  .nav-item { gap: 0.3rem; }
+  .header-actions { gap: 1.1rem; }
+  .selector-btn { font-size: 0.9rem; }
+  .btn-get-started { font-size: 0.9rem; padding-left: 1.1rem; }
 }
 
-@media (max-width: 992px) {
+/* Hamburger button — hidden on desktop, shown on tablet/mobile */
+.mobile-menu-toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  border: none;
+  background: transparent;
+  color: #111111;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.mobile-menu-toggle:hover {
+  background: rgba(0, 0, 0, 0.06);
+  color: #2b70fa;
+}
+
+/* Mobile nav panel — hidden until opened */
+.mobile-nav {
+  display: none;
+  flex-direction: column;
+  gap: 1rem;
+  background: #ffffff;
+  padding: 1rem 1.5rem 1.75rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+  border-bottom-left-radius: 28px;
+  border-bottom-right-radius: 28px;
+  max-height: calc(100vh - 130px);
+  overflow-y: auto;
+  animation: dropdown-in 0.18s ease;
+}
+
+.mobile-nav-links {
+  display: flex;
+  flex-direction: column;
+}
+.mobile-nav-links a {
+  padding: 0.9rem 0.25rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #111111;
+  text-decoration: none;
+  border-bottom: 1px solid #f1f5f9;
+  transition: color 0.2s ease;
+}
+.mobile-nav-links a:hover {
+  color: #2b70fa;
+}
+
+/* Products accordion (mobile mega menu) */
+.mobile-nav-group {
+  border-bottom: 1px solid #f1f5f9;
+}
+.mobile-nav-link-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0.9rem 0.25rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #111111;
+  text-align: left;
+  transition: color 0.2s ease;
+}
+.mobile-nav-link-btn.open { color: #2b70fa; }
+.mobile-nav-caret { color: #888; transition: transform 0.25s ease; }
+.mobile-nav-link-btn.open .mobile-nav-caret { transform: rotate(180deg); color: #2b70fa; }
+
+.mobile-mega {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  padding: 0.25rem 0 1.1rem;
+}
+.mobile-mega-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+.mobile-mega-tab {
+  padding: 0.4rem 0.85rem;
+  border-radius: 999px;
+  border: 1px solid #e2e8f0;
+  background: #f8fafc;
+  color: #475569;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.mobile-mega-tab.active { background: #2563eb; border-color: #2563eb; color: #ffffff; }
+.mobile-mega-industries {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+.mobile-mega-ind {
+  padding: 0.35rem 0.75rem;
+  border-radius: 8px;
+  border: none;
+  background: transparent;
+  color: #475569;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.mobile-mega-ind.active { background: #eff6ff; color: #2563eb; }
+.mobile-mega-modules {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.mobile-module-card {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  padding: 0.85rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  background: #ffffff;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.mobile-module-card:hover { border-color: #bfdbfe; box-shadow: 0 6px 16px rgba(59, 130, 246, 0.08); }
+.mobile-module-card .module-icon { width: 38px; height: 38px; flex-shrink: 0; }
+.mobile-module-card .module-text h3 { font-size: 0.9rem; font-weight: 700; color: #1e293b; margin: 0 0 0.2rem; }
+.mobile-module-card .module-text p { font-size: 0.78rem; color: #64748b; margin: 0; line-height: 1.4; }
+
+.mobile-nav-selectors {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding-top: 0.5rem;
+}
+.mobile-select-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.mobile-select-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #9aa3b2;
+}
+.mobile-chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.mobile-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  border: 1px solid #e2e8f0;
+  background: #f8fafc;
+  color: #1a2440;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.mobile-chip.active {
+  background: #eff6ff;
+  border-color: #bfdbfe;
+  color: #2b70fa;
+}
+/* Panel CTA is hidden by default — it only appears on small phones where the
+   top-bar Get Started is hidden, so there's never TWO Get Started buttons. */
+.mobile-get-started {
+  display: none;
+  justify-content: center;
+  margin-top: 0.25rem;
+}
+
+/* ---- TABLET / SMALL LAPTOP: switch to hamburger (<=1300px) ---- */
+@media (max-width: 1300px) {
   .header-right-bg {
     width: 100%;
     border-bottom-left-radius: 0;
     justify-content: flex-end;
+    gap: 1rem;
   }
   .header-logo {
     position: absolute;
@@ -335,8 +523,30 @@
     z-index: 10;
     width: auto;
   }
-  .header-nav, .selector-btn {
+  .header-nav, .selector-wrap {
     display: none;
+  }
+  .mobile-menu-toggle {
+    display: inline-flex;
+  }
+  .mobile-nav {
+    display: flex;
+  }
+}
+
+/* ---- PHONES (<=560px): move the single Get Started into the panel ---- */
+@media (max-width: 560px) {
+  .header-right-bg .btn-get-started {
+    display: none;          /* hide the top-bar CTA... */
+  }
+  .mobile-get-started {
+    display: flex;          /* ...and show it inside the panel instead */
+  }
+  .header-logo {
+    left: 1.25rem;
+  }
+  .header-right-bg {
+    padding: 0 1.25rem;
   }
 }
 
@@ -550,4 +760,34 @@
   color: #64748b;
   margin: 0;
   line-height: 1.5;
+}
+
+/* =========================================
+   RTL SUPPORT (ARABIC)
+========================================= */
+[dir="rtl"] .header-right-bg {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 40px;
+  padding: 0 3rem 0 4rem;
+}
+
+[dir="rtl"] .neurox-header.scrolled .header-right-bg {
+  border-bottom-right-radius: 0;
+}
+
+@media (max-width: 1300px) {
+  [dir="rtl"] .header-logo {
+    left: auto;
+    right: 2rem;
+  }
+  [dir="rtl"] .header-right-bg {
+    border-bottom-right-radius: 0;
+  }
+}
+
+@media (max-width: 560px) {
+  [dir="rtl"] .header-logo {
+    left: auto;
+    right: 1.25rem;
+  }
 }

@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Shield, Zap, BarChart3, Users, CheckCircle, Lock, Layout, TrendingUp } from 'lucide-react';
 import './WhyEmvive.css';
 
@@ -77,34 +78,36 @@ const DesignIllustration = () => (
   </div>
 );
 
-const benefits = [
-  {
-    id: 1,
-    title: 'Unified Platform, Zero Silos',
-    description: 'From Cloud ERP and CRM to HR & Payroll and E-Invoicing — Emvive connects every department on a single platform. No more juggling between disconnected tools or importing spreadsheets.',
-    illustration: <OutcomeIllustration />,
-  },
-  {
-    id: 2,
-    title: '99.9% Uptime Guarantee',
-    description: 'Our cloud infrastructure is built for mission-critical operations. Real-time monitoring, automatic failovers, and load balancing keep your business running 24/7 without disruption.',
-    illustration: <ReliabilityIllustration />,
-  },
-  {
-    id: 3,
-    title: 'Enterprise-Grade Security',
-    description: 'End-to-end encryption, role-based access control, SSO/SAML authentication, and comprehensive audit trails. Your financial data, HR records, and customer information stay protected.',
-    illustration: <SecureIllustration />,
-  },
-  {
-    id: 4,
-    title: 'Intuitive by Design',
-    description: 'Every module — from Workflow Automation to Advanced Reporting — is crafted with clean interfaces that your teams can adopt in days, not months. Less training, faster ROI.',
-    illustration: <DesignIllustration />,
-  },
-];
-
 const WhyEmvive = () => {
+  const { t } = useTranslation();
+
+  const benefits = [
+    {
+      id: 1,
+      title: t('why.benefits.1.title', 'Unified Platform, Zero Silos'),
+      description: t('why.benefits.1.desc', 'From Cloud ERP and CRM to HR & Payroll and E-Invoicing — Emvive connects every department on a single platform. No more juggling between disconnected tools or importing spreadsheets.'),
+      illustration: <OutcomeIllustration />,
+    },
+    {
+      id: 2,
+      title: t('why.benefits.2.title', '99.9% Uptime Guarantee'),
+      description: t('why.benefits.2.desc', 'Our cloud infrastructure is built for mission-critical operations. Real-time monitoring, automatic failovers, and load balancing keep your business running 24/7 without disruption.'),
+      illustration: <ReliabilityIllustration />,
+    },
+    {
+      id: 3,
+      title: t('why.benefits.3.title', 'Enterprise-Grade Security'),
+      description: t('why.benefits.3.desc', 'End-to-end encryption, role-based access control, SSO/SAML authentication, and comprehensive audit trails. Your financial data, HR records, and customer information stay protected.'),
+      illustration: <SecureIllustration />,
+    },
+    {
+      id: 4,
+      title: t('why.benefits.4.title', 'Intuitive by Design'),
+      description: t('why.benefits.4.desc', 'Every module — from Workflow Automation to Advanced Reporting — is crafted with clean interfaces that your teams can adopt in days, not months. Less training, faster ROI.'),
+      illustration: <DesignIllustration />,
+    },
+  ];
+
   return (
     <section className="why-emvive-section" id="why-emvive">
       <div className="why-emvive-container">
@@ -112,11 +115,11 @@ const WhyEmvive = () => {
         <div className="why-header">
           <span className="why-badge">
             <span className="badge-dot"></span>
-            Benefits
+            {t('why.badge', 'Benefits')}
           </span>
-          <h2 className="why-title">Why Choose Emvive</h2>
+          <h2 className="why-title">{t('why.title', 'Why Choose Emvive')}</h2>
           <p className="why-subtitle">
-            One platform to run your entire enterprise — ERP, CRM, HR, Invoicing, and more — with the performance, security, and simplicity your teams deserve.
+            {t('why.subtitle', 'One platform to run your entire enterprise — ERP, CRM, HR, Invoicing, and more — with the performance, security, and simplicity your teams deserve.')}
           </p>
         </div>
 

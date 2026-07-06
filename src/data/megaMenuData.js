@@ -9,46 +9,46 @@ import {
   Home, Camera, Search, Layout, Wifi, Link2
 } from 'lucide-react';
 
-export const MEGA_MENU_DATA = {
-  "Cloud ERP": {
+export const getMegaMenuData = (t) => ({
+  [t('megaMenu.products.cloudErp', 'Cloud ERP')]: {
     "Retail & POS": {
-      title: "Retail & POS",
-      subtitle: "Discover how we tailor this product specifically for the Retail & POS sector.",
+      title: t('megaMenu.retail.title', 'Retail & POS'),
+      subtitle: t('megaMenu.retail.subtitle', 'Discover how we tailor this product specifically for the Retail & POS sector.'),
       modules: [
-        { icon: ShoppingCart, title: "Inventory for Retail & POS", desc: "Real-time stock tracking tailored for Retail & POS operations." },
-        { icon: Calculator, title: "Financial Management", desc: "ZATCA-compliant accounting and ledger." },
-        { icon: Truck, title: "Supply Chain", desc: "Automate POs and supplier management seamlessly." },
-        { icon: Activity, title: "Advanced POS", desc: "Unified commerce and quick multi-branch sales processing." },
-        { icon: FileText, title: "Invoicing & Billing", desc: "Generate e-invoices instantly." },
-        { icon: Users, title: "Vendor Portal", desc: "Self-service access for your vendors." }
+        { icon: ShoppingCart, title: t('megaMenu.retail.inventory', "Inventory for Retail & POS"), desc: t('megaMenu.retail.inventoryDesc', "Real-time stock tracking tailored for Retail & POS operations.") },
+        { icon: Calculator, title: t('megaMenu.retail.financial', "Financial Management"), desc: t('megaMenu.retail.financialDesc', "ZATCA-compliant accounting and ledger.") },
+        { icon: Truck, title: t('megaMenu.retail.supplyChain', "Supply Chain"), desc: t('megaMenu.retail.supplyChainDesc', "Automate POs and supplier management seamlessly.") },
+        { icon: Activity, title: t('megaMenu.retail.pos', "Advanced POS"), desc: t('megaMenu.retail.posDesc', "Unified commerce and quick multi-branch sales processing.") },
+        { icon: FileText, title: t('megaMenu.retail.invoicing', "Invoicing & Billing"), desc: t('megaMenu.retail.invoicingDesc', "Generate e-invoices instantly.") },
+        { icon: Users, title: t('megaMenu.retail.vendor', "Vendor Portal"), desc: t('megaMenu.retail.vendorDesc', "Self-service access for your vendors.") }
       ]
     },
     "Manufacturing": {
-      title: "Manufacturing",
-      subtitle: "Optimize production lines, track materials, and manage your manufacturing workforce.",
+      title: t('megaMenu.manufacturing.title', 'Manufacturing'),
+      subtitle: t('megaMenu.manufacturing.subtitle', 'Optimize production lines, track materials, and manage your manufacturing workforce.'),
       modules: [
-        { icon: Settings, title: "Production Planning", desc: "Streamline scheduling and machine utilization." },
-        { icon: Box, title: "Material Requirements", desc: "Automate raw material ordering." },
-        { icon: CheckCircle, title: "Quality Control", desc: "Enforce strict quality checks across lines." },
+        { icon: Settings, title: t('megaMenu.manufacturing.production', "Production Planning"), desc: t('megaMenu.manufacturing.productionDesc', "Optimize shop floor operations") },
+        { icon: Box, title: t('megaMenu.manufacturing.quality', "Quality Control"), desc: t('megaMenu.manufacturing.qualityDesc', "Automated inspection workflows") },
+        { icon: CheckCircle, title: t('megaMenu.manufacturing.maintenance', "Predictive Maintenance"), desc: t('megaMenu.manufacturing.maintenanceDesc', "IoT-driven asset management") },
         { icon: Package, title: "Warehouse Management", desc: "Advanced bin and batch tracking." },
         { icon: PenTool, title: "Maintenance", desc: "Predictive maintenance schedules." },
         { icon: BarChart2, title: "Cost Accounting", desc: "Real-time cost variance analysis." }
       ]
     },
     "Healthcare": {
-      title: "Healthcare",
-      subtitle: "Tailored for clinics and hospitals to manage patient data and billing.",
+      title: t('megaMenu.healthcare.title', 'Healthcare'),
+      subtitle: t('megaMenu.healthcare.subtitle', 'Tailored for clinics and hospitals to manage patient data and billing.'),
       modules: [
-        { icon: Heart, title: "Patient Records", desc: "Secure electronic health records (EHR) management." },
+        { icon: Heart, title: t('megaMenu.healthcare.patient', "Patient Records"), desc: t('megaMenu.healthcare.patientDesc', "HIPAA-compliant data management") },
         { icon: Shield, title: "Compliance", desc: "HIPAA and local data privacy compliance tools." },
         { icon: Stethoscope, title: "Clinic Operations", desc: "Manage appointments, doctors, and staff schedules." },
-        { icon: Clipboard, title: "Medical Billing", desc: "Automated insurance claims and patient invoicing." },
+        { icon: Clipboard, title: t('megaMenu.healthcare.billing', "Medical Billing"), desc: t('megaMenu.healthcare.billingDesc', "Automated insurance claims") },
         { icon: Box, title: "Pharmacy Inventory", desc: "Track medicines, expiry dates, and stock levels." },
         { icon: Users, title: "Patient Portal", desc: "Online portal for patients to view test results." }
       ]
     }
   },
-  "HR & Payroll": {
+  [t('megaMenu.products.hrPayroll', 'HR & Payroll')]: {
     "Core HR": {
       title: "Core HR & Payroll",
       subtitle: "Comprehensive HR management for modern organizations.",
@@ -74,7 +74,7 @@ export const MEGA_MENU_DATA = {
       ]
     },
     "Healthcare Staffing": {
-      title: "Healthcare Staffing",
+      title: t('megaMenu.healthcare.title', 'Healthcare') + " Staffing",
       subtitle: "Manage complex medical rosters and credential tracking.",
       modules: [
         { icon: Stethoscope, title: "Credential Tracking", desc: "Monitor license expiries and certifications." },
@@ -86,7 +86,7 @@ export const MEGA_MENU_DATA = {
       ]
     }
   },
-  "CRM & Sales": {
+  [t('megaMenu.products.crmSales', 'CRM & Sales')]: {
     "B2B Enterprise": {
       title: "B2B Sales CRM",
       subtitle: "Drive revenue with advanced pipeline and account management.",
@@ -100,7 +100,7 @@ export const MEGA_MENU_DATA = {
       ]
     },
     "Retail & E-commerce": {
-      title: "Retail CRM",
+      title: t('megaMenu.retail.title', 'Retail & POS') + " CRM",
       subtitle: "Omnichannel customer engagement and loyalty.",
       modules: [
         { icon: Heart, title: "Loyalty Programs", desc: "Points, tiers, and rewards management." },
@@ -124,7 +124,7 @@ export const MEGA_MENU_DATA = {
       ]
     }
   },
-  "Advanced Reporting": {
+  [t('megaMenu.products.reporting', 'Advanced Reporting')]: {
     "Business Intelligence": {
       title: "Business Intelligence",
       subtitle: "Turn your raw data into actionable insights.",
@@ -162,7 +162,7 @@ export const MEGA_MENU_DATA = {
       ]
     }
   },
-  "Workflow Automation": {
+  [t('megaMenu.products.workflow', 'Workflow Automation')]: {
     "Process Management": {
       title: "Process Management",
       subtitle: "Automate repetitive tasks and approval chains.",
@@ -200,7 +200,7 @@ export const MEGA_MENU_DATA = {
       ]
     }
   },
-  "No-Code App Builder": {
+  [t('megaMenu.products.noCode', 'No-Code App Builder')]: {
     "Internal Portals": {
       title: "Internal Portals",
       subtitle: "Build secure dashboards for your team without coding.",
@@ -218,7 +218,7 @@ export const MEGA_MENU_DATA = {
       subtitle: "Create white-labeled portals for your clients.",
       modules: [
         { icon: Smartphone, title: "Mobile Optimized", desc: "Responsive designs that look great on phones." },
-        { icon: Globe, title: "Custom Domains", desc: "Host portals on your own company URL." },
+        { icon: Globe, title: "Custom Domains", desc: "Host portals on your company URL." },
         { icon: CreditCard, title: "Payment Gateways", desc: "Accept invoices directly through the portal." },
         { icon: MessageSquare, title: "Support Chat", desc: "Embed live chat widgets for customers." },
         { icon: Star, title: "White Labeling", desc: "Full control over colors, logos, and fonts." },
@@ -238,4 +238,4 @@ export const MEGA_MENU_DATA = {
       ]
     }
   }
-};
+});

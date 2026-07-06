@@ -1,8 +1,10 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Globe } from 'lucide-react';
 import './Footer.css';
 
 const Footer = () => {
+  const { t } = useTranslation();
   return (
     <footer className="footer-section">
       <div className="footer-container">
@@ -24,59 +26,59 @@ const Footer = () => {
               <form className="newsletter-form" onSubmit={(e) => e.preventDefault()}>
                 <div className="input-group">
                   <input type="email" id="email" required placeholder=" " />
-                  <label htmlFor="email">Email Address*</label>
+                  <label htmlFor="email">{t('footer.emailPlaceholder', 'Email Address*')}</label>
                 </div>
                 
                 <div className="checkbox-group">
                   <input type="checkbox" id="privacy-consent" required />
                   <label htmlFor="privacy-consent">
-                    I agree to Emvive processing my personal data in accordance with Emvive's <a href="#">Privacy Policy</a>.
+                    {t('footer.privacyConsent1', 'I agree to Emvive processing my personal data in accordance with Emvive\'s')} <a href="#">{t('footer.privacyConsent2', 'Privacy Policy')}</a>.
                   </label>
                 </div>
                 
                 <button type="submit" className="subscribe-btn">
-                  SUBSCRIBE
+                  {t('footer.subscribe', 'SUBSCRIBE')}
                 </button>
               </form>
             </div>
             
             {/* Column 2: Products (Large text) */}
             <div className="footer-col col-large">
-              <h4 className="footer-heading">PRODUCTS</h4>
+              <h4 className="footer-heading">{t('footer.productsTitle', 'PRODUCTS')}</h4>
               <ul className="footer-links large-links">
-                <li><a href="#products">Cloud ERP</a></li>
-                <li><a href="#products">HR & Payroll</a></li>
-                <li><a href="#products">CRM & Sales</a></li>
-                <li><a href="#products">Advanced Reporting</a></li>
-                <li><a href="#products">Workflow Automation</a></li>
-                <li><a href="#products">E-Invoicing</a></li>
+                <li><a href="#products">{t('megaMenu.products.cloudErp', 'Cloud ERP')}</a></li>
+                <li><a href="#products">{t('megaMenu.products.hrPayroll', 'HR & Payroll')}</a></li>
+                <li><a href="#products">{t('megaMenu.products.crmSales', 'CRM & Sales')}</a></li>
+                <li><a href="#products">{t('megaMenu.products.reporting', 'Advanced Reporting')}</a></li>
+                <li><a href="#products">{t('megaMenu.products.workflow', 'Workflow Automation')}</a></li>
+                <li><a href="#products">{t('megaMenu.products.noCode', 'E-Invoicing')}</a></li>
               </ul>
             </div>
 
             {/* Column 3: Industries */}
             <div className="footer-col">
-              <h4 className="footer-heading">INDUSTRIES</h4>
+              <h4 className="footer-heading">{t('footer.industriesTitle', 'INDUSTRIES')}</h4>
               <ul className="footer-links">
-                <li><a href="#">Manufacturing</a></li>
-                <li><a href="#">Retail & E-commerce</a></li>
-                <li><a href="#">Healthcare</a></li>
-                <li><a href="#">Financial Services</a></li>
-                <li><a href="#">Logistics & Supply Chain</a></li>
-                <li><a href="#">Technology & SaaS</a></li>
-                <li><a href="#">Government & Public Sector</a></li>
+                <li><a href="#">{t('footer.industry.Manufacturing', 'Manufacturing')}</a></li>
+                <li><a href="#">{t('footer.industry.Retail', 'Retail & E-commerce')}</a></li>
+                <li><a href="#">{t('footer.industry.Healthcare', 'Healthcare')}</a></li>
+                <li><a href="#">{t('footer.industry.Financial', 'Financial Services')}</a></li>
+                <li><a href="#">{t('footer.industry.Logistics', 'Logistics & Supply Chain')}</a></li>
+                <li><a href="#">{t('footer.industry.Technology', 'Technology & SaaS')}</a></li>
+                <li><a href="#">{t('footer.industry.Government', 'Government & Public Sector')}</a></li>
               </ul>
             </div>
 
             {/* Column 4: Legal & Social Pills */}
             <div className="footer-col col-pills">
-              <h4 className="footer-heading">LEGAL & SOCIAL</h4>
+              <h4 className="footer-heading">{t('footer.legalTitle', 'LEGAL & SOCIAL')}</h4>
               <div className="footer-legal-grid">
-                <a href="#" className="legal-pill">Terms of Service</a>
-                <a href="#" className="legal-pill">Privacy Policy</a>
-                <a href="#" className="legal-pill">Cookie Policy</a>
-                <a href="#" className="legal-pill">Brand Guidelines</a>
+                <a href="#" className="legal-pill">{t('footer.legal.terms', 'Terms of Service')}</a>
+                <a href="#" className="legal-pill">{t('footer.legal.privacy', 'Privacy Policy')}</a>
+                <a href="#" className="legal-pill">{t('footer.legal.cookie', 'Cookie Policy')}</a>
+                <a href="#" className="legal-pill">{t('footer.legal.brand', 'Brand Guidelines')}</a>
                 <div className="legal-pill footer-social">
-                  Follow us <a href="#" aria-label="Social"><Globe size={18} /></a>
+                  {t('footer.followUs', 'Follow us')} <a href="#" aria-label="Social"><Globe size={18} /></a>
                 </div>
               </div>
             </div>
@@ -86,7 +88,7 @@ const Footer = () => {
 
         {/* Huge Typography Section */}
         <div className="footer-huge-text">
-          <h1>Unify. Automate. Scale.</h1>
+          <h1>{t('footer.slogan', 'Unify. Automate. Scale.')}</h1>
         </div>
 
         {/* Bottom Bar */}

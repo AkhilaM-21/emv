@@ -1,0 +1,388 @@
+{
+  "header": {
+    "getStarted": "Get Started",
+    "regions": {
+      "india": "India",
+      "saudi": "Saudi Arabia",
+      "dubai": "Dubai"
+    },
+    "nav": {
+      "products": "Products",
+      "enterprises": "Enterprises",
+      "customers": "Customers",
+      "partners": "Partners",
+      "resources": "Resources"
+    },
+    "exploreProducts": "Explore all products"
+  },
+  "hero": {
+    "slides": [
+      {
+        "badge": "ENTERPRISE GRADE",
+        "title": "Scale operations without limits",
+        "desc": "Designed for high-growth companies. Handle millions of transactions with 99.9% guaranteed uptime."
+      },
+      {
+        "badge": "AI-POWERED",
+        "title": "Automate your daily workflows",
+        "desc": "Eliminate manual data entry. Let AI route approvals, flag anomalies, and optimize your supply chain."
+      },
+      {
+        "badge": "REAL-TIME INSIGHTS",
+        "title": "Make faster decisions with live data",
+        "desc": "Track revenue, orders, inventory and workforce in real time. Emvive turns your operational data into clear, actionable insights the moment you need them."
+      }
+    ],
+    "badge": "New: AI-Powered Insights",
+    "titleLine1": "Unify Your",
+    "titleLine2": "Enterprise",
+    "desc": "A single, intelligent platform to manage your finances, supply chain, and workforce. Built for scale, designed for simplicity.",
+    "primaryBtn": "Book a Demo",
+    "secondaryBtn": "View Features",
+    "rotator": [
+      "Finance",
+      "Supply Chain",
+      "Workforce",
+      "Operations"
+    ]
+  },
+  "clients": {
+    "trusted": "3600+ Trusted companies all over the world"
+  },
+  "about": {
+    "badge": "About Us",
+    "title": "Dedicated to Building\nScalable Solutions",
+    "desc": "We specialize in providing top-tier technological solutions tailored to your business needs. Our expertise in Microsoft Dynamics, Cloud Computing, and custom Application Development ensures that your enterprise stays ahead of the curve.",
+    "years": "Years of Experience",
+    "projects": "Projects Delivered",
+    "features": [
+      "Microsoft Dynamics Implementation",
+      "Cloud Computing & Migration",
+      "Custom Application Development",
+      "Enterprise IT Solutions"
+    ],
+    "learnMore": "Learn More"
+  },
+  "services": {
+    "badge": "Our Services",
+    "title": "Intelligent Solutions for\nModern Enterprises",
+    "readMore": "Read More"
+  },
+  "servicesData": {
+    "s1_title": "Microsoft Dynamics",
+    "s1_desc": "Empower your business with comprehensive ERP and CRM solutions tailored to streamline operations.",
+    "s2_title": "Cloud Computing",
+    "s2_desc": "Secure, scalable, and efficient cloud infrastructure solutions to modernize your IT environment.",
+    "s3_title": "App Development",
+    "s3_desc": "Custom application development leveraging the latest technologies for maximum performance.",
+    "s4_title": "IT Infrastructure",
+    "s4_desc": "Robust and resilient IT infrastructure setup and management for uninterrupted business flow."
+  },
+  "features": {
+    "badge": "Departments",
+    "title": "One Platform for Every Team"
+  },
+  "featuresData": {
+    "f1_title": "Finance & Accounting",
+    "f1_desc": "Automate invoicing, track cash flow in real-time, and streamline compliance. Connect every transaction directly to your core ledger.",
+    "f2_title": "Sales & CRM",
+    "f2_desc": "Manage pipelines, forecast revenue accurately, and close deals faster. Give your sales team full visibility into customer history.",
+    "f3_title": "Human Resources",
+    "f3_desc": "Simplify onboarding, automate complex payroll calculations, and empower your workforce with intuitive self-service portals.",
+    "f4_title": "Operations & Supply Chain",
+    "f4_desc": "Optimize inventory levels, manage vendor relationships, and track logistics from procurement all the way to final delivery.",
+    "f5_title": "Marketing",
+    "f5_desc": "Launch targeted campaigns, track ROI on marketing spend, and seamlessly hand off qualified leads to your sales teams.",
+    "f6_title": "IT & Security",
+    "f6_desc": "Maintain complete control over user access, monitor system health, and ensure enterprise-grade data security across all modules."
+  },
+  "products": {
+    "badge": "Our Products",
+    "title": "Intelligent Enterprise Solutions"
+  },
+  "productsData": {
+    "p1_title": "Cloud ERP",
+    "p1_desc": "A comprehensive, scalable Enterprise Resource Planning solution that integrates all your core business processes in real-time. Unify your financials, supply chain, operations, and commerce.",
+    "p2_title": "HR & Payroll",
+    "p2_desc": "Streamline your human resources management and payroll processing. Automate employee onboarding, attendance tracking, and ensure accurate, timely compensation.",
+    "p3_title": "CRM & Sales",
+    "p3_desc": "Build stronger customer relationships and drive sales growth. Track interactions, manage pipelines, and leverage actionable insights to close deals faster.",
+    "p4_title": "Advanced Reporting",
+    "p4_desc": "Transform your raw data into meaningful intelligence. Create custom dashboards, visualize trends, and make data-driven decisions with powerful analytics.",
+    "p5_title": "Workflow Automation",
+    "p5_desc": "Eliminate manual tasks and optimize business efficiency. Design custom workflows that automatically route approvals, trigger actions, and reduce human error.",
+    "p6_title": "E-Invoicing",
+    "p6_desc": "Secure, compliant, and seamless electronic invoicing. Digitize your billing process, track invoice statuses, and integrate directly with your financial systems.",
+    "targetIndustries": "Target Industries"
+  },
+  "why": {
+    "badge": "Benefits",
+    "title": "Why Choose Emvive",
+    "subtitle": "One platform to run your entire enterprise — ERP, CRM, HR, Invoicing, and more — with the performance, security, and simplicity your teams deserve.",
+    "benefits": {
+      "1": {
+        "title": "Unified Platform, Zero Silos",
+        "desc": "From Cloud ERP and CRM to HR & Payroll and E-Invoicing — Emvive connects every department on a single platform. No more juggling between disconnected tools or importing spreadsheets."
+      },
+      "2": {
+        "title": "99.9% Uptime Guarantee",
+        "desc": "Our cloud infrastructure is built for mission-critical operations. Real-time monitoring, automatic failovers, and load balancing keep your business running 24/7 without disruption."
+      },
+      "3": {
+        "title": "Enterprise-Grade Security",
+        "desc": "End-to-end encryption, role-based access control, SSO/SAML authentication, and comprehensive audit trails. Your financial data, HR records, and customer information stay protected."
+      },
+      "4": {
+        "title": "Intuitive by Design",
+        "desc": "Every module — from Workflow Automation to Advanced Reporting — is crafted with clean interfaces that your teams can adopt in days, not months. Less training, faster ROI."
+      }
+    }
+  },
+  "whyData": {
+    "b1_title": "Unified Platform, Zero Silos",
+    "b1_desc": "From Cloud ERP and CRM to HR & Payroll and E-Invoicing — Emvive connects every department on a single platform. No more juggling between disconnected tools or importing spreadsheets.",
+    "b2_title": "99.9% Uptime Guarantee",
+    "b2_desc": "Our cloud infrastructure is built for mission-critical operations. Real-time monitoring, automatic failovers, and load balancing keep your business running 24/7 without disruption.",
+    "b3_title": "Enterprise-Grade Security",
+    "b3_desc": "End-to-end encryption, role-based access control, SSO/SAML authentication, and comprehensive audit trails. Your financial data, HR records, and customer information stay protected.",
+    "b4_title": "Intuitive by Design",
+    "b4_desc": "Every module — from Workflow Automation to Advanced Reporting — is crafted with clean interfaces that your teams can adopt in days, not months. Less training, faster ROI."
+  },
+  "faq": {
+    "badge": "FAQs",
+    "title": "Got Questions? We Have Answers.",
+    "subtitle": "Everything you need to know about Emvive's platform, implementation, and pricing.",
+    "contactTitle": "Still have questions?",
+    "contactDesc": "Can't find the answer you're looking for? Please chat to our friendly team.",
+    "contactBtn": "Get in touch"
+  },
+  "faqData": {
+    "q1_q": "How long does it take to implement Emvive?",
+    "q1_a": "Usually 2-4 weeks depending on data migration complexity. Our dedicated onboarding team handles the heavy lifting to ensure a smooth transition from your legacy systems.",
+    "q2_q": "Does Emvive integrate with legacy on-premise systems?",
+    "q2_a": "Yes, via our secure API gateway and custom connectors. We routinely integrate with older ERPs and specialized local databases without disruption.",
+    "q3_q": "Is my enterprise data secure on the cloud?",
+    "q3_a": "Absolutely. We use AES-256 encryption at rest and in transit. We are fully SOC-2 Type II compliant with regular third-party penetration testing.",
+    "q4_q": "Can I customize the reporting dashboards?",
+    "q4_a": "Yes, every user can build custom views with drag-and-drop widgets. You can filter, group, and export data in real-time without needing IT support.",
+    "q5_q": "Do you offer 24/7 technical support?",
+    "q5_a": "Yes, our enterprise plans include 24/7 dedicated account support with a guaranteed 1-hour SLA for critical issues.",
+    "q6_q": "How does pricing scale as we add employees?",
+    "q6_a": "We offer tiered per-user pricing that decreases in cost-per-user as you scale. You only pay for active seats, and there are no hidden module fees.",
+    "q1": "How long does it take to implement Emvive?",
+    "a1": "Usually 2-4 weeks depending on data migration complexity. Our dedicated onboarding team handles the heavy lifting to ensure a smooth transition from your legacy systems.",
+    "q2": "Does Emvive integrate with legacy on-premise systems?",
+    "a2": "Yes, via our secure API gateway and custom connectors. We routinely integrate with older ERPs and specialized local databases without disruption.",
+    "q3": "Is my enterprise data secure on the cloud?",
+    "a3": "Absolutely. We use AES-256 encryption at rest and in transit. We are fully SOC-2 Type II compliant with regular third-party penetration testing.",
+    "q4": "Can I customize the reporting dashboards?",
+    "a4": "Yes, every user can build custom views with drag-and-drop widgets. You can filter, group, and export data in real-time without needing IT support.",
+    "q5": "Do you offer 24/7 technical support?",
+    "a5": "Yes, our enterprise plans include 24/7 dedicated account support with a guaranteed 1-hour SLA for critical issues.",
+    "q6": "How does pricing scale as we add employees?",
+    "a6": "We offer tiered per-user pricing that decreases in cost-per-user as you scale. You only pay for active seats, and there are no hidden module fees."
+  },
+  "globe": {
+    "badge": "Global Reach",
+    "title": "Powering Enterprises Across the World",
+    "desc": "Join thousands of businesses across 140+ countries that rely on Emvive to scale their operations globally. Our resilient cloud infrastructure ensures your data is always accessible, secure, and compliant, no matter where your teams are located.",
+    "countries": "Countries",
+    "uptime": "Uptime",
+    "support": "Support",
+    "customers": "+2,781 Customers",
+    "scaling": "Scaling their business with us",
+    "subtitle": "From India to Saudi Arabia and Dubai, Emvive powers enterprises across regions — drag the globe to explore where we operate."
+  },
+  "footer": {
+    "emailPlaceholder": "Email Address*",
+    "privacyConsent1": "I agree to Emvive processing my personal data in accordance with Emvive's",
+    "privacyConsent2": "Privacy Policy",
+    "subscribe": "SUBSCRIBE",
+    "productsTitle": "PRODUCTS",
+    "industriesTitle": "INDUSTRIES",
+    "industry": {
+      "Manufacturing": "Manufacturing",
+      "Retail": "Retail & E-commerce",
+      "Healthcare": "Healthcare",
+      "Financial": "Financial Services",
+      "Logistics": "Logistics & Supply Chain",
+      "Technology": "Technology & SaaS",
+      "Government": "Government & Public Sector"
+    },
+    "legalTitle": "LEGAL & SOCIAL",
+    "legal": {
+      "0": "L",
+      "1": "E",
+      "2": "G",
+      "3": "A",
+      "4": "L",
+      "5": " ",
+      "6": "&",
+      "7": " ",
+      "8": "S",
+      "9": "O",
+      "10": "C",
+      "11": "I",
+      "12": "A",
+      "13": "L",
+      "terms": "Terms of Service",
+      "privacy": "Privacy Policy",
+      "cookie": "Cookie Policy",
+      "brand": "Brand Guidelines"
+    },
+    "followUs": "Follow us",
+    "slogan": "Unify. Automate. Scale.",
+    "emailLabel": "Email Address*",
+    "agree": "I agree to Emvive processing my personal data in accordance with Emvive's",
+    "privacy": "Privacy Policy",
+    "products": "PRODUCTS",
+    "industries": "INDUSTRIES",
+    "hugeText": "Unify. Automate. Scale.",
+    "copyright": "© 2026 Emvive Inc."
+  },
+  "megaMenu": {
+    "products": {
+      "cloudErp": "Cloud ERP",
+      "hrPayroll": "HR & Payroll",
+      "crmSales": "CRM & Sales",
+      "reporting": "Advanced Reporting",
+      "workflow": "Workflow Automation",
+      "noCode": "No-Code App Builder",
+      "exploreAll": "Explore all products"
+    },
+    "manufacturing": {
+      "title": "Manufacturing",
+      "production": "Production Planning",
+      "productionDesc": "Optimize shop floor operations",
+      "quality": "Quality Control",
+      "qualityDesc": "Automated inspection workflows",
+      "maintenance": "Predictive Maintenance",
+      "maintenanceDesc": "IoT-driven asset management"
+    },
+    "retail": {
+      "title": "Retail & POS",
+      "inventory": "Inventory for Retail & POS",
+      "inventoryDesc": "Real-time stock tracking tailored for Retail & POS operations.",
+      "financial": "Financial Management",
+      "financialDesc": "ZATCA-compliant accounting and ledger.",
+      "supplyChain": "Supply Chain",
+      "supplyChainDesc": "Automate POs and supplier management seamlessly.",
+      "vendor": "Vendor Portal",
+      "vendorDesc": "Self-service access for your vendors.",
+      "invoicing": "Invoicing & Billing",
+      "invoicingDesc": "Generate e-invoices instantly.",
+      "pos": "Advanced POS",
+      "posDesc": "Unified commerce and quick multi-branch sales processing."
+    },
+    "healthcare": {
+      "title": "Healthcare",
+      "patient": "Patient Records",
+      "patientDesc": "HIPAA-compliant data management",
+      "scheduling": "Staff Scheduling",
+      "schedulingDesc": "Shift and rotation optimization",
+      "billing": "Medical Billing",
+      "billingDesc": "Automated insurance claims"
+    }
+  },
+  "retailInventory": {
+    "title": "in Your Retail Operations",
+    "subtitle": "Secure your supply chain and manage your inventory from a single platform. Real-time stock tracking tailored specifically for fast-paced Retail environments.",
+    "bookDemo": "Book a Demo 🚀",
+    "statsBadge": "STATS",
+    "f1Title": "Connect & Discover",
+    "f1Desc": "Map out your entire inventory network—from warehouse shelves to store fronts—in one unified view. Sync data across your POS systems and eCommerce platforms instantly.",
+    "f2Title": "Identify Shrinkage & Risks",
+    "f2Desc": "Inventory discrepancies can be buried deep, obscured by miscounts, delayed vendor shipments, and returns. Emvive digs through the layers to map out interdependencies and oversights to identify exactly where stock is leaking.",
+    "f3Title": "Automate Remediation",
+    "f3Desc": "Reduce manual stock-taking and eliminate stockouts. Let AI-driven restocking alerts and automated purchase orders maintain optimal levels so you never miss a sale.",
+    "c1Title": "Demand Forecasting",
+    "c1Desc": "Use historical sales data across all channels to predict future inventory needs accurately.",
+    "c2Title": "Automated Restocking",
+    "c2Desc": "Set minimum thresholds and let Emvive automatically generate POs when stock runs low.",
+    "c3Title": "Unified Stock Levels",
+    "c3Desc": "Connect your POS, eCommerce, and warehouses into one centralized, real-time inventory ledger."
+  },
+  "retail": {
+    "title": "Retail Inventory",
+    "nav": {
+      "features": "Features",
+      "pricing": "Pricing"
+    },
+    "hero": {
+      "badge": "Inventory for Retail & POS 2.0 is live!",
+      "titleHighlight": "Rooting Out",
+      "titleMain": "Stockouts in Your Retail Operations",
+      "desc": "Secure your supply chain and manage your inventory from a single platform. Real-time stock tracking tailored specifically for fast-paced Retail environments.",
+      "cta": "Book a Demo"
+    },
+    "accordion": {
+      "a0_title": "Connect & Discover",
+      "a0_desc": "Once connected, Emvive's first mission is discovery — automatically syncing with your POS systems, eCommerce platforms, and warehouses. Within minutes, you can map out your entire stock ecosystem and identify discrepancies before they impact customers.",
+      "a1_title": "Identify Shrinkage & Risks",
+      "a1_desc": "Inventory discrepancies can be buried deep, obscured by miscounts, delayed vendor shipments, and returns. Emvive digs through the layers to map out interdependencies and oversights to identify exactly where stock is leaking.",
+      "a2_title": "Automate Remediation",
+      "a2_desc": "Stop manually counting and ordering. Emvive automatically generates Purchase Orders when stock dips below critical thresholds and routes them to the correct suppliers, keeping your business operations uninterrupted."
+    },
+    "stat": {
+      "desc_0": "LESS TIME SPENT ON STOCK AUDITS",
+      "desc_1": "NRR INCREASE",
+      "desc_2": "HIGHER NRR IN YEAR 1",
+      "desc_3": "MORE EFFICIENCY PER MANAGER",
+      "desc_4": "HOURS SAVED ANNUALLY PER PERSON",
+      "desc_5": "LESS SHRINKAGE"
+    },
+    "feature": {
+      "f0_title": "Unified Stock Levels",
+      "f0_desc": "Connect your POS, eCommerce, and warehouses into one centralized, real-time inventory ledger.",
+      "f1_title": "Automated Restocking",
+      "f1_desc": "Set minimum thresholds and let Emvive automatically generate POs when stock runs low.",
+      "f2_title": "Demand Forecasting",
+      "f2_desc": "Use historical sales data across all channels to predict future inventory needs accurately.",
+      "f3_title": "Omnichannel Ready",
+      "f3_desc": "Never oversell again. Instantly sync stock deductions across physical stores and online marketplaces.",
+      "f4_title": "Supplier Portal",
+      "f4_desc": "Give your vendors secure access to update delivery statuses and acknowledge automated POs.",
+      "f5_title": "Loss Prevention",
+      "f5_desc": "Track shrink, damages, and returns with detailed audit logs and role-based permissions."
+    },
+    "pricing": {
+      "badge": "Pricing",
+      "title": "Simple pricing for every retail team",
+      "subtitle": "Start free, scale as you grow. No hidden fees — cancel anytime.",
+      "popular": "Most Popular",
+      "p0_name": "Starter",
+      "p0_price": "$0",
+      "p0_period": "/mo",
+      "p0_desc": "For single-store retailers getting started.",
+      "p0_f0": "1 store location",
+      "p0_f1": "Up to 500 SKUs",
+      "p0_f2": "Real-time stock tracking",
+      "p0_f3": "Email support",
+      "p0_cta": "Start Free",
+      "p1_name": "Growth",
+      "p1_price": "$49",
+      "p1_period": "/mo",
+      "p1_desc": "For growing multi-store retail operations.",
+      "p1_f0": "Up to 10 stores",
+      "p1_f1": "Unlimited SKUs",
+      "p1_f2": "Shrinkage & risk alerts",
+      "p1_f3": "Vendor management",
+      "p1_f4": "Priority support",
+      "p1_cta": "Start Free Trial",
+      "p2_name": "Enterprise",
+      "p2_price": "Custom",
+      "p2_period": "",
+      "p2_desc": "For large chains with advanced needs.",
+      "p2_f0": "Unlimited stores",
+      "p2_f1": "Advanced automation",
+      "p2_f2": "Dedicated success manager",
+      "p2_f3": "SSO & audit logs",
+      "p2_f4": "24/7 support",
+      "p2_cta": "Contact Sales"
+    },
+    "features": {
+      "badge": "Features",
+      "title": "Everything you need for Retail Inventory"
+    }
+  }
+}
