@@ -26,7 +26,7 @@ const Clients = () => {
         <div className="nc-stripes"></div>
 
         {/* Logos Marquee */}
-        <div className="nc-marquee-container">
+        <div className="nc-marquee-container" dir="ltr">
           <div className="nc-marquee-track">
             {/* Double the array for infinite scroll effect */}
             {[...CLIENTS, ...CLIENTS, ...CLIENTS].map((client, idx) => (
