@@ -6,12 +6,13 @@ import './GlobeSection.css';
 
 // Office regions: [lon, lat, label]
 const OFFICES = [
-  { coords: [77.21, 28.61], label: 'India' },        // Delhi
-  { coords: [46.72, 24.63], label: 'Saudi Arabia' }, // Riyadh
-  { coords: [55.27, 25.20], label: 'Dubai' },        // Dubai
+  { coords: [77.21, 28.61], label: 'India', regionKey: 'india' },        // Delhi
+  { coords: [46.72, 24.63], label: 'Saudi Arabia', regionKey: 'saudi' }, // Riyadh
+  { coords: [55.27, 25.20], label: 'Dubai', regionKey: 'dubai' },        // Dubai
 ];
 
 const Globe = () => {
+  const { t } = useTranslation();
   const canvasRef = useRef(null);
   const wrapRef = useRef(null);
   const badgeRefs = useRef([]);
@@ -275,7 +276,7 @@ const Globe = () => {
       {OFFICES.map((m, i) => (
         <div key={i} ref={(el) => (badgeRefs.current[i] = el)} className="globe-pin">
           <span className="globe-pin-flag" />
-          {m.label}
+          {t(`header.regions.${m.regionKey}`, m.label)}
           <span className="globe-pin-dot" />
         </div>
       ))}
@@ -289,8 +290,8 @@ const Globe = () => {
           </svg>
         </span>
         <div className="gc-text">
-          <div className="gc-count">+2,781 Customers</div>
-          <div className="gc-sub">Scaling their business with us</div>
+          <div className="gc-count">{t('globe.customers', '+2,781 Customers')}</div>
+          <div className="gc-sub">{t('globe.scaling', 'Scaling their business with us')}</div>
         </div>
       </div>
     </div>
@@ -309,7 +310,7 @@ const GlobeSection = () => {
           </span>
           <h2 className="globe-title">{t('globe.title', 'One platform, offices across the globe')}</h2>
           <p className="globe-subtitle">
-            {t('globe.desc', 'From India to Saudi Arabia and Dubai, Emvive powers enterprises across regions — drag the globe to explore where we operate.')}
+            {t('globe.subtitle', 'From India to Saudi Arabia and Dubai, Emvive powers enterprises across regions — drag the globe to explore where we operate.')}
           </p>
         </div>
       </div>

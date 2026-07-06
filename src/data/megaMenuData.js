@@ -11,7 +11,7 @@ import {
 
 export const getMegaMenuData = (t) => ({
   [t('megaMenu.products.cloudErp', 'Cloud ERP')]: {
-    "Retail & POS": {
+    [t('megaMenu.retail.title', 'Retail & POS')]: {
       title: t('megaMenu.retail.title', 'Retail & POS'),
       subtitle: t('megaMenu.retail.subtitle', 'Discover how we tailor this product specifically for the Retail & POS sector.'),
       modules: [
@@ -23,7 +23,7 @@ export const getMegaMenuData = (t) => ({
         { icon: Users, title: t('megaMenu.retail.vendor', "Vendor Portal"), desc: t('megaMenu.retail.vendorDesc', "Self-service access for your vendors.") }
       ]
     },
-    "Manufacturing": {
+    [t('megaMenu.manufacturing.title', 'Manufacturing')]: {
       title: t('megaMenu.manufacturing.title', 'Manufacturing'),
       subtitle: t('megaMenu.manufacturing.subtitle', 'Optimize production lines, track materials, and manage your manufacturing workforce.'),
       modules: [
@@ -35,7 +35,7 @@ export const getMegaMenuData = (t) => ({
         { icon: BarChart2, title: "Cost Accounting", desc: "Real-time cost variance analysis." }
       ]
     },
-    "Healthcare": {
+    [t('megaMenu.healthcare.title', 'Healthcare')]: {
       title: t('megaMenu.healthcare.title', 'Healthcare'),
       subtitle: t('megaMenu.healthcare.subtitle', 'Tailored for clinics and hospitals to manage patient data and billing.'),
       modules: [

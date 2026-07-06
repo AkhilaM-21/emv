@@ -78,7 +78,9 @@ const CountUp = ({ end, duration = 2000, prefix='', suffix='', inView, isFloat=f
 };
 
 // Helper to wrap dashboards in the common Mac-like window
-const DashboardWindow = ({ title, sidebarItems, children, inView }) => (
+const DashboardWindow = ({ title, sidebarItems, children, inView }) => {
+  const { t } = useTranslation();
+  return (
   <div className={`detailed-dashboard ${inView ? 'is-visible' : ''}`}>
     {/* Sidebar */}
     <div className="dd-sidebar">
@@ -92,14 +94,14 @@ const DashboardWindow = ({ title, sidebarItems, children, inView }) => (
         ))}
       </nav>
       <div className="dd-sidebar-footer">
-        <div className="dd-nav-item"><Settings size={14} /> Settings</div>
+        <div className="dd-nav-item"><Settings size={14} /> {t('products.dash.settings', 'Settings')}</div>
       </div>
     </div>
 
     {/* Main Area */}
     <div className="dd-main">
       <header className="dd-header">
-        <div className="dd-header-title">Dashboard <span>/Overview</span></div>
+        <div className="dd-header-title">{t('products.dash.dashboard', 'Dashboard')} <span>/{t('products.dash.overview', 'Overview')}</span></div>
         <div className="dd-header-actions">
           <button className="dd-icon-btn"><Bell size={14} /></button>
           <div className="dd-profile">
@@ -112,17 +114,20 @@ const DashboardWindow = ({ title, sidebarItems, children, inView }) => (
       </div>
     </div>
   </div>
-);
+  );
+};
 
 // 1. Cloud ERP Dashboard
-const DashboardERP = ({ inView }) => (
-  <DashboardWindow title="Cloud ERP" inView={inView} sidebarItems={[{icon: <LayoutDashboard size={14}/>, label: 'Overview'}, {icon: <Briefcase size={14}/>, label: 'Resources'}, {icon: <Folder size={14}/>, label: 'Inventory'}]}>
+const DashboardERP = ({ inView }) => {
+  const { t } = useTranslation();
+  return (
+  <DashboardWindow title={t('products.dash.erp.title', 'Cloud ERP')} inView={inView} sidebarItems={[{icon: <LayoutDashboard size={14}/>, label: t('products.dash.overview', 'Overview')}, {icon: <Briefcase size={14}/>, label: t('products.dash.erp.resources', 'Resources')}, {icon: <Folder size={14}/>, label: t('products.dash.erp.inventory', 'Inventory')}]}>
     <div className="db-grid erp-grid">
-      <div className="db-card stat"><div className="lbl">Global Revenue</div><div className="val"><CountUp end={1.2} isFloat={true} prefix="$" suffix="M" inView={inView} /></div></div>
-      <div className="db-card stat"><div className="lbl">Active Supply Nodes</div><div className="val text-blue"><CountUp end={342} inView={inView} /></div></div>
-      <div className="db-card stat"><div className="lbl">Operations Efficiency</div><div className="val text-green"><CountUp end={94} suffix="%" inView={inView} /></div></div>
+      <div className="db-card stat"><div className="lbl">{t('products.dash.erp.globalRevenue', 'Global Revenue')}</div><div className="val"><CountUp end={1.2} isFloat={true} prefix="$" suffix="M" inView={inView} /></div></div>
+      <div className="db-card stat"><div className="lbl">{t('products.dash.erp.activeSupplyNodes', 'Active Supply Nodes')}</div><div className="val text-blue"><CountUp end={342} inView={inView} /></div></div>
+      <div className="db-card stat"><div className="lbl">{t('products.dash.erp.operationsEfficiency', 'Operations Efficiency')}</div><div className="val text-green"><CountUp end={94} suffix="%" inView={inView} /></div></div>
       <div className="db-card main-chart">
-        <h4>Resource Allocation (Global)</h4>
+        <h4>{t('products.dash.erp.resourceAllocation', 'Resource Allocation (Global)')}</h4>
         <div className={`chart-bars ${inView ? 'in-view' : ''}`}>
            <div className="c-bar blue" style={{'--target-h': '60%'}}></div><div className="c-bar blue" style={{'--target-h': '80%'}}></div>
            <div className="c-bar blue" style={{'--target-h': '40%'}}></div><div className="c-bar blue" style={{'--target-h': '90%'}}></div>
@@ -130,32 +135,35 @@ const DashboardERP = ({ inView }) => (
         </div>
       </div>
       <div className="db-card side-list">
-        <h4>Recent Shipments</h4>
-        <div className="list-item"><span>#SHP-091</span><span className="badge green">Delivered</span></div>
-        <div className="list-item"><span>#SHP-092</span><span className="badge orange">In Transit</span></div>
-        <div className="list-item"><span>#SHP-093</span><span className="badge orange">In Transit</span></div>
+        <h4>{t('products.dash.erp.recentShipments', 'Recent Shipments')}</h4>
+        <div className="list-item"><span>#SHP-091</span><span className="badge green">{t('products.dash.delivered', 'Delivered')}</span></div>
+        <div className="list-item"><span>#SHP-092</span><span className="badge orange">{t('products.dash.inTransit', 'In Transit')}</span></div>
+        <div className="list-item"><span>#SHP-093</span><span className="badge orange">{t('products.dash.inTransit', 'In Transit')}</span></div>
       </div>
     </div>
   </DashboardWindow>
-);
+  );
+};
 
 // 2. HR & Payroll
-const DashboardHR = ({ inView }) => (
-  <DashboardWindow title="HR Hub" inView={inView} sidebarItems={[{icon: <Users size={14}/>, label: 'Employees'}, {icon: <FileCheck size={14}/>, label: 'Payroll'}, {icon: <Clock size={14}/>, label: 'Time Off'}]}>
+const DashboardHR = ({ inView }) => {
+  const { t } = useTranslation();
+  return (
+  <DashboardWindow title={t('products.dash.hr.title', 'HR Hub')} inView={inView} sidebarItems={[{icon: <Users size={14}/>, label: t('products.dash.hr.employees', 'Employees')}, {icon: <FileCheck size={14}/>, label: t('products.dash.hr.payroll', 'Payroll')}, {icon: <Clock size={14}/>, label: t('products.dash.hr.timeOff', 'Time Off')}]}>
     <div className="db-grid hr-grid">
-      <div className="db-card stat"><div className="lbl">Total Headcount</div><div className="val"><CountUp end={1402} inView={inView} /></div></div>
-      <div className="db-card stat"><div className="lbl">On Leave Today</div><div className="val text-orange"><CountUp end={24} inView={inView} /></div></div>
-      <div className="db-card stat"><div className="lbl">Next Payroll</div><div className="val text-blue">Oct 15</div></div>
+      <div className="db-card stat"><div className="lbl">{t('products.dash.hr.totalHeadcount', 'Total Headcount')}</div><div className="val"><CountUp end={1402} inView={inView} /></div></div>
+      <div className="db-card stat"><div className="lbl">{t('products.dash.hr.onLeaveToday', 'On Leave Today')}</div><div className="val text-orange"><CountUp end={24} inView={inView} /></div></div>
+      <div className="db-card stat"><div className="lbl">{t('products.dash.hr.nextPayroll', 'Next Payroll')}</div><div className="val text-blue">Oct 15</div></div>
       <div className="db-card roster">
-        <h4>Recent Hires</h4>
+        <h4>{t('products.dash.hr.recentHires', 'Recent Hires')}</h4>
         <div className="avatar-list">
-           <div className="av-row"><div className="av"></div><div className="av-info"><b>Sarah J.</b><span>Engineering</span></div></div>
-           <div className="av-row"><div className="av"></div><div className="av-info"><b>Mike T.</b><span>Marketing</span></div></div>
-           <div className="av-row"><div className="av"></div><div className="av-info"><b>Elena R.</b><span>Sales</span></div></div>
+           <div className="av-row"><div className="av"></div><div className="av-info"><b>Sarah J.</b><span>{t('products.dash.dept.engineering', 'Engineering')}</span></div></div>
+           <div className="av-row"><div className="av"></div><div className="av-info"><b>Mike T.</b><span>{t('products.dash.dept.marketing', 'Marketing')}</span></div></div>
+           <div className="av-row"><div className="av"></div><div className="av-info"><b>Elena R.</b><span>{t('products.dash.dept.sales', 'Sales')}</span></div></div>
         </div>
       </div>
       <div className="db-card payroll-chart">
-        <h4>Salary Distribution</h4>
+        <h4>{t('products.dash.hr.salaryDistribution', 'Salary Distribution')}</h4>
         <div className={`donut-wrap ${inView ? 'in-view' : ''}`}>
           <svg viewBox="0 0 100 100" className="mini-donut">
              <circle className="d-layer l1" cx="50" cy="50" r="40" stroke="#3b82f6" strokeWidth="15" fill="none" strokeDasharray="180 300" strokeDashoffset="300"/>
@@ -166,16 +174,19 @@ const DashboardHR = ({ inView }) => (
       </div>
     </div>
   </DashboardWindow>
-);
+  );
+};
 
 // 3. CRM & Sales
-const DashboardCRM = ({ inView }) => (
-  <DashboardWindow title="CRM Pro" inView={inView} sidebarItems={[{icon: <LineChart size={14}/>, label: 'Pipeline'}, {icon: <Handshake size={14}/>, label: 'Deals'}, {icon: <MessageSquare size={14}/>, label: 'Inbox'}]}>
+const DashboardCRM = ({ inView }) => {
+  const { t } = useTranslation();
+  return (
+  <DashboardWindow title={t('products.dash.crm.title', 'CRM Pro')} inView={inView} sidebarItems={[{icon: <LineChart size={14}/>, label: t('products.dash.crm.pipeline', 'Pipeline')}, {icon: <Handshake size={14}/>, label: t('products.dash.crm.deals', 'Deals')}, {icon: <MessageSquare size={14}/>, label: t('products.dash.crm.inbox', 'Inbox')}]}>
     <div className="db-grid crm-grid">
-      <div className="db-card stat"><div className="lbl">Win Rate</div><div className="val text-green"><CountUp end={68} suffix="%" inView={inView} /></div></div>
-      <div className="db-card stat"><div className="lbl">Active Deals</div><div className="val"><CountUp end={142} inView={inView} /></div></div>
+      <div className="db-card stat"><div className="lbl">{t('products.dash.crm.winRate', 'Win Rate')}</div><div className="val text-green"><CountUp end={68} suffix="%" inView={inView} /></div></div>
+      <div className="db-card stat"><div className="lbl">{t('products.dash.crm.activeDeals', 'Active Deals')}</div><div className="val"><CountUp end={142} inView={inView} /></div></div>
       <div className="db-card funnel">
-        <h4>Sales Funnel</h4>
+        <h4>{t('products.dash.crm.salesFunnel', 'Sales Funnel')}</h4>
         <div className={`funnel-chart ${inView ? 'in-view' : ''}`}>
            <div className="f-layer l1" style={{'--target-w': '100%'}}>Leads (1,200)</div>
            <div className="f-layer l2" style={{'--target-w': '80%'}}>Qualified (800)</div>
@@ -184,7 +195,7 @@ const DashboardCRM = ({ inView }) => (
         </div>
       </div>
       <div className="db-card deal-list">
-        <h4>Top Opportunities</h4>
+        <h4>{t('products.dash.crm.topOpportunities', 'Top Opportunities')}</h4>
         <div className="list-item"><span>Acme Corp</span><b className="text-green">$45,000</b></div>
         <div className="list-item"><span>Globex Inc</span><b className="text-green">$32,000</b></div>
         <div className="list-item"><span>Initech</span><b className="text-green">$28,500</b></div>
@@ -192,24 +203,27 @@ const DashboardCRM = ({ inView }) => (
       </div>
     </div>
   </DashboardWindow>
-);
+  );
+};
 
 // 4. Advanced Reporting
-const DashboardReporting = ({ inView }) => (
-  <DashboardWindow title="Analytics" inView={inView} sidebarItems={[{icon: <PieChart size={14}/>, label: 'Dashboards'}, {icon: <Search size={14}/>, label: 'Queries'}, {icon: <Folder size={14}/>, label: 'Reports'}]}>
+const DashboardReporting = ({ inView }) => {
+  const { t } = useTranslation();
+  return (
+  <DashboardWindow title={t('products.dash.reporting.title', 'Analytics')} inView={inView} sidebarItems={[{icon: <PieChart size={14}/>, label: t('products.dash.reporting.dashboards', 'Dashboards')}, {icon: <Search size={14}/>, label: t('products.dash.reporting.queries', 'Queries')}, {icon: <Folder size={14}/>, label: t('products.dash.reporting.reports', 'Reports')}]}>
     <div className="db-grid report-grid">
-      <div className="db-card kpi"><div className="lbl">MRR</div><div className="val"><CountUp end={248} prefix="$" suffix="K" inView={inView} /></div><div className="line-graph blue"></div></div>
-      <div className="db-card kpi"><div className="lbl">Churn</div><div className="val text-orange"><CountUp end={1.2} isFloat={true} suffix="%" inView={inView} /></div><div className="line-graph orange"></div></div>
-      <div className="db-card kpi"><div className="lbl">CAC</div><div className="val"><CountUp end={450} prefix="$" inView={inView} /></div><div className="line-graph green"></div></div>
+      <div className="db-card kpi"><div className="lbl">{t('products.dash.reporting.mrr', 'MRR')}</div><div className="val"><CountUp end={248} prefix="$" suffix="K" inView={inView} /></div><div className="line-graph blue"></div></div>
+      <div className="db-card kpi"><div className="lbl">{t('products.dash.reporting.churn', 'Churn')}</div><div className="val text-orange"><CountUp end={1.2} isFloat={true} suffix="%" inView={inView} /></div><div className="line-graph orange"></div></div>
+      <div className="db-card kpi"><div className="lbl">{t('products.dash.reporting.cac', 'CAC')}</div><div className="val"><CountUp end={450} prefix="$" inView={inView} /></div><div className="line-graph green"></div></div>
       <div className="db-card radar">
-        <h4>Market Penetration</h4>
+        <h4>{t('products.dash.reporting.marketPenetration', 'Market Penetration')}</h4>
         <div className={`radar-circle ${inView ? 'in-view' : ''}`}>
            <div className="r-line"></div><div className="r-line rot1"></div><div className="r-line rot2"></div>
            <div className="r-poly"></div>
         </div>
       </div>
       <div className="db-card bars">
-        <h4>YoY Growth</h4>
+        <h4>{t('products.dash.reporting.yoyGrowth', 'YoY Growth')}</h4>
         <div className={`chart-bars multi ${inView ? 'in-view' : ''}`}>
            <div className="c-bar-group"><div className="c-bar blue" style={{'--target-h': '40%'}}></div><div className="c-bar green" style={{'--target-h': '60%'}}></div></div>
            <div className="c-bar-group"><div className="c-bar blue" style={{'--target-h': '50%'}}></div><div className="c-bar green" style={{'--target-h': '70%'}}></div></div>
@@ -218,58 +232,65 @@ const DashboardReporting = ({ inView }) => (
       </div>
     </div>
   </DashboardWindow>
-);
+  );
+};
 
 // 5. Workflow Automation
-const DashboardWorkflow = ({ inView }) => (
-  <DashboardWindow title="AutoFlow" inView={inView} sidebarItems={[{icon: <GitMerge size={14}/>, label: 'Workflows'}, {icon: <CheckCircle size={14}/>, label: 'Tasks'}, {icon: <LogOut size={14}/>, label: 'Integrations'}]}>
+const DashboardWorkflow = ({ inView }) => {
+  const { t } = useTranslation();
+  return (
+  <DashboardWindow title={t('products.dash.workflow.title', 'AutoFlow')} inView={inView} sidebarItems={[{icon: <GitMerge size={14}/>, label: t('products.dash.workflow.workflows', 'Workflows')}, {icon: <CheckCircle size={14}/>, label: t('products.dash.workflow.tasks', 'Tasks')}, {icon: <LogOut size={14}/>, label: t('products.dash.workflow.integrations', 'Integrations')}]}>
     <div className="db-grid flow-grid">
       <div className="db-card header-stat">
-         <div className="lbl">Workflows Executed (24h)</div>
+         <div className="lbl">{t('products.dash.workflow.executed', 'Workflows Executed (24h)')}</div>
          <div className="val text-blue"><CountUp end={14204} inView={inView} /></div>
       </div>
       <div className="db-card flow-canvas">
-        <h4>Visual Builder</h4>
+        <h4>{t('products.dash.workflow.visualBuilder', 'Visual Builder')}</h4>
         <div className={`node-map ${inView ? 'in-view' : ''}`}>
-           <div className="node trigger">Webhook</div>
+           <div className="node trigger">{t('products.dash.workflow.webhook', 'Webhook')}</div>
            <div className="line-down"></div>
-           <div className="node action">Filter Data</div>
+           <div className="node action">{t('products.dash.workflow.filterData', 'Filter Data')}</div>
            <div className="line-split"></div>
            <div className="node-row">
-              <div className="node end blue">Update CRM</div>
-              <div className="node end green">Send Email</div>
+              <div className="node end blue">{t('products.dash.workflow.updateCrm', 'Update CRM')}</div>
+              <div className="node end green">{t('products.dash.workflow.sendEmail', 'Send Email')}</div>
            </div>
         </div>
       </div>
     </div>
   </DashboardWindow>
-);
+  );
+};
 
 // 6. E-Invoicing
-const DashboardInvoice = ({ inView }) => (
-  <DashboardWindow title="InvoiceHub" inView={inView} sidebarItems={[{icon: <FileCheck size={14}/>, label: 'Invoices'}, {icon: <Users size={14}/>, label: 'Clients'}, {icon: <Briefcase size={14}/>, label: 'Payments'}]}>
+const DashboardInvoice = ({ inView }) => {
+  const { t } = useTranslation();
+  return (
+  <DashboardWindow title={t('products.dash.invoice.title', 'InvoiceHub')} inView={inView} sidebarItems={[{icon: <FileCheck size={14}/>, label: t('products.dash.invoice.invoices', 'Invoices')}, {icon: <Users size={14}/>, label: t('products.dash.invoice.clients', 'Clients')}, {icon: <Briefcase size={14}/>, label: t('products.dash.invoice.payments', 'Payments')}]}>
     <div className="db-grid inv-grid">
-      <div className="db-card stat"><div className="lbl">Awaiting Payment</div><div className="val text-orange"><CountUp end={42500} prefix="$" inView={inView} /></div></div>
-      <div className="db-card stat"><div className="lbl">Paid (This Month)</div><div className="val text-green"><CountUp end={12800} prefix="$" inView={inView} /></div></div>
+      <div className="db-card stat"><div className="lbl">{t('products.dash.invoice.awaitingPayment', 'Awaiting Payment')}</div><div className="val text-orange"><CountUp end={42500} prefix="$" inView={inView} /></div></div>
+      <div className="db-card stat"><div className="lbl">{t('products.dash.invoice.paidThisMonth', 'Paid (This Month)')}</div><div className="val text-green"><CountUp end={12800} prefix="$" inView={inView} /></div></div>
       <div className="db-card inv-preview">
         <div className={`inv-doc ${inView ? 'in-view' : ''}`}>
-           <div className="inv-head"><b>INVOICE #1042</b><span>$4,500.00</span></div>
+           <div className="inv-head"><b>{t('products.dash.invoice.invoiceLabel', 'INVOICE')} #1042</b><span>$4,500.00</span></div>
            <div className="inv-line"></div>
-           <div className="inv-row"><span>Consulting</span><span>$2,000</span></div>
-           <div className="inv-row"><span>Development</span><span>$2,500</span></div>
-           <div className="inv-total">Total: $4,500.00</div>
-           <div className="badge green paid-stamp">PAID</div>
+           <div className="inv-row"><span>{t('products.dash.invoice.consulting', 'Consulting')}</span><span>$2,000</span></div>
+           <div className="inv-row"><span>{t('products.dash.invoice.development', 'Development')}</span><span>$2,500</span></div>
+           <div className="inv-total">{t('products.dash.invoice.total', 'Total')}: $4,500.00</div>
+           <div className="badge green paid-stamp">{t('products.dash.invoice.paidStamp', 'PAID')}</div>
         </div>
       </div>
       <div className="db-card inv-list">
-        <h4>Recent Activity</h4>
-        <div className="list-item"><span>#1041 (Stripe)</span><span className="badge green">Paid</span></div>
-        <div className="list-item"><span>#1043 (Wire)</span><span className="badge orange">Pending</span></div>
-        <div className="list-item"><span>#1044 (Card)</span><span className="badge orange">Pending</span></div>
+        <h4>{t('products.dash.invoice.recentActivity', 'Recent Activity')}</h4>
+        <div className="list-item"><span>#1041 (Stripe)</span><span className="badge green">{t('products.dash.paid', 'Paid')}</span></div>
+        <div className="list-item"><span>#1043 (Wire)</span><span className="badge orange">{t('products.dash.pending', 'Pending')}</span></div>
+        <div className="list-item"><span>#1044 (Card)</span><span className="badge orange">{t('products.dash.pending', 'Pending')}</span></div>
       </div>
     </div>
   </DashboardWindow>
-);
+  );
+};
 
 // Remove Network Constellation Component completely
 
@@ -397,16 +418,16 @@ const Products = () => {
                 {/* Dotted flowing wave — bottom-left, below the industries */}
                 <DotWave />
 
-                {/* 3D Glowing Icon & Title Header */}
-                <div className="product-header-top">
-                  <div className="product-icon-3d">
-                    {product.icon}
-                  </div>
-                  <h3 className="product-title-top">{t(`productsData.p${product.id}_title`, product.title)}</h3>
-                </div>
-
                 <div className="timeline-content">
                   <div className="product-info">
+                    {/* 3D Glowing Icon & Title Header */}
+                    <div className="product-header-top">
+                      <div className="product-icon-3d">
+                        {product.icon}
+                      </div>
+                      <h3 className="product-title-top">{t(`productsData.p${product.id}_title`, product.title)}</h3>
+                    </div>
+
                     <p className="product-desc">{t(`productsData.p${product.id}_desc`, product.description)}</p>
 
                     {/* Industries Tags */}

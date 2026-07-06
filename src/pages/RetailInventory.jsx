@@ -161,13 +161,16 @@ const RetailInventory = () => {
           </p>
           <div className="ri-hero-actions">
             <a href="#demo" className="ri-btn-secondary">
-              <span className="icon">🚀</span> {t('retail.hero.cta', 'Book a Demo')}
+              {t('retail.hero.cta', 'Book a Demo')}
+              <span className="arrow-circle">
+                <ArrowRight size={14} color="#fff" />
+              </span>
             </a>
           </div>
         </div>
 
         {/* Continuous Scrolling Cards & Central Line */}
-        <div className="ri-hero-graphics">
+        <div className="ri-hero-graphics" dir="ltr">
 
           {/* ROW 1 */}
           <div className="card-row row-1">
@@ -177,48 +180,48 @@ const RetailInventory = () => {
                   <div className="product-card">
                     <div className="pc-avatar" style={{ background: '#fde68a' }}></div>
                     <div className="pc-info">
-                      <span className="pc-name">Kids ATM Bank</span>
-                      <span className="pc-price">Price $34.99</span>
+                      <span className="pc-name">{t('retail.demoCards.c1_name', 'Kids ATM Bank')}</span>
+                      <span className="pc-price">{t('retail.demoCards.price', 'Price')} $34.99</span>
                     </div>
                     <div className="pc-revenue">
                       <span className="pc-amount">$128,450.70</span>
-                      <span className="pc-label">Revenue</span>
+                      <span className="pc-label">{t('retail.demoCards.revenue', 'Revenue')}</span>
                     </div>
                     <span className="pc-badge up">↗ 16%</span>
                   </div>
                   <div className="product-card">
                     <div className="pc-avatar" style={{ background: '#bfdbfe' }}></div>
                     <div className="pc-info">
-                      <span className="pc-name">Mini Drone</span>
-                      <span className="pc-price">Price $39.99</span>
+                      <span className="pc-name">{t('retail.demoCards.c2_name', 'Mini Drone')}</span>
+                      <span className="pc-price">{t('retail.demoCards.price', 'Price')} $39.99</span>
                     </div>
                     <div className="pc-revenue">
                       <span className="pc-amount">$301,540.62</span>
-                      <span className="pc-label">Revenue</span>
+                      <span className="pc-label">{t('retail.demoCards.revenue', 'Revenue')}</span>
                     </div>
                     <span className="pc-badge up">↗ 8.5%</span>
                   </div>
                   <div className="product-card">
                     <div className="pc-avatar" style={{ background: '#fecaca' }}></div>
                     <div className="pc-info">
-                      <span className="pc-name">Wine Dispenser</span>
-                      <span className="pc-price">Price $19.99</span>
+                      <span className="pc-name">{t('retail.demoCards.c3_name', 'Wine Dispenser')}</span>
+                      <span className="pc-price">{t('retail.demoCards.price', 'Price')} $19.99</span>
                     </div>
                     <div className="pc-revenue">
                       <span className="pc-amount">$72,614.22</span>
-                      <span className="pc-label">Revenue</span>
+                      <span className="pc-label">{t('retail.demoCards.revenue', 'Revenue')}</span>
                     </div>
                     <span className="pc-badge up">↗ 9.8%</span>
                   </div>
                   <div className="product-card">
                     <div className="pc-avatar" style={{ background: '#d9f99d' }}></div>
                     <div className="pc-info">
-                      <span className="pc-name">Portable Warmer</span>
-                      <span className="pc-price">Price $26.99</span>
+                      <span className="pc-name">{t('retail.demoCards.c4_name', 'Portable Warmer')}</span>
+                      <span className="pc-price">{t('retail.demoCards.price', 'Price')} $26.99</span>
                     </div>
                     <div className="pc-revenue">
                       <span className="pc-amount">$54,320.18</span>
-                      <span className="pc-label">Revenue</span>
+                      <span className="pc-label">{t('retail.demoCards.revenue', 'Revenue')}</span>
                     </div>
                     <span className="pc-badge up">↗ 4.2%</span>
                   </div>
@@ -235,48 +238,48 @@ const RetailInventory = () => {
                   <div className="product-card">
                     <div className="pc-avatar" style={{ background: '#c4b5fd' }}></div>
                     <div className="pc-info">
-                      <span className="pc-name">Galaxy Projector</span>
-                      <span className="pc-price">Price $32.99</span>
+                      <span className="pc-name">{t('retail.demoCards.c5_name', 'Galaxy Projector')}</span>
+                      <span className="pc-price">{t('retail.demoCards.price', 'Price')} $32.99</span>
                     </div>
                     <div className="pc-revenue">
                       <span className="pc-amount">$421,766.24</span>
-                      <span className="pc-label">Revenue</span>
+                      <span className="pc-label">{t('retail.demoCards.revenue', 'Revenue')}</span>
                     </div>
                     <span className="pc-badge up">↗ 18.4%</span>
                   </div>
                   <div className="product-card">
                     <div className="pc-avatar" style={{ background: '#fbcfe8' }}></div>
                     <div className="pc-info">
-                      <span className="pc-name">Hair Straightener</span>
-                      <span className="pc-price">Price $29.99</span>
+                      <span className="pc-name">{t('retail.demoCards.c6_name', 'Hair Straightener')}</span>
+                      <span className="pc-price">{t('retail.demoCards.price', 'Price')} $29.99</span>
                     </div>
                     <div className="pc-revenue">
                       <span className="pc-amount">$74,632.40</span>
-                      <span className="pc-label">Revenue</span>
+                      <span className="pc-label">{t('retail.demoCards.revenue', 'Revenue')}</span>
                     </div>
                     <span className="pc-badge up">↗ 2.1%</span>
                   </div>
                   <div className="product-card">
                     <div className="pc-avatar" style={{ background: '#e2e8f0' }}></div>
                     <div className="pc-info">
-                      <span className="pc-name">Moon Lamp</span>
-                      <span className="pc-price">Price $24.99</span>
+                      <span className="pc-name">{t('retail.demoCards.c7_name', 'Moon Lamp')}</span>
+                      <span className="pc-price">{t('retail.demoCards.price', 'Price')} $24.99</span>
                     </div>
                     <div className="pc-revenue">
                       <span className="pc-amount">$187,290.10</span>
-                      <span className="pc-label">Revenue</span>
+                      <span className="pc-label">{t('retail.demoCards.revenue', 'Revenue')}</span>
                     </div>
                     <span className="pc-badge up">↗ 11.5%</span>
                   </div>
                   <div className="product-card">
                     <div className="pc-avatar" style={{ background: '#fed7aa' }}></div>
                     <div className="pc-info">
-                      <span className="pc-name">LED Strip</span>
-                      <span className="pc-price">Price $14.99</span>
+                      <span className="pc-name">{t('retail.demoCards.c8_name', 'LED Strip')}</span>
+                      <span className="pc-price">{t('retail.demoCards.price', 'Price')} $14.99</span>
                     </div>
                     <div className="pc-revenue">
                       <span className="pc-amount">$12,732.88</span>
-                      <span className="pc-label">Revenue</span>
+                      <span className="pc-label">{t('retail.demoCards.revenue', 'Revenue')}</span>
                     </div>
                     <span className="pc-badge up">↗ 5.4%</span>
                   </div>
@@ -293,48 +296,48 @@ const RetailInventory = () => {
                   <div className="product-card">
                     <div className="pc-avatar" style={{ background: '#fca5a5' }}></div>
                     <div className="pc-info">
-                      <span className="pc-name">Mosquito Slapper</span>
-                      <span className="pc-price">Price $29.99</span>
+                      <span className="pc-name">{t('retail.demoCards.c9_name', 'Mosquito Slapper')}</span>
+                      <span className="pc-price">{t('retail.demoCards.price', 'Price')} $29.99</span>
                     </div>
                     <div className="pc-revenue">
                       <span className="pc-amount">$42,432.12</span>
-                      <span className="pc-label">Revenue</span>
+                      <span className="pc-label">{t('retail.demoCards.revenue', 'Revenue')}</span>
                     </div>
                     <span className="pc-badge up">↗ 18.7%</span>
                   </div>
                   <div className="product-card">
                     <div className="pc-avatar" style={{ background: '#a5b4fc' }}></div>
                     <div className="pc-info">
-                      <span className="pc-name">Popcorn Maker</span>
-                      <span className="pc-price">Price $34.99</span>
+                      <span className="pc-name">{t('retail.demoCards.c10_name', 'Popcorn Maker')}</span>
+                      <span className="pc-price">{t('retail.demoCards.price', 'Price')} $34.99</span>
                     </div>
                     <div className="pc-revenue">
                       <span className="pc-amount">$81,273.16</span>
-                      <span className="pc-label">Revenue</span>
+                      <span className="pc-label">{t('retail.demoCards.revenue', 'Revenue')}</span>
                     </div>
                     <span className="pc-badge up">↗ 12%</span>
                   </div>
                   <div className="product-card">
                     <div className="pc-avatar" style={{ background: '#bbf7d0' }}></div>
                     <div className="pc-info">
-                      <span className="pc-name">Mini Sealing Machine</span>
-                      <span className="pc-price">Price $12.99</span>
+                      <span className="pc-name">{t('retail.demoCards.c11_name', 'Mini Sealing Machine')}</span>
+                      <span className="pc-price">{t('retail.demoCards.price', 'Price')} $12.99</span>
                     </div>
                     <div className="pc-revenue">
                       <span className="pc-amount">$117,904.33</span>
-                      <span className="pc-label">Revenue</span>
+                      <span className="pc-label">{t('retail.demoCards.revenue', 'Revenue')}</span>
                     </div>
                     <span className="pc-badge up">↗ 6.3%</span>
                   </div>
                   <div className="product-card">
                     <div className="pc-avatar" style={{ background: '#fde68a' }}></div>
                     <div className="pc-info">
-                      <span className="pc-name">Car Humidifier</span>
-                      <span className="pc-price">Price $22.99</span>
+                      <span className="pc-name">{t('retail.demoCards.c12_name', 'Car Humidifier')}</span>
+                      <span className="pc-price">{t('retail.demoCards.price', 'Price')} $22.99</span>
                     </div>
                     <div className="pc-revenue">
                       <span className="pc-amount">$164,872.50</span>
-                      <span className="pc-label">Revenue</span>
+                      <span className="pc-label">{t('retail.demoCards.revenue', 'Revenue')}</span>
                     </div>
                     <span className="pc-badge up">↗ 8.1%</span>
                   </div>
@@ -404,11 +407,11 @@ const RetailInventory = () => {
                 onClick={() => handleAccordionClick(idx)}
               >
                 <div className="acc-header">
-                  <h3>{t(`retail.accordion.a${idx}_title`, item.title)}</h3>
+                  <h3>{t(`retail.accordionData.${idx}.title`, item.title)}</h3>
                   <span className="acc-toggle">{activeSection === idx ? '−' : '+'}</span>
                 </div>
                 <div className="acc-body">
-                  <p>{t(`retail.accordion.a${idx}_desc`, item.desc)}</p>
+                  <p>{t(`retail.accordionData.${idx}.desc`, item.desc)}</p>
                   {/* Progress bar */}
                   <div className="acc-progress-bar">
                     <div
@@ -431,7 +434,7 @@ const RetailInventory = () => {
           {/* Top Cutout */}
           <div className="nc-top-cutout">
             <div className="nc-top-cutout-inner">
-              <span className="nc-top-cutout-text">STATS</span>
+              <span className="nc-top-cutout-text">{t('retail.stats', 'SUCCESS METRICS')}</span>
             </div>
           </div>
 
@@ -446,7 +449,7 @@ const RetailInventory = () => {
                   <div className="nc-logo-content stat-card-content">
                     <span className="stat-brand">{stat.brand}</span>
                     <span className="stat-number">{stat.number}</span>
-                    <span className="stat-desc">{t(`retail.stat.desc_${idx}`, stat.desc)}</span>
+                    <span className="stat-desc">{t(`retail.statsData.${idx % STATS.length}.desc`, stat.desc)}</span>
                   </div>
                 </div>
               ))}
@@ -459,8 +462,8 @@ const RetailInventory = () => {
       <section className="ri-features" id="ri-features">
         <div className="ri-features-container reveal">
           <div className="ri-features-header" style={{ textAlign: 'center' }}>
-            <span className="global-section-badge"><span className="global-badge-dot"></span> Features</span>
-            <h2 className="global-section-title">Everything you need for Retail Inventory</h2>
+            <span className="global-section-badge"><span className="global-badge-dot"></span> {t('retail.nav.features', 'Features')}</span>
+            <h2 className="global-section-title">{t('retail.features.title', 'Everything you need for Retail Inventory')}</h2>
           </div>
           <div className="ri-features-grid">
             {features.map((feature, idx) => (
@@ -473,8 +476,8 @@ const RetailInventory = () => {
                   <div className="ri-feature-icon">
                     {feature.icon}
                   </div>
-                  <h3>{t(`retail.feature.f${idx}_title`, feature.title)}</h3>
-                  <p>{t(`retail.feature.f${idx}_desc`, feature.desc)}</p>
+                  <h3>{t(`retail.featureCards.${idx}.title`, feature.title)}</h3>
+                  <p>{t(`retail.featureCards.${idx}.desc`, feature.desc)}</p>
                 </div>
               </div>
             ))}

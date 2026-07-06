@@ -65,7 +65,7 @@
   position: static;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 1.25rem;
   margin-bottom: 1.5rem;
   z-index: 10;
@@ -90,7 +90,6 @@
     0 8px 0 #1e40af, 
     0 15px 25px rgba(37, 99, 235, 0.4);
   position: relative;
-  transform: translateY(-4px);
 }
 
 .product-icon-3d::before {

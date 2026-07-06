@@ -84,26 +84,26 @@ const WhyEmvive = () => {
   const benefits = [
     {
       id: 1,
-      title: t('why.benefits.1.title', 'Unified Platform, Zero Silos'),
-      description: t('why.benefits.1.desc', 'From Cloud ERP and CRM to HR & Payroll and E-Invoicing — Emvive connects every department on a single platform. No more juggling between disconnected tools or importing spreadsheets.'),
+      title: t('whyData.b1_title', 'Unified Platform, Zero Silos'),
+      description: t('whyData.b1_desc', 'From Cloud ERP and CRM to HR & Payroll and E-Invoicing — Emvive connects every department on a single platform. No more juggling between disconnected tools or importing spreadsheets.'),
       illustration: <OutcomeIllustration />,
     },
     {
       id: 2,
-      title: t('why.benefits.2.title', '99.9% Uptime Guarantee'),
-      description: t('why.benefits.2.desc', 'Our cloud infrastructure is built for mission-critical operations. Real-time monitoring, automatic failovers, and load balancing keep your business running 24/7 without disruption.'),
+      title: t('whyData.b2_title', '99.9% Uptime Guarantee'),
+      description: t('whyData.b2_desc', 'Our cloud infrastructure is built for mission-critical operations. Real-time monitoring, automatic failovers, and load balancing keep your business running 24/7 without disruption.'),
       illustration: <ReliabilityIllustration />,
     },
     {
       id: 3,
-      title: t('why.benefits.3.title', 'Enterprise-Grade Security'),
-      description: t('why.benefits.3.desc', 'End-to-end encryption, role-based access control, SSO/SAML authentication, and comprehensive audit trails. Your financial data, HR records, and customer information stay protected.'),
+      title: t('whyData.b3_title', 'Enterprise-Grade Security'),
+      description: t('whyData.b3_desc', 'End-to-end encryption, role-based access control, SSO/SAML authentication, and comprehensive audit trails. Your financial data, HR records, and customer information stay protected.'),
       illustration: <SecureIllustration />,
     },
     {
       id: 4,
-      title: t('why.benefits.4.title', 'Intuitive by Design'),
-      description: t('why.benefits.4.desc', 'Every module — from Workflow Automation to Advanced Reporting — is crafted with clean interfaces that your teams can adopt in days, not months. Less training, faster ROI.'),
+      title: t('whyData.b4_title', 'Intuitive by Design'),
+      description: t('whyData.b4_desc', 'Every module — from Workflow Automation to Advanced Reporting — is crafted with clean interfaces that your teams can adopt in days, not months. Less training, faster ROI.'),
       illustration: <DesignIllustration />,
     },
   ];

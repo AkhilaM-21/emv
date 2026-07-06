@@ -1,7 +1,7 @@
 /* RetailInventory.css */
 
 .retail-inventory-page {
-  padding-top: 128px; /* Space for the fixed header + announcement bar */
+  padding-top: 90px; /* Space for the fixed header */
   background: #ffffff;
   color: #0f172a;
 }
@@ -11,7 +11,7 @@
 /* ============================================ */
 .ri-subnav {
   position: sticky;
-  top: 128px; /* sit right under the fixed main header */
+  top: 90px; /* sit right under the fixed main header */
   z-index: 900;
   background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(12px) saturate(140%);
@@ -361,7 +361,7 @@
   /* Same 3D pill button as the home page */
   background: linear-gradient(180deg, #ffffff 0%, #eef1f6 100%);
   color: #16181d;
-  padding: 1rem 2rem;
+  padding: 0.5rem 0.5rem 0.5rem 2rem;
   border-radius: 50px;
   font-weight: 600;
   text-decoration: none;
@@ -374,7 +374,7 @@
     0 8px 16px rgba(0, 0, 0, 0.18);
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.8rem;
 }
 
 .ri-btn-secondary:hover {

@@ -101,11 +101,6 @@ const Header = () => {
 
   return (
     <header className={`neurox-header ${isScrolled || openNav || mobileOpen || !isHome ? 'scrolled' : ''}`}>
-      {/* Static Announcement Bar */}
-      <div className="announcement-bar">
-        <span className="announcement-item">🚀 Introducing E-Invoicing: Secure, compliant, and seamless electronic billing.</span>
-      </div>
-
       <div className="header-container">
 
         {/* Left Side: Logo (click → home) */}
