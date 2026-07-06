@@ -820,9 +820,44 @@
 @media (max-width: 992px) {
   .hero-title { font-size: 2.6rem; }
   .laptop-container { transform: scale(0.7); }
+
+  /* Split carousel stacks: text over visual, centered */
+  .hero-slide.split { padding: 90px 1.5rem 0; }
+  .hero-split {
+    flex-direction: column;
+    gap: 2rem;
+    text-align: center;
+  }
+  .hero-split-text {
+    max-width: 100%;
+    text-align: center;
+  }
+  .hero-split-text .hero-title { text-align: center; font-size: 2.2rem; }
+  .hero-split-text .hero-description { text-align: center; }
+  .hero-split-text .hero-actions { justify-content: center; }
+  .hero-visual-card { max-width: 460px; width: 100%; }
 }
 
 @media (max-width: 640px) {
-  .hero-title { font-size: 1.8rem; }
+  .hero-section { padding: 90px 0 30px; }
+  .hero-title { font-size: 1.9rem; }
+  .hero-description { font-size: 1rem; }
   .laptop-container { transform: scale(0.4); }
+  .hero-card-content .hero-title { font-size: 1.75rem; }
+  .hero-card-content .hero-description { font-size: 0.98rem; text-align: left; }
+  .hero-split-text .hero-title { font-size: 1.85rem; }
+  .hero-carousel-controls { left: 50%; }
+  /* Rotator can wrap on very narrow screens */
+  .hero-line1 { flex-wrap: wrap; white-space: normal; }
+}
+
+@media (max-width: 480px) {
+  .hero-slide.split { padding: 80px 1rem 0; }
+  .hero-card-content { padding: 2rem 1.15rem 0; }
+  .hero-card-visual { padding: 1.5rem 1.15rem 2.5rem; }
+  .hero-cta { width: 100%; justify-content: center; }
+  .hero-feature-chips { gap: 0.5rem; }
+  .hero-chip { font-size: 0.82rem; padding: 0.45rem 0.9rem; }
+  .btn-3d { width: 100%; justify-content: center; }
+  .trust-avatars img { width: 38px; height: 38px; }
 }
