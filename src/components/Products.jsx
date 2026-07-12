@@ -407,7 +407,7 @@ const Products = () => {
             return (
               <div 
                 key={product.id} 
-                className="timeline-item"
+                className={`timeline-item ${isActive ? 'active' : ''}`}
                 style={{ zIndex: itemZIndex, top: `${100 + (index * 20)}px` }}
                 ref={(el) => (itemRefs.current[index] = el)}
               >

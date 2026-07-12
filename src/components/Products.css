@@ -54,6 +54,23 @@
   margin-bottom: 0;
 }
 
+/* Blue border for the active/focused card - FULL Top */
+.timeline-item::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  border-radius: inherit;
+  box-shadow: inset 0 4px 0 0 #2563eb;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  z-index: 20;
+}
+
+.timeline-item.active::after {
+  opacity: 1;
+}
+
 /* Gives the LAST sticky card real in-flow room below it so it can stay pinned
    and fully reveal (dashboard included) before the section ends. */
 .timeline-end-spacer {
@@ -74,13 +91,14 @@
 /* Card title in the flow (overrides the global 3.2rem for the per-card title) */
 .product-header-top .product-title-top {
   font-size: 2.4rem !important;
+  margin-bottom: 0 !important;
 }
 
 .product-icon-3d {
-  width: 64px;
-  height: 64px;
+  width: 48px;
+  height: 48px;
   background: linear-gradient(135deg, #60a5fa 0%, #2563eb 100%);
-  border-radius: 18px;
+  border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;

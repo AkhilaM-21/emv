@@ -551,9 +551,9 @@ body.dark-theme .gs-foot { color: #a9b8d6; }
 
 .gs-value {
   font-weight: 800;
-  font-size: 1.55rem;
+  font-size: 1.9rem;
   letter-spacing: -0.5px;
-  line-height: 1.15;
+  line-height: 1.1;
   background: linear-gradient(90deg, #2563eb 0%, #7a5cff 100%);
   -webkit-background-clip: text;
   background-clip: text;
