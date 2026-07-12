@@ -86,10 +86,7 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Huge Typography Section */}
-        <div className="footer-huge-text">
-          <h1>{t('footer.slogan', 'Unify. Automate. Scale.')}</h1>
-        </div>
+
 
         {/* Bottom Bar */}
         <div className="footer-bottom">

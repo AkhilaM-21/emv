@@ -14,7 +14,8 @@ const CLIENTS = [
   { id: 8, imgSrc: 'https://tekspurts.com/EMvive/assets/img/brand/home-3/taxillalogo_l.png' },
   { id: 9, imgSrc: 'https://tekspurts.com/EMvive/assets/img/brand/home-3/logo-h.png' },
   { id: 10, imgSrc: 'https://tekspurts.com/EMvive/assets/img/brand/home-3/sappco.png' },
-  { id: 11, imgSrc: 'https://tekspurts.com/EMvive/assets/img/brand/home-3/saptex.jpg' }
+  { id: 11, imgSrc: 'https://tekspurts.com/EMvive/assets/img/brand/home-3/saptex.jpg' },
+  { id: 12, imgSrc: '/tamimi_logo.svg' }
 ];
 
 const Clients = () => {

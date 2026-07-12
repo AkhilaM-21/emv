@@ -1,5 +1,5 @@
-import { 
-  ShoppingCart, Calculator, Truck, Activity, FileText, Users, 
+import {
+  ShoppingCart, Calculator, Truck, Activity, FileText, Users,
   Settings, Box, CheckCircle, Package, PenTool, BarChart2,
   Heart, Shield, Stethoscope, Clipboard, UserPlus, Clock,
   HardHat, Map, Wrench, Briefcase, Ruler, Zap,
@@ -30,9 +30,9 @@ export const getMegaMenuData = (t) => ({
         { icon: Settings, title: t('megaMenu.manufacturing.production', "Production Planning"), desc: t('megaMenu.manufacturing.productionDesc', "Optimize shop floor operations") },
         { icon: Box, title: t('megaMenu.manufacturing.quality', "Quality Control"), desc: t('megaMenu.manufacturing.qualityDesc', "Automated inspection workflows") },
         { icon: CheckCircle, title: t('megaMenu.manufacturing.maintenance', "Predictive Maintenance"), desc: t('megaMenu.manufacturing.maintenanceDesc', "IoT-driven asset management") },
-        { icon: Package, title: "Warehouse Management", desc: "Advanced bin and batch tracking." },
-        { icon: PenTool, title: "Maintenance", desc: "Predictive maintenance schedules." },
-        { icon: BarChart2, title: "Cost Accounting", desc: "Real-time cost variance analysis." }
+        { icon: Package, title: t('megaMenu.manufacturing.warehouse', "Warehouse Management"), desc: t('megaMenu.manufacturing.warehouseDesc', "Advanced bin and batch tracking.") },
+        { icon: PenTool, title: t('megaMenu.manufacturing.maintenanceSchedule', "Maintenance"), desc: t('megaMenu.manufacturing.maintenanceScheduleDesc', "Predictive maintenance schedules.") },
+        { icon: BarChart2, title: t('megaMenu.manufacturing.costAccounting', "Cost Accounting"), desc: t('megaMenu.manufacturing.costAccountingDesc', "Real-time cost variance analysis.") }
       ]
     },
     [t('megaMenu.healthcare.title', 'Healthcare')]: {
@@ -40,201 +40,201 @@ export const getMegaMenuData = (t) => ({
       subtitle: t('megaMenu.healthcare.subtitle', 'Tailored for clinics and hospitals to manage patient data and billing.'),
       modules: [
         { icon: Heart, title: t('megaMenu.healthcare.patient', "Patient Records"), desc: t('megaMenu.healthcare.patientDesc', "HIPAA-compliant data management") },
-        { icon: Shield, title: "Compliance", desc: "HIPAA and local data privacy compliance tools." },
-        { icon: Stethoscope, title: "Clinic Operations", desc: "Manage appointments, doctors, and staff schedules." },
+        { icon: Shield, title: t('megaMenu.healthcare.compliance', "Compliance"), desc: t('megaMenu.healthcare.complianceDesc', "HIPAA and local data privacy compliance tools.") },
+        { icon: Stethoscope, title: t('megaMenu.healthcare.clinic', "Clinic Operations"), desc: t('megaMenu.healthcare.clinicDesc', "Manage appointments, doctors, and staff schedules.") },
         { icon: Clipboard, title: t('megaMenu.healthcare.billing', "Medical Billing"), desc: t('megaMenu.healthcare.billingDesc', "Automated insurance claims") },
-        { icon: Box, title: "Pharmacy Inventory", desc: "Track medicines, expiry dates, and stock levels." },
-        { icon: Users, title: "Patient Portal", desc: "Online portal for patients to view test results." }
+        { icon: Box, title: t('megaMenu.healthcare.pharmacy', "Pharmacy Inventory"), desc: t('megaMenu.healthcare.pharmacyDesc', "Track medicines, expiry dates, and stock levels.") },
+        { icon: Users, title: t('megaMenu.healthcare.portal', "Patient Portal"), desc: t('megaMenu.healthcare.portalDesc', "Online portal for patients to view test results.") }
       ]
     }
   },
   [t('megaMenu.products.hrPayroll', 'HR & Payroll')]: {
-    "Core HR": {
-      title: "Core HR & Payroll",
-      subtitle: "Comprehensive HR management for modern organizations.",
+    [t('megaMenu.coreHr.label', "Core HR")]: {
+      title: t('megaMenu.coreHr.title', "Core HR & Payroll"),
+      subtitle: t('megaMenu.coreHr.subtitle', "Comprehensive HR management for modern organizations."),
       modules: [
-        { icon: Users, title: "Employee Directory", desc: "Centralized database for all employee records." },
-        { icon: CreditCard, title: "Automated Payroll", desc: "One-click payroll processing with tax compliance." },
-        { icon: Clock, title: "Time & Attendance", desc: "Biometric integration and leave management." },
-        { icon: UserPlus, title: "Recruitment", desc: "Applicant tracking and onboarding workflows." },
-        { icon: Star, title: "Performance", desc: "KPI tracking and regular appraisal cycles." },
-        { icon: Shield, title: "Employee Self-Service", desc: "Mobile app for payslips and leave requests." }
+        { icon: Users, title: t('megaMenu.coreHr.directory', "Employee Directory"), desc: t('megaMenu.coreHr.directoryDesc', "Centralized database for all employee records.") },
+        { icon: CreditCard, title: t('megaMenu.coreHr.payroll', "Automated Payroll"), desc: t('megaMenu.coreHr.payrollDesc', "One-click payroll processing with tax compliance.") },
+        { icon: Clock, title: t('megaMenu.coreHr.attendance', "Time & Attendance"), desc: t('megaMenu.coreHr.attendanceDesc', "Biometric integration and leave management.") },
+        { icon: UserPlus, title: t('megaMenu.coreHr.recruitment', "Recruitment"), desc: t('megaMenu.coreHr.recruitmentDesc', "Applicant tracking and onboarding workflows.") },
+        { icon: Star, title: t('megaMenu.coreHr.performance', "Performance"), desc: t('megaMenu.coreHr.performanceDesc', "KPI tracking and regular appraisal cycles.") },
+        { icon: Shield, title: t('megaMenu.coreHr.selfService', "Employee Self-Service"), desc: t('megaMenu.coreHr.selfServiceDesc', "Mobile app for payslips and leave requests.") }
       ]
     },
-    "Retail & Shift Work": {
-      title: "Retail & Shift Work HR",
-      subtitle: "Specialized tools for managing hourly and shift-based workers.",
+    [t('megaMenu.retailShift.label', "Retail & Shift Work")]: {
+      title: t('megaMenu.retailShift.title', "Retail & Shift Work HR"),
+      subtitle: t('megaMenu.retailShift.subtitle', "Specialized tools for managing hourly and shift-based workers."),
       modules: [
-        { icon: Clock, title: "Advanced Rostering", desc: "AI-driven shift scheduling and swap requests." },
-        { icon: Map, title: "Geo-fenced Attendance", desc: "Mobile check-ins restricted to store locations." },
-        { icon: Calculator, title: "Overtime Rules", desc: "Automated calculation of complex overtime rates." },
-        { icon: TrendingUp, title: "Sales Commission", desc: "Link POS data to employee commission payouts." },
-        { icon: Users, title: "Temporary Staffing", desc: "Manage contracts for seasonal retail workers." },
-        { icon: MessageSquare, title: "Team Comms", desc: "Broadcast messages to all store staff instantly." }
+        { icon: Clock, title: t('megaMenu.retailShift.rostering', "Advanced Rostering"), desc: t('megaMenu.retailShift.rosteringDesc', "AI-driven shift scheduling and swap requests.") },
+        { icon: Map, title: t('megaMenu.retailShift.geoAttendance', "Geo-fenced Attendance"), desc: t('megaMenu.retailShift.geoAttendanceDesc', "Mobile check-ins restricted to store locations.") },
+        { icon: Calculator, title: t('megaMenu.retailShift.overtime', "Overtime Rules"), desc: t('megaMenu.retailShift.overtimeDesc', "Automated calculation of complex overtime rates.") },
+        { icon: TrendingUp, title: t('megaMenu.retailShift.commission', "Sales Commission"), desc: t('megaMenu.retailShift.commissionDesc', "Link POS data to employee commission payouts.") },
+        { icon: Users, title: t('megaMenu.retailShift.tempStaffing', "Temporary Staffing"), desc: t('megaMenu.retailShift.tempStaffingDesc', "Manage contracts for seasonal retail workers.") },
+        { icon: MessageSquare, title: t('megaMenu.retailShift.teamComms', "Team Comms"), desc: t('megaMenu.retailShift.teamCommsDesc', "Broadcast messages to all store staff instantly.") }
       ]
     },
-    "Healthcare Staffing": {
-      title: t('megaMenu.healthcare.title', 'Healthcare') + " Staffing",
-      subtitle: "Manage complex medical rosters and credential tracking.",
+    [t('megaMenu.healthcareStaffing.label', "Healthcare Staffing")]: {
+      title: t('megaMenu.healthcareStaffing.title', "Healthcare Staffing"),
+      subtitle: t('megaMenu.healthcareStaffing.subtitle', "Manage complex medical rosters and credential tracking."),
       modules: [
-        { icon: Stethoscope, title: "Credential Tracking", desc: "Monitor license expiries and certifications." },
-        { icon: Clock, title: "On-Call Rostering", desc: "Manage complex 24/7 on-call schedules." },
-        { icon: Heart, title: "Burnout Prevention", desc: "Track consecutive shifts to ensure compliance." },
-        { icon: FileText, title: "Shift Differentials", desc: "Automate pay rates for night and weekend shifts." },
-        { icon: Shield, title: "Compliance Audits", desc: "Automated reporting for healthcare regulations." },
-        { icon: Users, title: "Locum Management", desc: "Manage temporary doctors and agency staff." }
+        { icon: Stethoscope, title: t('megaMenu.healthcareStaffing.credentials', "Credential Tracking"), desc: t('megaMenu.healthcareStaffing.credentialsDesc', "Monitor license expiries and certifications.") },
+        { icon: Clock, title: t('megaMenu.healthcareStaffing.onCall', "On-Call Rostering"), desc: t('megaMenu.healthcareStaffing.onCallDesc', "Manage complex 24/7 on-call schedules.") },
+        { icon: Heart, title: t('megaMenu.healthcareStaffing.burnout', "Burnout Prevention"), desc: t('megaMenu.healthcareStaffing.burnoutDesc', "Track consecutive shifts to ensure compliance.") },
+        { icon: FileText, title: t('megaMenu.healthcareStaffing.differentials', "Shift Differentials"), desc: t('megaMenu.healthcareStaffing.differentialsDesc', "Automate pay rates for night and weekend shifts.") },
+        { icon: Shield, title: t('megaMenu.healthcareStaffing.audits', "Compliance Audits"), desc: t('megaMenu.healthcareStaffing.auditsDesc', "Automated reporting for healthcare regulations.") },
+        { icon: Users, title: t('megaMenu.healthcareStaffing.locum', "Locum Management"), desc: t('megaMenu.healthcareStaffing.locumDesc', "Manage temporary doctors and agency staff.") }
       ]
     }
   },
   [t('megaMenu.products.crmSales', 'CRM & Sales')]: {
-    "B2B Enterprise": {
-      title: "B2B Sales CRM",
-      subtitle: "Drive revenue with advanced pipeline and account management.",
+    [t('megaMenu.b2b.label', "B2B Enterprise")]: {
+      title: t('megaMenu.b2b.title', "B2B Sales CRM"),
+      subtitle: t('megaMenu.b2b.subtitle', "Drive revenue with advanced pipeline and account management."),
       modules: [
-        { icon: Briefcase, title: "Account Management", desc: "360-degree view of corporate clients." },
-        { icon: TrendingUp, title: "Pipeline Tracking", desc: "Visual drag-and-drop sales pipelines." },
-        { icon: FileText, title: "Quotes & Proposals", desc: "Generate professional quotes in seconds." },
-        { icon: Mail, title: "Email Integration", desc: "Sync with Outlook and Gmail automatically." },
-        { icon: PieChart, title: "Sales Forecasting", desc: "AI-driven revenue predictions." },
-        { icon: Shield, title: "Territory Management", desc: "Assign leads based on geography and rules." }
+        { icon: Briefcase, title: t('megaMenu.b2b.account', "Account Management"), desc: t('megaMenu.b2b.accountDesc', "360-degree view of corporate clients.") },
+        { icon: TrendingUp, title: t('megaMenu.b2b.pipeline', "Pipeline Tracking"), desc: t('megaMenu.b2b.pipelineDesc', "Visual drag-and-drop sales pipelines.") },
+        { icon: FileText, title: t('megaMenu.b2b.quotes', "Quotes & Proposals"), desc: t('megaMenu.b2b.quotesDesc', "Generate professional quotes in seconds.") },
+        { icon: Mail, title: t('megaMenu.b2b.email', "Email Integration"), desc: t('megaMenu.b2b.emailDesc', "Sync with Outlook and Gmail automatically.") },
+        { icon: PieChart, title: t('megaMenu.b2b.forecasting', "Sales Forecasting"), desc: t('megaMenu.b2b.forecastingDesc', "AI-driven revenue predictions.") },
+        { icon: Shield, title: t('megaMenu.b2b.territory', "Territory Management"), desc: t('megaMenu.b2b.territoryDesc', "Assign leads based on geography and rules.") }
       ]
     },
-    "Retail & E-commerce": {
-      title: t('megaMenu.retail.title', 'Retail & POS') + " CRM",
-      subtitle: "Omnichannel customer engagement and loyalty.",
+    [t('megaMenu.retailEcommerce.label', "Retail & E-commerce")]: {
+      title: t('megaMenu.retailEcommerce.title', "Retail & POS CRM"),
+      subtitle: t('megaMenu.retailEcommerce.subtitle', "Omnichannel customer engagement and loyalty."),
       modules: [
-        { icon: Heart, title: "Loyalty Programs", desc: "Points, tiers, and rewards management." },
-        { icon: UserPlus, title: "Customer Profiles", desc: "Unified view of online and in-store purchases." },
-        { icon: Send, title: "Marketing Automation", desc: "Triggered SMS and email campaigns." },
-        { icon: Activity, title: "Behavior Analytics", desc: "Track browsing and purchase patterns." },
-        { icon: MessageSquare, title: "Support Tickets", desc: "Manage customer complaints and returns." },
-        { icon: Star, title: "Feedback & Reviews", desc: "Automated post-purchase survey collection." }
+        { icon: Heart, title: t('megaMenu.retailEcommerce.loyalty', "Loyalty Programs"), desc: t('megaMenu.retailEcommerce.loyaltyDesc', "Points, tiers, and rewards management.") },
+        { icon: UserPlus, title: t('megaMenu.retailEcommerce.profiles', "Customer Profiles"), desc: t('megaMenu.retailEcommerce.profilesDesc', "Unified view of online and in-store purchases.") },
+        { icon: Send, title: t('megaMenu.retailEcommerce.marketing', "Marketing Automation"), desc: t('megaMenu.retailEcommerce.marketingDesc', "Triggered SMS and email campaigns.") },
+        { icon: Activity, title: t('megaMenu.retailEcommerce.behavior', "Behavior Analytics"), desc: t('megaMenu.retailEcommerce.behaviorDesc', "Track browsing and purchase patterns.") },
+        { icon: MessageSquare, title: t('megaMenu.retailEcommerce.support', "Support Tickets"), desc: t('megaMenu.retailEcommerce.supportDesc', "Manage customer complaints and returns.") },
+        { icon: Star, title: t('megaMenu.retailEcommerce.feedback', "Feedback & Reviews"), desc: t('megaMenu.retailEcommerce.feedbackDesc', "Automated post-purchase survey collection.") }
       ]
     },
-    "Real Estate": {
-      title: "Real Estate CRM",
-      subtitle: "Manage properties, leads, and agent commissions.",
+    [t('megaMenu.realEstate.label', "Real Estate")]: {
+      title: t('megaMenu.realEstate.title', "Real Estate CRM"),
+      subtitle: t('megaMenu.realEstate.subtitle', "Manage properties, leads, and agent commissions."),
       modules: [
-        { icon: Home, title: "Property Listings", desc: "Centralized database of available inventory." },
-        { icon: Users, title: "Lead Matching", desc: "Auto-match buyer preferences to new listings." },
-        { icon: Camera, title: "Virtual Tours", desc: "Integrate 3D tours directly into client portals." },
-        { icon: Calculator, title: "Commission Splits", desc: "Automate complex broker and agent payouts." },
-        { icon: FileText, title: "Contract Management", desc: "Digital signatures and lease tracking." },
-        { icon: Phone, title: "Call Tracking", desc: "Log agent calls and texts automatically." }
+        { icon: Home, title: t('megaMenu.realEstate.listings', "Property Listings"), desc: t('megaMenu.realEstate.listingsDesc', "Centralized database of available inventory.") },
+        { icon: Users, title: t('megaMenu.realEstate.leadMatching', "Lead Matching"), desc: t('megaMenu.realEstate.leadMatchingDesc', "Auto-match buyer preferences to new listings.") },
+        { icon: Camera, title: t('megaMenu.realEstate.tours', "Virtual Tours"), desc: t('megaMenu.realEstate.toursDesc', "Integrate 3D tours directly into client portals.") },
+        { icon: Calculator, title: t('megaMenu.realEstate.commissions', "Commission Splits"), desc: t('megaMenu.realEstate.commissionsDesc', "Automate complex broker and agent payouts.") },
+        { icon: FileText, title: t('megaMenu.realEstate.contracts', "Contract Management"), desc: t('megaMenu.realEstate.contractsDesc', "Digital signatures and lease tracking.") },
+        { icon: Phone, title: t('megaMenu.realEstate.callTracking', "Call Tracking"), desc: t('megaMenu.realEstate.callTrackingDesc', "Log agent calls and texts automatically.") }
       ]
     }
   },
   [t('megaMenu.products.reporting', 'Advanced Reporting')]: {
-    "Business Intelligence": {
-      title: "Business Intelligence",
-      subtitle: "Turn your raw data into actionable insights.",
+    [t('megaMenu.bi.label', "Business Intelligence")]: {
+      title: t('megaMenu.bi.title', "Business Intelligence"),
+      subtitle: t('megaMenu.bi.subtitle', "Turn your raw data into actionable insights."),
       modules: [
-        { icon: BarChart2, title: "Custom Dashboards", desc: "Drag-and-drop widget builder." },
-        { icon: PieChart, title: "Financial Reports", desc: "P&L, Balance Sheets, and Cash Flow statements." },
-        { icon: Database, title: "Data Warehousing", desc: "Consolidate data from multiple sources." },
-        { icon: Activity, title: "Real-time Metrics", desc: "Live monitoring of critical KPIs." },
-        { icon: Send, title: "Scheduled Reports", desc: "Automated email delivery to stakeholders." },
-        { icon: Shield, title: "Role-based Access", desc: "Control who sees sensitive financial data." }
+        { icon: BarChart2, title: t('megaMenu.bi.dashboards', "Custom Dashboards"), desc: t('megaMenu.bi.dashboardsDesc', "Drag-and-drop widget builder.") },
+        { icon: PieChart, title: t('megaMenu.bi.financialReports', "Financial Reports"), desc: t('megaMenu.bi.financialReportsDesc', "P&L, Balance Sheets, and Cash Flow statements.") },
+        { icon: Database, title: t('megaMenu.bi.warehousing', "Data Warehousing"), desc: t('megaMenu.bi.warehousingDesc', "Consolidate data from multiple sources.") },
+        { icon: Activity, title: t('megaMenu.bi.realtime', "Real-time Metrics"), desc: t('megaMenu.bi.realtimeDesc', "Live monitoring of critical KPIs.") },
+        { icon: Send, title: t('megaMenu.bi.scheduled', "Scheduled Reports"), desc: t('megaMenu.bi.scheduledDesc', "Automated email delivery to stakeholders.") },
+        { icon: Shield, title: t('megaMenu.bi.roleAccess', "Role-based Access"), desc: t('megaMenu.bi.roleAccessDesc', "Control who sees sensitive financial data.") }
       ]
     },
-    "Financial Analytics": {
-      title: "Financial Analytics",
-      subtitle: "Deep-dive into revenue, costs, and profit margins.",
+    [t('megaMenu.financialAnalytics.label', "Financial Analytics")]: {
+      title: t('megaMenu.financialAnalytics.title', "Financial Analytics"),
+      subtitle: t('megaMenu.financialAnalytics.subtitle', "Deep-dive into revenue, costs, and profit margins."),
       modules: [
-        { icon: TrendingUp, title: "Revenue Forecasting", desc: "Predictive models based on historical sales." },
-        { icon: Calculator, title: "Cost Allocation", desc: "Track expenses across departments and projects." },
-        { icon: Search, title: "Audit Trails", desc: "Detailed logs for compliance and auditing." },
-        { icon: CreditCard, title: "Cash Flow Analysis", desc: "Real-time liquidity and burn rate tracking." },
-        { icon: Briefcase, title: "Budget vs Actuals", desc: "Variance reporting for strict budget control." },
-        { icon: FileText, title: "Tax Reporting", desc: "Automated generation of local tax documents." }
+        { icon: TrendingUp, title: t('megaMenu.financialAnalytics.revenueForecasting', "Revenue Forecasting"), desc: t('megaMenu.financialAnalytics.revenueForecastingDesc', "Predictive models based on historical sales.") },
+        { icon: Calculator, title: t('megaMenu.financialAnalytics.costAllocation', "Cost Allocation"), desc: t('megaMenu.financialAnalytics.costAllocationDesc', "Track expenses across departments and projects.") },
+        { icon: Search, title: t('megaMenu.financialAnalytics.auditTrails', "Audit Trails"), desc: t('megaMenu.financialAnalytics.auditTrailsDesc', "Detailed logs for compliance and auditing.") },
+        { icon: CreditCard, title: t('megaMenu.financialAnalytics.cashFlow', "Cash Flow Analysis"), desc: t('megaMenu.financialAnalytics.cashFlowDesc', "Real-time liquidity and burn rate tracking.") },
+        { icon: Briefcase, title: t('megaMenu.financialAnalytics.budget', "Budget vs Actuals"), desc: t('megaMenu.financialAnalytics.budgetDesc', "Variance reporting for strict budget control.") },
+        { icon: FileText, title: t('megaMenu.financialAnalytics.tax', "Tax Reporting"), desc: t('megaMenu.financialAnalytics.taxDesc', "Automated generation of local tax documents.") }
       ]
     },
-    "Operational Metrics": {
-      title: "Operational Metrics",
-      subtitle: "Monitor efficiency and output across your supply chain.",
+    [t('megaMenu.operationalMetrics.label', "Operational Metrics")]: {
+      title: t('megaMenu.operationalMetrics.title', "Operational Metrics"),
+      subtitle: t('megaMenu.operationalMetrics.subtitle', "Monitor efficiency and output across your supply chain."),
       modules: [
-        { icon: Truck, title: "Logistics Tracking", desc: "Delivery times and fleet efficiency stats." },
-        { icon: Box, title: "Inventory Turnover", desc: "Identify slow-moving stock and optimize space." },
-        { icon: Settings, title: "Production Yield", desc: "Monitor manufacturing defect rates and output." },
-        { icon: Users, title: "Labor Efficiency", desc: "Track output per hour for shift workers." },
-        { icon: CheckCircle, title: "Quality Metrics", desc: "Analyze return rates and defect reasons." },
-        { icon: Zap, title: "Downtime Analysis", desc: "Track and minimize equipment failure times." }
+        { icon: Truck, title: t('megaMenu.operationalMetrics.logistics', "Logistics Tracking"), desc: t('megaMenu.operationalMetrics.logisticsDesc', "Delivery times and fleet efficiency stats.") },
+        { icon: Box, title: t('megaMenu.operationalMetrics.turnover', "Inventory Turnover"), desc: t('megaMenu.operationalMetrics.turnoverDesc', "Identify slow-moving stock and optimize space.") },
+        { icon: Settings, title: t('megaMenu.operationalMetrics.yield', "Production Yield"), desc: t('megaMenu.operationalMetrics.yieldDesc', "Monitor manufacturing defect rates and output.") },
+        { icon: Users, title: t('megaMenu.operationalMetrics.labor', "Labor Efficiency"), desc: t('megaMenu.operationalMetrics.laborDesc', "Track output per hour for shift workers.") },
+        { icon: CheckCircle, title: t('megaMenu.operationalMetrics.qualityMetrics', "Quality Metrics"), desc: t('megaMenu.operationalMetrics.qualityMetricsDesc', "Analyze return rates and defect reasons.") },
+        { icon: Zap, title: t('megaMenu.operationalMetrics.downtime', "Downtime Analysis"), desc: t('megaMenu.operationalMetrics.downtimeDesc', "Track and minimize equipment failure times.") }
       ]
     }
   },
   [t('megaMenu.products.workflow', 'Workflow Automation')]: {
-    "Process Management": {
-      title: "Process Management",
-      subtitle: "Automate repetitive tasks and approval chains.",
+    [t('megaMenu.processManagement.label', "Process Management")]: {
+      title: t('megaMenu.processManagement.title', "Process Management"),
+      subtitle: t('megaMenu.processManagement.subtitle', "Automate repetitive tasks and approval chains."),
       modules: [
-        { icon: Layout, title: "Visual Builder", desc: "No-code drag-and-drop workflow creator." },
-        { icon: CheckCircle, title: "Approval Matrices", desc: "Multi-level conditional approval routing." },
-        { icon: Zap, title: "Event Triggers", desc: "Launch workflows based on system events." },
-        { icon: Clock, title: "SLA Tracking", desc: "Monitor bottlenecks and task turnaround times." },
-        { icon: Mail, title: "Notifications", desc: "Automated alerts via email, SMS, or Slack." },
-        { icon: FileText, title: "Audit Trails", desc: "Complete history of every workflow action." }
+        { icon: Layout, title: t('megaMenu.processManagement.visualBuilder', "Visual Builder"), desc: t('megaMenu.processManagement.visualBuilderDesc', "No-code drag-and-drop workflow creator.") },
+        { icon: CheckCircle, title: t('megaMenu.processManagement.approvals', "Approval Matrices"), desc: t('megaMenu.processManagement.approvalsDesc', "Multi-level conditional approval routing.") },
+        { icon: Zap, title: t('megaMenu.processManagement.triggers', "Event Triggers"), desc: t('megaMenu.processManagement.triggersDesc', "Launch workflows based on system events.") },
+        { icon: Clock, title: t('megaMenu.processManagement.sla', "SLA Tracking"), desc: t('megaMenu.processManagement.slaDesc', "Monitor bottlenecks and task turnaround times.") },
+        { icon: Mail, title: t('megaMenu.processManagement.notifications', "Notifications"), desc: t('megaMenu.processManagement.notificationsDesc', "Automated alerts via email, SMS, or Slack.") },
+        { icon: FileText, title: t('megaMenu.processManagement.auditTrails', "Audit Trails"), desc: t('megaMenu.processManagement.auditTrailsDesc', "Complete history of every workflow action.") }
       ]
     },
-    "IT Service Management": {
-      title: "IT Service Management",
-      subtitle: "Automate internal IT ticketing and asset provisioning.",
+    [t('megaMenu.itService.label', "IT Service Management")]: {
+      title: t('megaMenu.itService.title', "IT Service Management"),
+      subtitle: t('megaMenu.itService.subtitle', "Automate internal IT ticketing and asset provisioning."),
       modules: [
-        { icon: Shield, title: "Access Requests", desc: "Automate software provisioning approvals." },
-        { icon: Wrench, title: "Incident Routing", desc: "Auto-assign tickets based on issue type." },
-        { icon: Server, title: "Asset Deployment", desc: "Track laptops and software licenses." },
-        { icon: Lock, title: "Security Alerts", desc: "Trigger lockdown workflows on breach detection." },
-        { icon: Users, title: "Vendor Onboarding", desc: "Streamline IT setup for new contractors." },
-        { icon: FileText, title: "Compliance Logs", desc: "Automated reporting for IT audits." }
+        { icon: Shield, title: t('megaMenu.itService.accessRequests', "Access Requests"), desc: t('megaMenu.itService.accessRequestsDesc', "Automate software provisioning approvals.") },
+        { icon: Wrench, title: t('megaMenu.itService.incidentRouting', "Incident Routing"), desc: t('megaMenu.itService.incidentRoutingDesc', "Auto-assign tickets based on issue type.") },
+        { icon: Server, title: t('megaMenu.itService.assetDeployment', "Asset Deployment"), desc: t('megaMenu.itService.assetDeploymentDesc', "Track laptops and software licenses.") },
+        { icon: Lock, title: t('megaMenu.itService.securityAlerts', "Security Alerts"), desc: t('megaMenu.itService.securityAlertsDesc', "Trigger lockdown workflows on breach detection.") },
+        { icon: Users, title: t('megaMenu.itService.vendorOnboarding', "Vendor Onboarding"), desc: t('megaMenu.itService.vendorOnboardingDesc', "Streamline IT setup for new contractors.") },
+        { icon: FileText, title: t('megaMenu.itService.complianceLogs', "Compliance Logs"), desc: t('megaMenu.itService.complianceLogsDesc', "Automated reporting for IT audits.") }
       ]
     },
-    "HR Onboarding": {
-      title: "HR Onboarding",
-      subtitle: "Seamlessly transition new hires into the company.",
+    [t('megaMenu.hrOnboarding.label', "HR Onboarding")]: {
+      title: t('megaMenu.hrOnboarding.title', "HR Onboarding"),
+      subtitle: t('megaMenu.hrOnboarding.subtitle', "Seamlessly transition new hires into the company."),
       modules: [
-        { icon: UserPlus, title: "Document Collection", desc: "Automate ID and tax form submissions." },
-        { icon: PenTool, title: "Digital Signatures", desc: "Route contracts for legally binding signatures." },
-        { icon: Settings, title: "Account Setup", desc: "Trigger IT workflows to create emails." },
-        { icon: Heart, title: "Welcome Journeys", desc: "Drip-feed company culture and training emails." },
-        { icon: CheckCircle, title: "Task Checklists", desc: "Ensure managers complete desk setup." },
-        { icon: BarChart2, title: "Feedback Surveys", desc: "Automated 30-60-90 day check-ins." }
+        { icon: UserPlus, title: t('megaMenu.hrOnboarding.documents', "Document Collection"), desc: t('megaMenu.hrOnboarding.documentsDesc', "Automate ID and tax form submissions.") },
+        { icon: PenTool, title: t('megaMenu.hrOnboarding.signatures', "Digital Signatures"), desc: t('megaMenu.hrOnboarding.signaturesDesc', "Route contracts for legally binding signatures.") },
+        { icon: Settings, title: t('megaMenu.hrOnboarding.accountSetup', "Account Setup"), desc: t('megaMenu.hrOnboarding.accountSetupDesc', "Trigger IT workflows to create emails.") },
+        { icon: Heart, title: t('megaMenu.hrOnboarding.welcome', "Welcome Journeys"), desc: t('megaMenu.hrOnboarding.welcomeDesc', "Drip-feed company culture and training emails.") },
+        { icon: CheckCircle, title: t('megaMenu.hrOnboarding.checklists', "Task Checklists"), desc: t('megaMenu.hrOnboarding.checklistsDesc', "Ensure managers complete desk setup.") },
+        { icon: BarChart2, title: t('megaMenu.hrOnboarding.surveys', "Feedback Surveys"), desc: t('megaMenu.hrOnboarding.surveysDesc', "Automated 30-60-90 day check-ins.") }
       ]
     }
   },
   [t('megaMenu.products.noCode', 'No-Code App Builder')]: {
-    "Internal Portals": {
-      title: "Internal Portals",
-      subtitle: "Build secure dashboards for your team without coding.",
+    [t('megaMenu.internalPortals.label', "Internal Portals")]: {
+      title: t('megaMenu.internalPortals.title', "Internal Portals"),
+      subtitle: t('megaMenu.internalPortals.subtitle', "Build secure dashboards for your team without coding."),
       modules: [
-        { icon: Database, title: "Data Connections", desc: "Link directly to Emvive ERP tables securely." },
-        { icon: Layout, title: "Drag-and-Drop UI", desc: "Build interfaces with pre-made components." },
-        { icon: Shield, title: "Role-Based Logic", desc: "Show or hide elements based on user roles." },
-        { icon: Search, title: "Advanced Filtering", desc: "Create custom search views for employees." },
-        { icon: Link2, title: "Workflow Hooks", desc: "Trigger automations from button clicks." },
-        { icon: Lock, title: "SSO Integration", desc: "Seamless login using corporate credentials." }
+        { icon: Database, title: t('megaMenu.internalPortals.dataConnections', "Data Connections"), desc: t('megaMenu.internalPortals.dataConnectionsDesc', "Link directly to Emvive ERP tables securely.") },
+        { icon: Layout, title: t('megaMenu.internalPortals.dragDrop', "Drag-and-Drop UI"), desc: t('megaMenu.internalPortals.dragDropDesc', "Build interfaces with pre-made components.") },
+        { icon: Shield, title: t('megaMenu.internalPortals.roleLogic', "Role-Based Logic"), desc: t('megaMenu.internalPortals.roleLogicDesc', "Show or hide elements based on user roles.") },
+        { icon: Search, title: t('megaMenu.internalPortals.filtering', "Advanced Filtering"), desc: t('megaMenu.internalPortals.filteringDesc', "Create custom search views for employees.") },
+        { icon: Link2, title: t('megaMenu.internalPortals.hooks', "Workflow Hooks"), desc: t('megaMenu.internalPortals.hooksDesc', "Trigger automations from button clicks.") },
+        { icon: Lock, title: t('megaMenu.internalPortals.sso', "SSO Integration"), desc: t('megaMenu.internalPortals.ssoDesc', "Seamless login using corporate credentials.") }
       ]
     },
-    "Customer Apps": {
-      title: "Customer Apps",
-      subtitle: "Create white-labeled portals for your clients.",
+    [t('megaMenu.customerApps.label', "Customer Apps")]: {
+      title: t('megaMenu.customerApps.title', "Customer Apps"),
+      subtitle: t('megaMenu.customerApps.subtitle', "Create white-labeled portals for your clients."),
       modules: [
-        { icon: Smartphone, title: "Mobile Optimized", desc: "Responsive designs that look great on phones." },
-        { icon: Globe, title: "Custom Domains", desc: "Host portals on your company URL." },
-        { icon: CreditCard, title: "Payment Gateways", desc: "Accept invoices directly through the portal." },
-        { icon: MessageSquare, title: "Support Chat", desc: "Embed live chat widgets for customers." },
-        { icon: Star, title: "White Labeling", desc: "Full control over colors, logos, and fonts." },
-        { icon: Activity, title: "Usage Analytics", desc: "Track how clients interact with the app." }
+        { icon: Smartphone, title: t('megaMenu.customerApps.mobile', "Mobile Optimized"), desc: t('megaMenu.customerApps.mobileDesc', "Responsive designs that look great on phones.") },
+        { icon: Globe, title: t('megaMenu.customerApps.domains', "Custom Domains"), desc: t('megaMenu.customerApps.domainsDesc', "Host portals on your company URL.") },
+        { icon: CreditCard, title: t('megaMenu.customerApps.payments', "Payment Gateways"), desc: t('megaMenu.customerApps.paymentsDesc', "Accept invoices directly through the portal.") },
+        { icon: MessageSquare, title: t('megaMenu.customerApps.chat', "Support Chat"), desc: t('megaMenu.customerApps.chatDesc', "Embed live chat widgets for customers.") },
+        { icon: Star, title: t('megaMenu.customerApps.whiteLabel', "White Labeling"), desc: t('megaMenu.customerApps.whiteLabelDesc', "Full control over colors, logos, and fonts.") },
+        { icon: Activity, title: t('megaMenu.customerApps.usage', "Usage Analytics"), desc: t('megaMenu.customerApps.usageDesc', "Track how clients interact with the app.") }
       ]
     },
-    "Field Service Apps": {
-      title: "Field Service Apps",
-      subtitle: "Empower remote workers with custom mobile tools.",
+    [t('megaMenu.fieldService.label', "Field Service Apps")]: {
+      title: t('megaMenu.fieldService.title', "Field Service Apps"),
+      subtitle: t('megaMenu.fieldService.subtitle', "Empower remote workers with custom mobile tools."),
       modules: [
-        { icon: Wifi, title: "Offline Mode", desc: "Data syncs automatically when signal returns." },
-        { icon: Map, title: "GPS Tracking", desc: "Log locations for deliveries and site visits." },
-        { icon: Camera, title: "Photo Uploads", desc: "Capture proof of delivery or site damage." },
-        { icon: PenTool, title: "E-Signatures", desc: "Collect customer sign-offs in the field." },
-        { icon: Clock, title: "Time Tracking", desc: "Start and stop timers for billable hours." },
-        { icon: Truck, title: "Inventory Check", desc: "Scan barcodes to view van stock levels." }
+        { icon: Wifi, title: t('megaMenu.fieldService.offline', "Offline Mode"), desc: t('megaMenu.fieldService.offlineDesc', "Data syncs automatically when signal returns.") },
+        { icon: Map, title: t('megaMenu.fieldService.gps', "GPS Tracking"), desc: t('megaMenu.fieldService.gpsDesc', "Log locations for deliveries and site visits.") },
+        { icon: Camera, title: t('megaMenu.fieldService.photos', "Photo Uploads"), desc: t('megaMenu.fieldService.photosDesc', "Capture proof of delivery or site damage.") },
+        { icon: PenTool, title: t('megaMenu.fieldService.eSignatures', "E-Signatures"), desc: t('megaMenu.fieldService.eSignaturesDesc', "Collect customer sign-offs in the field.") },
+        { icon: Clock, title: t('megaMenu.fieldService.timeTracking', "Time Tracking"), desc: t('megaMenu.fieldService.timeTrackingDesc', "Start and stop timers for billable hours.") },
+        { icon: Truck, title: t('megaMenu.fieldService.inventoryCheck', "Inventory Check"), desc: t('megaMenu.fieldService.inventoryCheckDesc', "Scan barcodes to view van stock levels.") }
       ]
     }
   }

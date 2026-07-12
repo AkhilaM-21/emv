@@ -168,7 +168,7 @@ const FAQ = () => {
           <div className="faq-answer-panel" key={idx}>
             <div className="answer-header">
               <Sparkles size={18} color="#3b82f6" />
-              <span>Emvive AI</span>
+              
             </div>
             <p className="answer-text">{faqs[idx].answer}</p>
           </div>

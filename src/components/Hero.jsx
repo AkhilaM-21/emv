@@ -12,6 +12,7 @@ const Hero = () => {
   const { t } = useTranslation();
   const [wordIndex, setWordIndex] = useState(0);
   const [activeSlide, setActiveSlide] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
   
   const words = t('hero.rotator', { returnObjects: true });
 
@@ -71,17 +72,29 @@ const Hero = () => {
     const slideId = setInterval(() => {
       setActiveSlide((s) => (s + 1) % SLIDE_COUNT);
     }, 8000);
-    return () => clearInterval(slideId);
+    
+    // Check if device is mobile based on actual screen size or user agent
+    const checkMobile = () => {
+      setIsMobile(window.screen.width <= 1024 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent));
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    return () => {
+      clearInterval(slideId);
+      window.removeEventListener('resize', checkMobile);
+    };
   }, [SLIDE_COUNT]);
 
   const goPrev = () => setActiveSlide((s) => (s - 1 + SLIDE_COUNT) % SLIDE_COUNT);
   const goNext = () => setActiveSlide((s) => (s + 1) % SLIDE_COUNT);
 
   return (
-    <section id="home" className="hero-section">
+    <section id="home" className={`hero-section ${isMobile ? 'mobile-vertical-active' : ''}`}>
       <LiquidBackground />
 
-      <div className="hero-stage">
+      <div className={`hero-stage ${isMobile ? 'mobile-vertical' : ''}`}>
         <button className="hero-arrow prev" onClick={goPrev} aria-label="Previous slide">
           <ChevronLeft size={22} />
         </button>
@@ -95,7 +108,7 @@ const Hero = () => {
             return (
               <div
                 key={i}
-                className={`hero-card ${activeSlide === i ? 'active' : ''}`}
+                className={`hero-card ${activeSlide === i ? 'active' : ''} ${isMobile ? 'mobile-vertical' : ''}`}
               >
                 <div className="hero-card-bg">
                   <CardFacets />

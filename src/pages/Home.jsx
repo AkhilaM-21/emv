@@ -3,6 +3,7 @@ import Hero from '../components/Hero';
 import Products from '../components/Products';
 import WhyEmvive from '../components/WhyEmvive';
 import Features from '../components/Features';
+import AppBuilder from '../components/AppBuilder';
 import GlobeSection from '../components/GlobeSection';
 import Clients from '../components/Clients';
 import FAQ from '../components/FAQ';
@@ -14,8 +15,9 @@ const Home = () => {
       <Products />
       <WhyEmvive />
       <Clients />
-      <Features />
       <GlobeSection />
+      <Features />
+      <AppBuilder />
       <FAQ />
     </>
   );

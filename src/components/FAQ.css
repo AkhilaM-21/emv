@@ -19,7 +19,7 @@
   object-fit: cover;
   z-index: 0;
   pointer-events: none;
-  opacity: 0.95;
+  opacity: 0.6; /* Balanced background opacity so it's still colorful but readable */
 }
 
 .faq-container {
@@ -97,9 +97,9 @@
   inset: 0;
   overflow: hidden;
   z-index: 1;
-  /* fade edges to transparent so the blue beams show through (no white box) */
-  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 28%, #000 72%, transparent 100%);
-  mask-image: linear-gradient(to bottom, transparent 0%, #000 28%, #000 72%, transparent 100%);
+  /* Only fade the very bottom, keep the top completely solid and visible */
+  -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 80%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 0%, #000 80%, transparent 100%);
 }
 
 .reel-track {
@@ -118,7 +118,7 @@
   padding: 0 70px 0 56px;   /* aligns text after the bar's left icon */
   font-size: 1.2rem;
   font-weight: 500;
-  color: #a3b1c6;           /* faded */
+  color: #334155;           /* Very dark so it's perfectly clear */
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;

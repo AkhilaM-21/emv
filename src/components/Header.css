@@ -551,215 +551,131 @@
 }
 
 /* =========================================
-   PRODUCTS MEGA MENU
+   PRODUCTS MEGA MENU - INFOR STYLE
 ========================================= */
-.mega-menu-wrapper {
+.mega-menu-wrapper.infor-mega-wrapper {
   position: absolute;
   top: 100%;
   left: 0;
   width: 100%;
-  background: #ffffff;
+  background: #fdfdfd; /* Light off-white */
   box-shadow: 0 10px 40px rgba(0,0,0,0.08);
-  border-top: 1px solid #f1f5f9;
+  border-top: 1px solid #e5e7eb;
   z-index: 100;
   display: flex;
   justify-content: center;
+  padding: 3.5rem 0;
 }
 
-.mega-menu-inner {
+.infor-mega-layout {
   width: 100%;
-  max-width: 1400px;
+  max-width: 1200px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1.2fr;
+  gap: 4rem;
+  padding: 0 2rem;
+}
+
+.infor-column {
   display: flex;
   flex-direction: column;
 }
 
-/* TOP NAV */
-.mega-top-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 1px solid #e2e8f0;
-  padding: 0 4rem;
-}
-
-.mega-tabs {
-  display: flex;
-  gap: 2rem;
-}
-
-.mega-tab {
-  padding: 1.5rem 0;
-  font-size: 0.95rem;
-  font-weight: 700;
-  color: #64748b;
-  background: none;
-  border: none;
-  cursor: pointer;
-  border-bottom: 2px solid transparent;
-  transition: all 0.2s ease;
-}
-
-.mega-tab:hover {
-  color: #0f172a;
-}
-
-.mega-tab.active {
-  color: #2563eb;
-  border-bottom-color: #2563eb;
-}
-
-.mega-top-actions {
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-}
-
-.explore-all {
+.infor-col-header {
   font-size: 0.8rem;
   font-weight: 700;
-  color: #3b82f6;
-  text-decoration: none;
-  letter-spacing: 1px;
+  color: #64748b; /* Professional slate */
   text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 1.5rem;
 }
 
-.explore-all:hover {
-  color: #2563eb;
-}
-
-.mega-close {
-  background: none;
-  border: none;
-  color: #94a3b8;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.mega-close:hover {
-  color: #0f172a;
-}
-
-/* MEGA BODY */
-.mega-body {
-  display: flex;
-  padding: 0 4rem;
-  min-height: 450px;
-}
-
-/* SIDEBAR */
-.mega-sidebar {
-  width: 280px;
-  border-right: 1px solid #e2e8f0;
-  padding: 2rem 1.5rem 2rem 0;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.sidebar-tab {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 1.25rem;
-  border-radius: 8px;
-  background: none;
-  border: none;
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: #475569;
-  cursor: pointer;
-  text-align: left;
-  transition: all 0.2s ease;
-}
-
-.sidebar-tab:hover {
-  background: #f8fafc;
-  color: #0f172a;
-}
-
-.sidebar-tab.active {
-  background: #eff6ff;
-  color: #2563eb;
-}
-
-.sidebar-tab .arrow {
-  color: #3b82f6;
-  font-weight: 700;
-}
-
-/* CONTENT GRID */
-.mega-content {
-  flex: 1;
-  padding: 2.5rem 0 3rem 3rem;
-  background: #fdfdfd;
-}
-
-.mega-content-header {
-  margin-bottom: 2rem;
-}
-
-.mega-content-header h2 {
-  font-size: 1.5rem;
-  font-weight: 800;
-  color: #0f172a;
-  margin: 0 0 0.5rem 0;
-}
-
-.mega-content-header p {
-  color: #64748b;
-  font-size: 0.95rem;
-  margin: 0;
-}
-
-.mega-modules-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-}
-
-.module-card {
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
-  border-radius: 12px;
-  padding: 1.5rem;
+.infor-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2rem 0;
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  transition: all 0.2s ease;
+}
+
+.infor-list-btn {
+  background: transparent;
+  border: none;
+  padding: 0;
+  font-size: 0.98rem;
+  font-weight: 500;
+  color: #334155;
   cursor: pointer;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+  text-align: left;
+  font-family: inherit;
+  transition: color 0.2s ease;
 }
 
-.module-card:hover {
-  border-color: #bfdbfe;
-  box-shadow: 0 10px 25px rgba(59, 130, 246, 0.08);
-  transform: translateY(-2px);
+.infor-list-btn:hover,
+.infor-list-btn.active {
+  color: #2563eb; /* Theme blue */
 }
 
-.module-icon {
-  width: 44px;
-  height: 44px;
-  background: #eff6ff;
-  color: #3b82f6;
-  border-radius: 10px;
-  display: flex;
+.infor-all-link {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #2563eb;
+  text-decoration: none;
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
+  gap: 0.5rem;
+  transition: opacity 0.2s ease;
 }
 
-.module-text h3 {
-  font-size: 1rem;
+.infor-all-link:hover {
+  opacity: 0.8;
+}
+
+.infor-card-column {
+  padding-left: 2rem;
+}
+
+.infor-featured-card {
+  background-color: #0f172a; /* Professional dark slate */
+  border-radius: 12px;
+  padding: 2.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.15);
+}
+
+.infor-featured-card h2 {
+  font-size: 1.5rem;
   font-weight: 700;
-  color: #1e293b;
-  margin: 0 0 0.4rem 0;
+  color: #ffffff;
+  margin: 0;
 }
 
-.module-text p {
-  font-size: 0.85rem;
-  color: #64748b;
-  margin: 0;
-  line-height: 1.5;
+.infor-featured-card p {
+  font-size: 0.95rem;
+  color: #94a3b8;
+  line-height: 1.6;
+  margin: 0 0 1.5rem 0;
+}
+
+.infor-cta-btn {
+  background-color: #2563eb; /* Theme blue */
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.85rem 1.5rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.infor-cta-btn:hover {
+  background-color: #1d4ed8;
+  transform: translateY(-2px);
 }
 
 /* =========================================

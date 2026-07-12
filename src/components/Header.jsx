@@ -410,83 +410,80 @@ const Header = () => {
         </div>
       )}
 
-      {/* PRODUCTS MEGA MENU */}
+      {/* PRODUCTS MEGA MENU - INFOR STYLE */}
       {openNav === 'Products' && (
-        <div className="mega-menu-wrapper">
-          <div className="mega-menu-inner">
+        <div className="mega-menu-wrapper infor-mega-wrapper">
+          <div className="infor-mega-layout">
             
-            {/* Top Navigation Tabs */}
-            <div className="mega-top-nav">
-              <div className="mega-tabs">
+            {/* Column 1: SOLUTIONS */}
+            <div className="infor-column">
+              <h3 className="infor-col-header">SOLUTIONS</h3>
+              <ul className="infor-list">
                 {productKeys.map((tab, pIdx) => (
-                  <button 
-                    key={tab} 
-                    className={`mega-tab ${activeProductIndex === pIdx ? 'active' : ''}`}
-                    onClick={() => {
-                      setActiveProductIndex(pIdx);
-                      setActiveIndustryIndex(0);
-                    }}
-                  >
-                    {tab}
-                  </button>
+                  <li key={tab}>
+                    <button
+                      className={`infor-list-btn ${activeProductIndex === pIdx ? 'active' : ''}`}
+                      onMouseEnter={() => {
+                        setActiveProductIndex(pIdx);
+                        setActiveIndustryIndex(0);
+                      }}
+                      onClick={() => {
+                        setActiveProductIndex(pIdx);
+                        setActiveIndustryIndex(0);
+                      }}
+                    >
+                      {tab}
+                    </button>
+                  </li>
                 ))}
-              </div>
-              <div className="mega-top-actions">
-                <a href="#all-products" className="explore-all">{t('header.exploreProducts', 'EXPLORE ALL PRODUCTS').toUpperCase()} &rarr;</a>
-                <button className="mega-close" onClick={() => setOpenNav(null)}><X size={20} /></button>
-              </div>
+              </ul>
+              <a href="#all-solutions" className="infor-all-link">
+                All solutions &rarr;
+              </a>
             </div>
 
-            <div className="mega-body">
-              {/* Left Sidebar (Industries) */}
-              <div className="mega-sidebar">
-                {industryKeys.map((ind, iIdx) => (
-                  <button 
-                    key={ind}
-                    className={`sidebar-tab ${activeIndustryIndex === iIdx ? 'active' : ''}`}
-                    onClick={() => setActiveIndustryIndex(iIdx)}
-                  >
-                    {ind}
-                    {activeIndustryIndex === iIdx && <span className="arrow">&rarr;</span>}
-                  </button>
-                ))}
-              </div>
+            {/* Column 2: FEATURED PRODUCTS */}
+            <div className="infor-column">
+              <h3 className="infor-col-header">FEATURED PRODUCTS</h3>
+              <ul className="infor-list">
+                {(() => {
+                  // Flatten modules from all industries under the active category
+                  const modules = [];
+                  Object.values(activeProductData).forEach(ind => {
+                    if (ind.modules) modules.push(...ind.modules);
+                  });
+                  return modules.slice(0, 8).map((mod, i) => (
+                    <li key={i}>
+                      <button
+                        className="infor-list-btn"
+                        onClick={() => {
+                          if (mod.id === 'retail-inventory' || mod.title === 'Inventory for Retail & POS' || mod.title === t('megaMenu.retail.inventory', "Inventory for Retail & POS")) {
+                            navigate('/products/retail-inventory');
+                            setOpenNav(null);
+                          }
+                        }}
+                      >
+                        {mod.title}
+                      </button>
+                    </li>
+                  ));
+                })()}
+              </ul>
+              <a href="#all-products" className="infor-all-link">
+                All products &rarr;
+              </a>
+            </div>
 
-              {/* Main Content Grid */}
-              <div className="mega-content">
-                {activeIndustryData.title && (
-                  <>
-                    <div className="mega-content-header">
-                      <h2>{activeIndustryData.title}</h2>
-                      <p>{activeIndustryData.subtitle}</p>
-                    </div>
-
-                    <div className="mega-modules-grid">
-                      {(activeIndustryData.modules || []).map((mod, i) => {
-                        const Icon = mod.icon;
-                        return (
-                          <div 
-                            key={i} 
-                            className="module-card"
-                            onClick={() => {
-                              if (mod.id === 'retail-inventory' || mod.title === 'Inventory for Retail & POS' || mod.title === t('megaMenu.retail.inventory', "Inventory for Retail & POS")) {
-                                navigate('/products/retail-inventory');
-                                setOpenNav(null);
-                              }
-                            }}
-                            style={{ cursor: mod.title === 'Inventory for Retail & POS' ? 'pointer' : 'default' }}
-                          >
-                            <div className="module-icon"><Icon size={24} /></div>
-                            <div className="module-text">
-                              <h3>{mod.title}</h3>
-                              <p>{mod.desc}</p>
-                            </div>
-                          </div>
-                        );
-                      })}
-                    </div>
-                  </>
-                )}
+            {/* Column 3: FEATURED CARD */}
+            <div className="infor-column infor-card-column">
+              <div className="infor-featured-card">
+                <h2>Emvive Velocity Suite</h2>
+                <p>
+                  One all-inclusive AI package — including industry-specific AI agents — to help you become an agentic enterprise.
+                </p>
+                <button className="infor-cta-btn">
+                  Discover Emvive Velocity Suite &rarr;
+                </button>
               </div>
             </div>
 

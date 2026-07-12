@@ -381,5 +381,58 @@
         "desc": "LESS SHRINKAGE"
       }
     }
+  },
+  "appBuilder": {
+    "badge": "Powering Enterprises Globally",
+    "titleLine1": "One Platform.",
+    "titleLine2": "Infinite Possibilities.",
+    "subtitle": "From India to the world — Emvive helps businesses connect, automate, and grow across borders.",
+    "tabs": {
+      "data": "Data Builder",
+      "form": "Form Builder",
+      "workflow": "Workflow & Automation"
+    },
+    "fieldTypes": {
+      "text": "Text",
+      "email": "Email",
+      "select": "Select",
+      "number": "Number",
+      "boolean": "Boolean"
+    },
+    "data": {
+      "title": "Model your data visually",
+      "desc": "Design entities, fields and relationships without writing a line of SQL. Add validations and roll out schema changes in seconds.",
+      "entity": "Customers",
+      "entityTag": "Entity",
+      "addField": "Add field",
+      "tables": "Tables",
+      "newTable": "New table",
+      "newField": "New field"
+    },
+    "form": {
+      "title": "Drag, drop, publish",
+      "desc": "Assemble pixel-perfect forms with validation and conditional logic, then publish them instantly to capture data anywhere.",
+      "formName": "Contact Request",
+      "fullName": "Full name",
+      "email": "Email address",
+      "department": "Department",
+      "sales": "Sales",
+      "submit": "Submit request",
+      "fieldsPalette": "Fields",
+      "date": "Date",
+      "checkbox": "Checkbox"
+    },
+    "workflow": {
+      "title": "Automate every process",
+      "desc": "Connect triggers to actions with a visual builder. Route approvals, send notifications and orchestrate multi-step logic — no code.",
+      "trigger": "New order created",
+      "condition": "Amount over $1,000",
+      "action1": "Notify manager",
+      "action2": "Create invoice",
+      "blocks": "Blocks",
+      "triggerBlock": "Trigger",
+      "conditionBlock": "Condition",
+      "actionBlock": "Action"
+    }
   }
 }
