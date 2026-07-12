@@ -1,26 +1,26 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Shield, Zap, BarChart3, Users, CheckCircle, Lock, Layout, TrendingUp } from 'lucide-react';
 import './WhyEmvive.css';
 
 // Card 1 Illustration: Horizontal bars with metric labels
-const OutcomeIllustration = () => (
+const OutcomeIllustration = ({ inView }) => (
   <div className="why-illustration">
-    <div className="bar-metrics">
+    <div className={`bar-metrics ${inView ? 'in-view' : ''}`}>
       <div className="metric-row">
-        <div className="metric-bar" style={{ width: '85%' }}></div>
+        <div className="metric-bar" style={{ '--target-w': '85%' }}></div>
         <span className="metric-pill"><Zap size={12} /> ERP</span>
       </div>
       <div className="metric-row">
-        <div className="metric-bar" style={{ width: '95%' }}></div>
+        <div className="metric-bar" style={{ '--target-w': '95%' }}></div>
         <span className="metric-pill"><BarChart3 size={12} /> CRM</span>
       </div>
       <div className="metric-row">
-        <div className="metric-bar" style={{ width: '70%' }}></div>
+        <div className="metric-bar" style={{ '--target-w': '70%' }}></div>
         <span className="metric-pill"><Users size={12} /> HR</span>
       </div>
       <div className="metric-row">
-        <div className="metric-bar" style={{ width: '90%' }}></div>
+        <div className="metric-bar" style={{ '--target-w': '90%' }}></div>
         <span className="metric-pill"><TrendingUp size={12} /> Invoicing</span>
       </div>
     </div>
@@ -80,13 +80,28 @@ const DesignIllustration = () => (
 
 const WhyEmvive = () => {
   const { t } = useTranslation();
+  const gridRef = useRef(null);
+  const [inView, setInView] = useState(false);
+
+  useEffect(() => {
+    const el = gridRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) setInView(true);
+      },
+      { threshold: 0.25 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
 
   const benefits = [
     {
       id: 1,
       title: t('whyData.b1_title', 'Unified Platform, Zero Silos'),
       description: t('whyData.b1_desc', 'From Cloud ERP and CRM to HR & Payroll and E-Invoicing — Emvive connects every department on a single platform. No more juggling between disconnected tools or importing spreadsheets.'),
-      illustration: <OutcomeIllustration />,
+      illustration: <OutcomeIllustration inView={inView} />,
     },
     {
       id: 2,
@@ -124,7 +139,7 @@ const WhyEmvive = () => {
         </div>
 
         {/* Benefits Grid */}
-        <div className="why-grid">
+        <div className="why-grid" ref={gridRef}>
           {benefits.map((benefit) => (
             <div key={benefit.id} className="why-card">
               {benefit.illustration}

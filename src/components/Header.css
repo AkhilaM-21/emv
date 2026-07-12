@@ -569,10 +569,10 @@
 
 .infor-mega-layout {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1400px;
   display: grid;
-  grid-template-columns: 1fr 1fr 1.2fr;
-  gap: 4rem;
+  grid-template-columns: 1fr 1fr 1fr 1.2fr;
+  gap: 3rem;
   padding: 0 2rem;
 }
 
@@ -582,9 +582,9 @@
 }
 
 .infor-col-header {
-  font-size: 0.8rem;
+  font-size: 0.95rem;
   font-weight: 700;
-  color: #64748b; /* Professional slate */
+  color: #2563eb; /* Theme blue */
   text-transform: uppercase;
   letter-spacing: 1.5px;
   margin-bottom: 1.5rem;
@@ -615,6 +615,33 @@
 .infor-list-btn:hover,
 .infor-list-btn.active {
   color: #2563eb; /* Theme blue */
+}
+
+.infor-group-header {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-top: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+.infor-group-header:first-child {
+  margin-top: 0;
+}
+
+.infor-sub-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.infor-sub-list .infor-list-btn {
+  font-size: 0.85rem;
+  color: #64748b;
+}
+.infor-sub-list .infor-list-btn:hover {
+  color: #2563eb;
 }
 
 .infor-all-link {

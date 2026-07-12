@@ -52,11 +52,13 @@ const AppBuilder = () => {
       if (t - last < step) return;
       last = t;
       const dark = document.body.classList.contains('dark-theme');
-      // translucent fade leaves fading trails
-      ctx.fillStyle = dark ? 'rgba(5,8,22,0.14)' : 'rgba(238,243,251,0.14)';
+      // translucent fade leaves fading trails — match the section background
+      // exactly so trails don't drift toward a purple tint
+      ctx.fillStyle = dark ? 'rgba(5,8,22,0.18)' : 'rgba(238,244,255,0.18)';
       ctx.fillRect(0, 0, width, height);
       ctx.font = `${fontSize}px ui-monospace, monospace`;
-      ctx.fillStyle = dark ? 'rgba(120,180,255,0.32)' : 'rgba(37,99,235,0.28)';
+      // clean blue glyphs (numbers + code) — no violet cast
+      ctx.fillStyle = dark ? 'rgba(96,165,250,0.35)' : 'rgba(37,99,235,0.38)';
       for (let i = 0; i < drops.length; i++) {
         const c = chars[(Math.random() * chars.length) | 0];
         ctx.fillText(c, drops[i] * charW, i * rowGap + fontSize);   // move rightward

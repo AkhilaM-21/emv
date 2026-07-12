@@ -123,9 +123,6 @@ const Hero = () => {
                         {t('hero.runYourEntire', 'Run Your Entire')}{' '}
                         <span className="hero-rotator">
                           <span key={wordIndex} className="hero-rotate-word">
-                            <span className="rotate-icon">
-                              {React.createElement(RotIcon)}
-                            </span>
                             {currentWord}
                           </span>
                         </span>{' '}

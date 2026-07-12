@@ -474,17 +474,43 @@ const Header = () => {
               </a>
             </div>
 
-            {/* Column 3: FEATURED CARD */}
-            <div className="infor-column infor-card-column">
-              <div className="infor-featured-card">
-                <h2>Emvive Velocity Suite</h2>
-                <p>
-                  One all-inclusive AI package — including industry-specific AI agents — to help you become an agentic enterprise.
-                </p>
-                <button className="infor-cta-btn">
-                  Discover Emvive Velocity Suite &rarr;
-                </button>
-              </div>
+            {/* Column 3: NO CODE MACHINE */}
+            <div className="infor-column">
+              <h3 className="infor-col-header">NO CODE MACHINE</h3>
+              <ul className="infor-list">
+                <li><button className="infor-list-btn">Emvive Studio</button></li>
+                <li><button className="infor-list-btn">Emvive Flow</button></li>
+                <li><button className="infor-list-btn">Integration Layer</button></li>
+                <li><button className="infor-list-btn">Security</button></li>
+              </ul>
+              <a href="#all-platforms" className="infor-all-link">
+                All platforms &rarr;
+              </a>
+            </div>
+
+            {/* Column 3: PORTALS */}
+            <div className="infor-column">
+              <h3 className="infor-col-header">PORTALS</h3>
+              <ul className="infor-list">
+                <li>
+                  <button className="infor-list-btn">
+                    Vendor Portal
+                  </button>
+                </li>
+                <li>
+                  <button className="infor-list-btn">
+                    Customer Portal
+                  </button>
+                </li>
+                <li>
+                  <button className="infor-list-btn">
+                    Employee Portal (ESS)
+                  </button>
+                </li>
+              </ul>
+              <a href="#all-portals" className="infor-all-link">
+                All portals &rarr;
+              </a>
             </div>
 
           </div>

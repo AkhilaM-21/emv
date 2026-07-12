@@ -44,6 +44,7 @@ const RetailInventory = () => {
   useReveal();
   const [activeSection, setActiveSection] = useState(0);
   const [progress, setProgress] = useState(0);
+  const [isAnnual, setIsAnnual] = useState(false);
   const timerRef = useRef(null);
   const progressRef = useRef(null);
 
@@ -492,6 +493,18 @@ const RetailInventory = () => {
             <span className="global-section-badge"><span className="global-badge-dot"></span> {t('retail.pricing.badge', 'Pricing')}</span>
             <h2 className="global-section-title">{t('retail.pricing.title', 'Simple pricing for every retail team')}</h2>
             <p>{t('retail.pricing.subtitle', 'Start free, scale as you grow. No hidden fees — cancel anytime.')}</p>
+            
+            <div className="ri-billing-toggle-wrapper">
+              <span className={`ri-toggle-label ${!isAnnual ? 'active' : ''}`}>Monthly</span>
+              
+              <div className={`ri-simple-toggle ${isAnnual ? 'annual' : 'monthly'}`} onClick={() => setIsAnnual(!isAnnual)}>
+                <div className="ri-toggle-circle"></div>
+              </div>
+              
+              <span className={`ri-toggle-label ${isAnnual ? 'active' : ''}`}>
+                Annually <span className="ri-save-badge">Save 20%</span>
+              </span>
+            </div>
           </div>
 
           <div className="ri-pricing-grid">
@@ -500,7 +513,7 @@ const RetailInventory = () => {
                 name: 'Starter',
                 Icon: Diamond,
                 price: '$0',
-                period: '/mo',
+                period: isAnnual ? '/yr' : '/mo',
                 desc: 'For single-store retailers getting started.',
                 features: ['1 store location', 'Up to 500 SKUs', 'Real-time stock tracking', 'Email support'],
                 cta: 'Start Free',
@@ -509,8 +522,8 @@ const RetailInventory = () => {
               {
                 name: 'Growth',
                 Icon: Gem,
-                price: '$49',
-                period: '/mo',
+                price: isAnnual ? '$468' : '$49',
+                period: isAnnual ? '/yr' : '/mo',
                 desc: 'For growing multi-store retail operations.',
                 features: ['Up to 10 stores', 'Unlimited SKUs', 'Shrinkage & risk alerts', 'Vendor management', 'Priority support'],
                 cta: 'Start Free Trial',

@@ -474,8 +474,8 @@ body.dark-theme .globe-popup p {
   gap: 13px;
 }
 
-.gs-icon-purple { background: linear-gradient(135deg, #a78bfa 0%, #7c3aed 100%); box-shadow: inset 0 1px 1px rgba(255,255,255,0.45), 0 8px 18px rgba(124, 58, 237, 0.45); }
-.gs-icon-green { background: linear-gradient(135deg, #34d399 0%, #059669 100%); box-shadow: inset 0 1px 1px rgba(255,255,255,0.45), 0 8px 18px rgba(5, 150, 105, 0.4); }
+.gs-icon-purple { background: linear-gradient(135deg, #4f8cff 0%, #2563eb 100%); box-shadow: inset 0 1px 1px rgba(255,255,255,0.45), 0 8px 18px rgba(37, 99, 235, 0.4); }
+.gs-icon-green { background: linear-gradient(135deg, #4f8cff 0%, #2563eb 100%); box-shadow: inset 0 1px 1px rgba(255,255,255,0.45), 0 8px 18px rgba(37, 99, 235, 0.4); }
 
 /* Sparkline */
 .gs-spark { width: 100%; height: 42px; display: block; }
@@ -497,7 +497,7 @@ body.dark-theme .globe-popup p {
 
 /* Progress bar */
 .gs-progress { height: 6px; width: 100%; border-radius: 99px; background: rgba(37, 99, 235, 0.14); overflow: hidden; }
-.gs-progress span { display: block; height: 100%; border-radius: 99px; background: linear-gradient(90deg, #4f8cff, #7a5cff); }
+.gs-progress span { display: block; height: 100%; border-radius: 99px; background: linear-gradient(90deg, #4f8cff, #2563eb); }
 
 /* Footer row */
 .gs-foot { display: flex; align-items: center; justify-content: space-between; font-size: 0.74rem; font-weight: 600; color: #64748b; }
@@ -535,13 +535,13 @@ body.dark-theme .gs-foot { color: #a9b8d6; }
   justify-content: center;
   width: 48px;
   height: 48px;
-  background: linear-gradient(135deg, #4f8cff 0%, #7a5cff 100%);
+  background: linear-gradient(135deg, #4f8cff 0%, #2563eb 100%);
   color: #ffffff;
   border-radius: 14px;
   flex-shrink: 0;
   box-shadow:
     inset 0 1px 1px rgba(255, 255, 255, 0.45),
-    0 8px 18px rgba(90, 110, 255, 0.5);
+    0 8px 18px rgba(37, 99, 235, 0.4);
 }
 
 .gs-text-wrap {
@@ -554,7 +554,7 @@ body.dark-theme .gs-foot { color: #a9b8d6; }
   font-size: 1.9rem;
   letter-spacing: -0.5px;
   line-height: 1.1;
-  background: linear-gradient(90deg, #2563eb 0%, #7a5cff 100%);
+  background: linear-gradient(90deg, #4f8cff 0%, #2563eb 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;

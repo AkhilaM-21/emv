@@ -70,17 +70,19 @@ const Footer = () => {
             </div>
 
             {/* Column 4: Legal & Social Pills */}
-            <div className="footer-col col-pills">
+            <div className="footer-col">
               <h4 className="footer-heading">{t('footer.legalTitle', 'LEGAL & SOCIAL')}</h4>
-              <div className="footer-legal-grid">
-                <a href="#" className="legal-pill">{t('footer.legal.terms', 'Terms of Service')}</a>
-                <a href="#" className="legal-pill">{t('footer.legal.privacy', 'Privacy Policy')}</a>
-                <a href="#" className="legal-pill">{t('footer.legal.cookie', 'Cookie Policy')}</a>
-                <a href="#" className="legal-pill">{t('footer.legal.brand', 'Brand Guidelines')}</a>
-                <div className="legal-pill footer-social">
-                  {t('footer.followUs', 'Follow us')} <a href="#" aria-label="Social"><Globe size={18} /></a>
-                </div>
-              </div>
+              <ul className="footer-links">
+                <li><a href="#">{t('footer.legal.terms', 'Terms of Service')}</a></li>
+                <li><a href="#">{t('footer.legal.privacy', 'Privacy Policy')}</a></li>
+                <li><a href="#">{t('footer.legal.cookie', 'Cookie Policy')}</a></li>
+                <li><a href="#">{t('footer.legal.brand', 'Brand Guidelines')}</a></li>
+                <li className="footer-social">
+                  <a href="#">
+                    {t('footer.followUs', 'Follow us')} <Globe size={18} style={{ marginLeft: '8px' }} />
+                  </a>
+                </li>
+              </ul>
             </div>
             
           </div>

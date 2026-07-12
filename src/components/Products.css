@@ -185,14 +185,18 @@
 
 /* Typography */
 .product-desc {
-  color: #667085; 
+  color: #667085;
   font-size: 1.1rem;
   line-height: 1.7;
+  /* Align the text with the start of the heading (past the icon + gap) */
+  padding-left: calc(48px + 1.25rem);
 }
 
 /* Industries Tags */
 .product-industries {
   margin-top: 2rem;
+  /* Align with the heading start (past the icon + gap), same as the description */
+  padding-left: calc(48px + 1.25rem);
 }
 .industry-label {
   font-size: 0.95rem;
@@ -268,9 +272,14 @@
 
 .industry-tag:hover {
   transform: translateY(-2px);
+  color: #fff; /* light text on the dark pill */
   box-shadow:
     0 2px 4px rgba(16, 24, 40, 0.08),
     0 10px 20px rgba(16, 24, 40, 0.12);
+}
+/* Fill the inner pill with the theme's dark blue on hover */
+.industry-tag:hover::after {
+  background: linear-gradient(150deg, #0d1b3e 0%, #10276b 55%, #1e50c8 100%);
 }
 .industry-tag:hover::before {
   animation-duration: 1s; /* spin faster on hover */
@@ -524,7 +533,8 @@
 
   .timeline-content { gap: 1.75rem; }
   .product-info { flex-basis: 42%; max-width: 42%; }
-  .product-desc { font-size: 1rem; line-height: 1.6; }
+  .product-desc { font-size: 1rem; line-height: 1.6; padding-left: calc(54px + 1rem); }
+  .product-industries { padding-left: calc(54px + 1rem); }
   .detailed-dashboard { height: auto; min-height: 380px; max-height: 460px; }
 
   .industry-tag { padding: 9px 16px; font-size: 0.9rem; }
@@ -562,7 +572,8 @@
     text-align: center;
   }
   .industry-tags { justify-content: center; }
-  .product-desc { font-size: 0.95rem; line-height: 1.55; }
+  .product-industries { padding-left: 0; }
+  .product-desc { font-size: 0.95rem; line-height: 1.55; padding-left: 0; }
 
   .product-dashboard { width: 100%; }
   .detailed-dashboard {
