@@ -6,6 +6,243 @@
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
+/* ===================== DARK AGENTIC HERO ===================== */
+/* one continuous dark background behind BOTH the hero and the cards — no seam */
+.ah-dark-wrap {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(55% 34% at 80% 6%, rgba(43, 96, 208, 0.26) 0%, rgba(43, 96, 208, 0) 60%),
+    linear-gradient(180deg, #0b1730 0%, #091428 40%, #0a1633 75%, #0b1a38 100%);
+}
+.ah-dark {
+  background: transparent;
+  padding: 8rem 3rem 4rem;
+  overflow: hidden;
+}
+/* faint vertical guide lines — six on the left, six on the right, tightly spaced */
+.ah-vlines {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-repeat: no-repeat;
+  background-position:
+    2% 0, 4% 0, 6% 0, 8% 0, 10% 0, 12% 0,
+    88% 0, 90% 0, 92% 0, 94% 0, 96% 0, 98% 0;
+  background-size: 1px 100%;
+}
+
+.ah-grid {
+  position: relative;
+  z-index: 1;
+  max-width: 1500px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.05fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+/* left copy */
+.ah-copy { max-width: 620px; }
+.ah-eyebrow {
+  display: inline-block;
+  color: #5a9bff;
+  font-size: 1.1rem;
+  font-weight: 800;
+  letter-spacing: 3.5px;
+  margin-bottom: 1.5rem;
+}
+.ah-dark .ah-title {
+  font-size: 4.4rem;
+  line-height: 1.02;
+  letter-spacing: -2px;
+  font-weight: 800;
+  color: #f4f7fc;
+  margin: 0 0 1.6rem;
+  text-align: left;
+}
+.ah-grad {
+  background: linear-gradient(100deg, #3b82f6 0%, #60a5fa 55%, #7cb0ff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.ah-sub {
+  font-size: 1.12rem;
+  line-height: 1.7;
+  color: #9fb0cc;
+  margin: 0 0 2.2rem;
+  max-width: 540px;
+}
+.ah-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+.ah-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.95rem 1.8rem;
+  border-radius: 12px;
+  background: linear-gradient(180deg, #2b70fa 0%, #1e5fe0 100%);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 10px 26px -8px rgba(43, 112, 250, 0.6);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.ah-btn-primary:hover { transform: translateY(-2px); box-shadow: 0 16px 32px -8px rgba(43, 112, 250, 0.7); }
+.ah-btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.95rem 1.8rem;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #e7eefb;
+  font-size: 1rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+.ah-btn-ghost:hover { background: rgba(255, 255, 255, 0.09); border-color: rgba(255, 255, 255, 0.32); }
+
+/* right visual */
+.ah-visual { position: relative; }
+.ah-dashcard {
+  position: relative;
+  border-radius: 20px;
+  padding: 1.6rem;
+  background: linear-gradient(165deg, rgba(24, 40, 74, 0.9) 0%, rgba(14, 26, 52, 0.92) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 40px 80px -40px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  max-width: 640px;
+}
+.ah-dash-head { display: flex; align-items: center; gap: 0.8rem; margin-bottom: 1.4rem; }
+.ah-dash-badge {
+  padding: 5px 12px;
+  border-radius: 8px;
+  background: linear-gradient(180deg, #2b70fa, #1e5fe0);
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+.ah-dash-sub { color: #7f92b3; font-size: 0.82rem; font-weight: 600; }
+.ah-dash-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.8rem;
+  margin-bottom: 1.2rem;
+}
+.ah-dash-metric {
+  padding: 1rem;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+.ah-dash-metric-label { display: block; color: #7f92b3; font-size: 0.66rem; font-weight: 700; letter-spacing: 1px; margin-bottom: 0.5rem; }
+.ah-dash-metric b { font-size: 1.5rem; font-weight: 800; color: #eef3fb; }
+.ah-dash-metric b.accent { color: #5a9bff; }
+
+.ah-dash-chart {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 220px;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(255, 255, 255, 0.02);
+  cursor: pointer;
+  padding: 0;
+}
+.ah-chart-svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+.ah-chart-play {
+  position: absolute;
+  top: 42%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 66px; height: 66px;
+  border-radius: 50%;
+  background: linear-gradient(180deg, #2b70fa, #1e5fe0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 3px;
+  box-shadow: 0 12px 30px -6px rgba(43, 112, 250, 0.6);
+  transition: transform 0.15s ease;
+}
+.ah-dash-chart:hover .ah-chart-play { transform: translate(-50%, -50%) scale(1.06); }
+.ah-chart-caption {
+  position: absolute;
+  left: 1rem; right: 1rem; bottom: 0.9rem;
+  text-align: left;
+  color: #aebbd4;
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+.ah-chart-caption b { color: #eef3fb; font-weight: 700; }
+
+/* floating pills */
+.ah-pills {
+  position: absolute;
+  top: 6%;
+  right: -1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  z-index: 2;
+}
+.ah-pill:nth-child(2) { transform: translateX(1.4rem); }
+.ah-pill:nth-child(3) { transform: translateX(0.6rem); }
+.ah-pill {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.7rem 1.1rem 0.7rem 0.7rem;
+  border-radius: 14px;
+  background: #ffffff;
+  box-shadow: 0 18px 40px -18px rgba(0, 0, 0, 0.6);
+  min-width: 200px;
+}
+.ah-pill-ic {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px; height: 40px;
+  border-radius: 11px;
+  color: #fff;
+  flex-shrink: 0;
+}
+.ah-pill-txt b { display: block; font-size: 0.98rem; font-weight: 800; color: #0f1a30; line-height: 1.2; }
+.ah-pill-txt span { font-size: 0.8rem; color: #64748b; }
+
+@media (max-width: 1080px) {
+  .ah-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .ah-dark .ah-title { font-size: 3.2rem; }
+  .ah-pills { position: static; flex-direction: row; flex-wrap: wrap; right: 0; margin-top: 1.5rem; }
+  .ah-pill:nth-child(2), .ah-pill:nth-child(3) { transform: none; }
+}
+@media (max-width: 620px) {
+  .ah-dark { padding: 6rem 1.25rem 4rem; }
+  .ah-dark .ah-title { font-size: 2.4rem; }
+  .ah-dash-stats { grid-template-columns: 1fr; }
+}
+/* ===================== /DARK AGENTIC HERO ===================== */
+
 /* blue scenic panel — an ABSOLUTE fixed background (crisp .common-hero__background).
    The content overflows it, so the dashboard pokes out the bottom and fades over the
    white page below, exactly like crisp.chat. */
@@ -94,18 +331,10 @@
   height: auto;
 }
 .ah-ground-r {
-  right: 0;
-  bottom: 0;
-  width: 22vw;
-  min-width: 240px;
-  height: auto;
-}
-/* extra hill cluster spreading the greenery further along the bottom-right */
-.ah-ground-r2 {
-  right: 16vw;
-  bottom: 0;
-  width: 16vw;
-  min-width: 180px;
+  right: -1.5%;
+  bottom: -2%;
+  width: 19vw;
+  min-width: 210px;
   height: auto;
 }
 
@@ -543,6 +772,17 @@
   padding: 1rem 4rem 5rem;
   overflow: hidden;
 }
+/* dark variant — transparent so the wrapper's continuous gradient shows through (no seam) */
+.ah-tiles-section.ah-dark {
+  background: transparent;
+  padding: 2rem 4rem 6rem;
+}
+.ah-tiles-section.ah-dark .ah-industries-wrap {
+  border: none;
+  background: transparent;
+  box-shadow: none;
+  padding: 0;
+}
 /* outlined box around the scrolling cards (like the reference) */
 .ah-industries-wrap {
   position: relative;
@@ -555,6 +795,73 @@
   padding: 1.75rem 1.75rem 2rem;
   box-shadow: 0 12px 34px -22px rgba(15, 23, 42, 0.18);
 }
+/* section heading (image-2 style) + arrows on the right */
+.ah-tiles-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+}
+.ah-tiles-title {
+  font-size: 2.6rem;
+  font-weight: 800;
+  letter-spacing: -1.2px;
+  line-height: 1.12;
+  color: #f4f7fc;
+  margin: 0;
+  max-width: 760px;
+}
+.ah-tiles-section.ah-dark .ah-tile-arrow {
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.05);
+  color: #cdd9ef;
+}
+.ah-tiles-section.ah-dark .ah-tile-arrow:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+}
+
+/* ===================== GRADIENT INDUSTRY CARDS (image-2 style) ===================== */
+.ind-card {
+  position: relative;
+  flex: 0 0 300px;
+  height: 360px;
+  scroll-snap-align: start;
+  border-radius: 18px;
+  padding: 1.6rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-size: cover;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 24px 50px -28px rgba(0, 0, 0, 0.7);
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.ind-card:hover { transform: translateY(-6px); box-shadow: 0 32px 60px -26px rgba(0, 0, 0, 0.8); }
+/* faded outline icon at the top */
+.ind-ic {
+  align-self: flex-end;
+  color: rgba(255, 255, 255, 0.32);
+}
+.ind-body { display: flex; flex-direction: column; }
+.ind-title { font-size: 2rem; font-weight: 800; color: #ffffff; margin: 0 0 0.6rem; letter-spacing: -0.5px; }
+.ind-desc { font-size: 0.92rem; line-height: 1.5; color: rgba(255, 255, 255, 0.82); margin: 0 0 1.1rem; }
+.ind-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  width: fit-content;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-decoration: none;
+  padding-bottom: 4px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.45);
+  transition: gap 0.2s ease, border-color 0.2s ease;
+}
+.ind-link:hover { gap: 0.7rem; border-color: #ffffff; }
 .ah-tiles-head {
   display: flex;
   align-items: flex-end;

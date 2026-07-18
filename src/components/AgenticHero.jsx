@@ -5,6 +5,7 @@ import {
   ChevronLeft, ChevronRight, Factory, ShoppingBag, HeartPulse, Truck,
   X, Maximize2,
   LayoutGrid, Users, Clock, Wallet, UserPlus, BarChart3, Settings, Search,
+  Layers, Home, UsersRound, Cpu,
 } from 'lucide-react';
 import './AgenticHero.css';
 
@@ -34,6 +35,21 @@ const DASH_HIRES = [
 const DASH_BARS = [62, 78, 70, 88, 95, 74, 58];
 const DASH_DAYS = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
 
+// hero dashboard-card metrics
+const DASH_METRICS = [
+  { label: 'REVENUE YTD', value: '$4.28M', accent: true },
+  { label: 'COUNTRIES', value: '42' },
+  { label: 'UPTIME', value: '99.99%' },
+];
+
+// floating feature pills on the right (blue theme)
+const PILLS = [
+  { title: 'ERP', sub: 'Unified operations', icon: <Layers size={18} />, bg: 'linear-gradient(180deg,#3b82f6,#2563eb)' },
+  { title: 'CRM', sub: 'Deepen relationships', icon: <Home size={18} />, bg: 'linear-gradient(180deg,#2b70fa,#1e5fe0)' },
+  { title: 'HCM', sub: 'People management', icon: <UsersRound size={18} />, bg: 'linear-gradient(180deg,#60a5fa,#3b82f6)' },
+  { title: 'AI', sub: 'Intelligent insights', icon: <Cpu size={18} />, bg: 'linear-gradient(180deg,#4f7ef0,#2b5fd0)' },
+];
+
 // dummy demo video (placeholder for now) — embedded YouTube link
 const DEMO_VIDEO = 'https://www.youtube.com/embed/aqz-KE-bpKQ?autoplay=1&rel=0';
 
@@ -57,15 +73,15 @@ const FEATURES = [
 ];
 
 const INDUSTRIES = [
-  { key: 'hr', title: 'HR', desc: 'Hire, pay and grow your people across every region.', img: IMG('1522071820081-009f0129c71c') },
-  { key: 'finance', title: 'Finance', desc: 'Close faster and plan smarter from one real-time ledger.', img: IMG('1554224155-6726b3ff858f') },
-  { key: 'it', title: 'IT', desc: 'One platform, one data model. Retire integration debt.', img: IMG('1518770660439-4636190af475') },
-  { key: 'legal', title: 'Legal', desc: 'Compliance workflows and audit trails, live and localized.', img: IMG('1505664194779-8beaceb93744') },
-  { key: 'ops', title: 'Operations', desc: 'Supply, inventory and logistics, orchestrated end to end.', img: IMG('1553413077-190dd305871c') },
-  { key: 'mfg', title: 'Manufacturing', desc: 'Plan production, track output and cut waste in real time.', img: IMG('1581092160562-40aa08e78837') },
-  { key: 'retail', title: 'Retail', desc: 'Unify online and in-store commerce with live data.', img: IMG('1441986300917-64674bd600d8') },
-  { key: 'health', title: 'Healthcare', desc: 'Streamline care operations, staffing and billing.', img: IMG('1519494026892-80bbd2d6fd0d') },
-  { key: 'supply', title: 'Supply Chain', desc: 'Forecast demand and automate fulfillment everywhere.', img: IMG('1566576912321-d58ddd7a6088') },
+  { key: 'hr', title: 'HR', desc: 'Elevate the potential of your people with human-AI collaboration.', link: 'Human Capital Management', icon: <UserRound size={30} />, grad: 'linear-gradient(165deg, #c14a2e 0%, #7c2617 100%)' },
+  { key: 'finance', title: 'Finance', desc: 'Close faster, plan smarter, run global operations from one ledger.', link: 'Financial Management', icon: <Landmark size={30} />, grad: 'linear-gradient(165deg, #2183c6 0%, #114e87 100%)' },
+  { key: 'it', title: 'IT', desc: 'One platform, one data model — retire your integration debt.', link: 'Platform & APIs', icon: <MonitorSmartphone size={30} />, grad: 'linear-gradient(165deg, #6c40b2 0%, #3f2082 100%)' },
+  { key: 'legal', title: 'Legal', desc: 'Compliance workflows and audit trails, live in 42 countries.', link: 'Compliance suite', icon: <Scale size={30} />, grad: 'linear-gradient(165deg, #1f9f70 0%, #0f5d44 100%)' },
+  { key: 'ops', title: 'Operations', desc: 'Supply, inventory, and logistics — orchestrated end-to-end.', link: 'Ops suite', icon: <PackageSearch size={30} />, grad: 'linear-gradient(165deg, #cb8c1f 0%, #8b5b10 100%)' },
+  { key: 'mfg', title: 'Manufacturing', desc: 'Plan production, track output and cut waste in real time.', link: 'Production suite', icon: <Factory size={30} />, grad: 'linear-gradient(165deg, #2c70b1 0%, #17406f 100%)' },
+  { key: 'retail', title: 'Retail', desc: 'Unify online and in-store commerce with live data.', link: 'Commerce suite', icon: <ShoppingBag size={30} />, grad: 'linear-gradient(165deg, #b14a2f 0%, #6f2b19 100%)' },
+  { key: 'health', title: 'Healthcare', desc: 'Streamline care operations, staffing and billing.', link: 'Care suite', icon: <HeartPulse size={30} />, grad: 'linear-gradient(165deg, #1f9f8f 0%, #0f5d53 100%)' },
+  { key: 'supply', title: 'Supply Chain', desc: 'Forecast demand and automate fulfillment everywhere.', link: 'Logistics suite', icon: <Truck size={30} />, grad: 'linear-gradient(165deg, #6c50b2 0%, #3f3082 100%)' },
 ];
 
 const AgenticHero = () => {
@@ -90,7 +106,7 @@ const AgenticHero = () => {
       if (el.scrollLeft + el.clientWidth >= el.scrollWidth - 8) {
         el.scrollTo({ left: 0, behavior: 'smooth' });
       } else {
-        el.scrollBy({ left: 352, behavior: 'smooth' });
+        el.scrollBy({ left: 324, behavior: 'smooth' });
       }
     }, 2800);
     return () => clearInterval(t);
@@ -98,7 +114,7 @@ const AgenticHero = () => {
 
   const scrollTiles = (dir) => {
     const el = trackRef.current;
-    if (el) el.scrollBy({ left: dir * 336, behavior: 'smooth' });
+    if (el) el.scrollBy({ left: dir * 324, behavior: 'smooth' });
   };
 
   const enlargeVideo = () => {
@@ -116,114 +132,91 @@ const AgenticHero = () => {
 
   return (
     <>
-    <section className="ah-section" id="agentic-hero">
-      <div className="ah-panel">
-        {/* Crisp CRM hero scene — real layered SVG assets, composed exactly like the reference */}
-        <div className="ah-scene" aria-hidden="true">
-          <img className="ah-layer ah-clouds" src="/hero/crm-bg/clouds_foreground.svg" alt="" />
-          <img className="ah-layer ah-bld-l" src="/hero/crm-bg/left.png" alt="" />
-          <img className="ah-layer ah-bld-r" src="/hero/crm-bg/right.png" alt="" />
-          <img className="ah-layer ah-ground-l" src="/hero/crm-bg/ground_left.svg" alt="" />
-          <img className="ah-layer ah-ground-r2" src="/hero/crm-bg/ground_left.svg" alt="" />
-          <img className="ah-layer ah-ground-r" src="/hero/crm-bg/ground_right.svg" alt="" />
-        </div>
-      </div>
-      <div className="ah-hero">
+    <div className="ah-dark-wrap">
+    {/* faint vertical guide lines left & right — span the whole dark area */}
+    <div className="ah-vlines" aria-hidden="true" />
+    <section className="ah-section ah-dark" id="agentic-hero">
+      <div className="ah-grid">
+        {/* left — copy */}
+        <div className="ah-copy">
+          <span className="ah-eyebrow">THE AGENTIC ENTERPRISE</span>
           <h1 className="ah-title">
-            The one platform to run your <span className="ah-underline">entire enterprise.</span><br />
-            Loved by teams in <span className="ah-rotate"><span key={deptIndex} className="ah-rotate-word">{DEPTS[deptIndex]}</span></span>
+            Business software <span className="ah-grad">designed to think ahead.</span>
           </h1>
-
-          <div className="ah-features">
-            {FEATURES.map((f) => (
-              <div key={f.title} className="ah-feat">
-                <span className="ah-feat-icon" style={{ background: f.color, color: f.iconColor }}>{f.icon}</span>
-                <div className="ah-feat-text">
-                  <b>{f.title}</b>
-                  <span>{f.sub}</span>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="ah-cta-field">
-            <a href="#demo" className="ah-cta">
-              Get Started
-              <span className="ah-cta-arrow"><ArrowRight size={18} /></span>
+          <p className="ah-sub">
+            Emvive is the enterprise AI platform for HR, finance, IT and operations —
+            unified across 42 countries, powered by autonomous agents that solve
+            problems, not just report them.
+          </p>
+          <div className="ah-btns">
+            <a href="#demo" className="btn-get-started">
+              Request a free demo
+              <span className="arrow-circle"><ArrowRight size={14} color="#fff" /></span>
             </a>
           </div>
+        </div>
 
-          {/* Product screenshot with the ghost-frame border + faded bottom + play pill */}
-          <div className="ah-app">
-            <div className="ah-app-screen">
-              <div className="dash">
-                <aside className="dash-nav">
-                  <div className="dash-brand"><span className="dash-logo">E</span> Emvive HR</div>
-                  <span className="dash-nav-label">MENU</span>
-                  {DASH_NAV.map((n, i) => (
-                    <div key={n.label} className={`dash-nav-item ${i === 0 ? 'active' : ''}`}>{n.icon}<span>{n.label}</span></div>
-                  ))}
-                </aside>
-                <main className="dash-body">
-                  <div className="dash-top">
-                    <div>
-                      <h4>Good morning, Sarah</h4>
-                      <p>Here's your team overview for today</p>
-                    </div>
-                    <div className="dash-top-right">
-                      <span className="dash-search"><Search size={14} /> Search employees…</span>
-                      <span className="dash-ava" style={{ background: `${RG} #c4b5fd, #7c3aed)` }}>SR</span>
-                    </div>
-                  </div>
-                  <div className="dash-stats">
-                    {DASH_STATS.map((s) => (
-                      <div key={s.label} className="dash-stat">
-                        <span className="dash-stat-ic" style={{ background: s.bg, color: s.fg }}>{s.icon}</span>
-                        <div className="dash-stat-txt"><b>{s.value}</b><span>{s.label}</span></div>
-                        <em className={s.trend > 0 ? 'up' : 'down'}>{s.trend > 0 ? '+' : ''}{s.trend}%</em>
-                      </div>
-                    ))}
-                  </div>
-                  <div className="dash-cards">
-                    <div className="dash-chart">
-                      <div className="dash-card-head"><b>Attendance overview</b><span>This week</span></div>
-                      <div className="dash-bars">
-                        {DASH_BARS.map((h, i) => (<div key={i} className="dash-bar" style={{ height: `${h}%` }} />))}
-                      </div>
-                      <div className="dash-bar-labels">{DASH_DAYS.map((d) => (<span key={d}>{d}</span>))}</div>
-                    </div>
-                    <div className="dash-list">
-                      <div className="dash-card-head"><b>Recent hires</b><span>View all</span></div>
-                      {DASH_HIRES.map((h) => (
-                        <div key={h.name} className="dash-row">
-                          <span className="dash-row-ava" style={{ background: h.c }}>{h.i}</span>
-                          <div className="dash-row-txt"><b>{h.name}</b><span>{h.role}</span></div>
-                          <span className="dash-badge">{h.dept}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </main>
-              </div>
+        {/* right — dashboard card + floating pills */}
+        <div className="ah-visual">
+          <div className="ah-dashcard">
+            <div className="ah-dash-head">
+              <span className="ah-dash-badge">EMV · GLOBAL</span>
+              <span className="ah-dash-sub">Q3 · Real-time</span>
             </div>
-            <button className="ah-play" type="button" aria-label="Play video" onClick={() => setVideoOpen(true)}>
-              <span className="ah-play-inner">
-                <span className="ah-play-icon"><Play size={16} fill="#fff" color="#fff" /></span>
-                <span className="ah-play-text">
-                  <span className="ah-play-title">Discover Emvive</span>
-                  <span className="ah-play-desc">Video, 2 mins</span>
-                </span>
+            <div className="ah-dash-stats">
+              {DASH_METRICS.map((m) => (
+                <div key={m.label} className="ah-dash-metric">
+                  <span className="ah-dash-metric-label">{m.label}</span>
+                  <b className={m.accent ? 'accent' : ''}>{m.value}</b>
+                </div>
+              ))}
+            </div>
+            <button className="ah-dash-chart" type="button" aria-label="Play video" onClick={() => setVideoOpen(true)}>
+              <svg className="ah-chart-svg" viewBox="0 0 520 220" preserveAspectRatio="none" aria-hidden="true">
+                <defs>
+                  <linearGradient id="ah-area" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0" stopColor="#3b82f6" stopOpacity="0.35" />
+                    <stop offset="1" stopColor="#3b82f6" stopOpacity="0" />
+                  </linearGradient>
+                </defs>
+                <path d="M0,190 C90,180 150,120 230,150 C320,184 380,70 520,54 L520,220 L0,220 Z" fill="url(#ah-area)" />
+                <path d="M0,190 C90,180 150,120 230,150 C320,184 380,70 520,54" fill="none" stroke="#60a5fa" strokeWidth="2.5" />
+                <circle cx="230" cy="150" r="4" fill="#60a5fa" />
+                <circle cx="380" cy="92" r="4" fill="#60a5fa" />
+              </svg>
+              <span className="ah-chart-play"><Play size={22} fill="#fff" color="#fff" /></span>
+              <span className="ah-chart-caption">
+                <b>Watch: The Agentic Enterprise.</b> Emvive is the last operations software your team will ever need.
               </span>
             </button>
           </div>
+
+          <div className="ah-pills">
+            {PILLS.map((p) => (
+              <div key={p.title} className="ah-pill">
+                <span className="ah-pill-ic" style={{ background: p.bg }}>{p.icon}</span>
+                <span className="ah-pill-txt">
+                  <b>{p.title}</b>
+                  <span>{p.sub}</span>
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
 
-    <section className="ah-tiles-section" id="industries">
+    <section className="ah-tiles-section ah-dark" id="industries">
       <div className="ah-industries-wrap">
-        <div className="ah-tiles-nav">
-          <button className="ah-tile-arrow" onClick={() => scrollTiles(-1)} aria-label="Previous"><ChevronLeft size={20} /></button>
-          <button className="ah-tile-arrow" onClick={() => scrollTiles(1)} aria-label="Next"><ChevronRight size={20} /></button>
+        <div className="ah-tiles-head">
+          <h2 className="ah-tiles-title">
+            A unified AI platform built to serve<br />
+            <span className="ah-grad">your entire organization.</span>
+          </h2>
+          <div className="ah-tiles-nav">
+            <button className="ah-tile-arrow" onClick={() => scrollTiles(-1)} aria-label="Previous"><ChevronLeft size={20} /></button>
+            <button className="ah-tile-arrow" onClick={() => scrollTiles(1)} aria-label="Next"><ChevronRight size={20} /></button>
+          </div>
         </div>
         <div
           className="ah-industries"
@@ -232,17 +225,19 @@ const AgenticHero = () => {
           onMouseLeave={() => { pausedRef.current = false; }}
         >
           {INDUSTRIES.map((ind) => (
-            <div key={ind.key} className="fs-card">
-              <div className="fs-preview">
-                <img className="fs-img" src={ind.img} alt={ind.title} loading="lazy" />
+            <div key={ind.key} className="ind-card" style={{ backgroundImage: ind.grad }}>
+              <span className="ind-ic">{ind.icon}</span>
+              <div className="ind-body">
+                <h3 className="ind-title">{ind.title}</h3>
+                <p className="ind-desc">{ind.desc}</p>
+                <a href="#platform" className="ind-link">{ind.link} <ArrowRight size={15} /></a>
               </div>
-              <h3 className="fs-title">{ind.title}</h3>
-              <p className="fs-desc">{ind.desc}</p>
             </div>
           ))}
         </div>
       </div>
     </section>
+    </div>
 
     {videoOpen && (
       <div className="ah-modal" onClick={() => setVideoOpen(false)}>
