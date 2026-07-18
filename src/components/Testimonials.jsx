@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Star, Play, ArrowRight } from 'lucide-react';
 import './Testimonials.css';
 
@@ -10,38 +11,47 @@ const Stars = () => (
   </span>
 );
 
-const Review = ({ d }) => (
+const Review = ({ d }) => {
+  const { t } = useTranslation();
+  return (
   <div className="tst-card tst-review">
-    <p className="tst-quote">{d.quote}</p>
+    <p className="tst-quote">{t(`testimonials.items.${d.k}_quote`, d.quote)}</p>
     <div className="tst-person">
       <span className="tst-ava" style={{ background: d.c }}>{d.i}</span>
       <div className="tst-person-txt">
         <b>{d.name}</b>
-        <span>{d.role}</span>
+        <span>{t(`testimonials.items.${d.k}_role`, d.role)}</span>
       </div>
     </div>
   </div>
-);
+  );
+};
 
-const Rating = ({ d }) => (
+const Rating = ({ d }) => {
+  const { t } = useTranslation();
+  return (
   <div className="tst-card tst-rating">
     <div className="tst-rating-top">
       <span className="tst-plat" style={{ background: d.platColor }}>{d.platform}</span>
       <Stars />
     </div>
-    <p className="tst-rating-review">{d.review}</p>
+    <p className="tst-rating-review">{t(`testimonials.items.${d.k}_review`, d.review)}</p>
   </div>
-);
+  );
+};
 
-const VideoCard = ({ d }) => (
+const VideoCard = ({ d }) => {
+  const { t } = useTranslation();
+  return (
   <a className="tst-card tst-video" href="#stories" style={{ backgroundImage: `url(${d.img})` }}>
     <span className="tst-play"><Play size={18} fill="#fff" color="#fff" /></span>
     <div className="tst-video-company">
       <span className="tst-vc-logo" style={{ background: d.c }}>{d.i}</span>
-      <div className="tst-vc-txt"><b>{d.company}</b><span>{d.name}</span></div>
+      <div className="tst-vc-txt"><b>{d.company}</b><span>{t(`testimonials.items.${d.k}_name`, d.name)}</span></div>
     </div>
   </a>
-);
+  );
+};
 
 const render = (d) => {
   if (d.type === 'rating') return <Rating key={d.review} d={d} />;
@@ -51,32 +61,33 @@ const render = (d) => {
 
 const COLUMNS = [
   [
-    { type: 'video', company: 'Lumen Health', name: 'Sarah Kim, Ops Director', i: 'LH', c: '#ec4899', img: IMG('1576091160550-2173dba999ef') },
-    { type: 'review', quote: 'Emvive replaced five disconnected tools. Our month-end close went from 9 days to 2.', name: 'Priya Nair', role: 'CFO · Northwind Logistics', i: 'PN', c: '#10b981' },
-    { type: 'review', quote: 'Onboarding a new hire used to take a week of paperwork. Now it takes 20 minutes.', name: 'Marcus Lee', role: 'Head of People · Brightwave', i: 'ML', c: '#f59e0b' },
-    { type: 'review', quote: 'Compliance audits that used to take weeks are now just a few clicks.', name: 'Hannah Weiss', role: 'Legal Counsel · Meridian Bank', i: 'HW', c: '#14b8a6' },
+    { k: 'm1', type: 'video', company: 'Lumen Health', name: 'Sarah Kim, Ops Director', i: 'LH', c: '#ec4899', img: IMG('1576091160550-2173dba999ef') },
+    { k: 'm2', type: 'review', quote: 'Emvive replaced five disconnected tools. Our month-end close went from 9 days to 2.', name: 'Priya Nair', role: 'CFO · Northwind Logistics', i: 'PN', c: '#10b981' },
+    { k: 'm3', type: 'review', quote: 'Onboarding a new hire used to take a week of paperwork. Now it takes 20 minutes.', name: 'Marcus Lee', role: 'Head of People · Brightwave', i: 'ML', c: '#f59e0b' },
+    { k: 'm4', type: 'review', quote: 'Compliance audits that used to take weeks are now just a few clicks.', name: 'Hannah Weiss', role: 'Legal Counsel · Meridian Bank', i: 'HW', c: '#14b8a6' },
   ],
   [
-    { type: 'rating', platform: 'G2', platColor: '#ff5e2c', review: 'Emvive is the most complete platform we evaluated — and by far the easiest to roll out.' },
-    { type: 'review', quote: 'One data model across finance, HR and operations finally gave us a single source of truth.', name: 'Elena Duarte', role: 'COO · Vantel Retail', i: 'ED', c: '#8b5cf6' },
-    { type: 'review', quote: 'Real-time inventory across every warehouse cut our stockouts by 40%.', name: 'David Okoro', role: 'Supply Chain Lead · Cobalt Foods', i: 'DO', c: '#6366f1' },
-    { type: 'video', company: 'Nimbus Retail', name: 'Ava Chen, Head of Ops', i: 'NR', c: '#0ea5e9', img: IMG('1521737604893-d14cc237f11d') },
+    { k: 'm5', type: 'rating', platform: 'G2', platColor: '#ff5e2c', review: 'Emvive is the most complete platform we evaluated — and by far the easiest to roll out.' },
+    { k: 'm6', type: 'review', quote: 'One data model across finance, HR and operations finally gave us a single source of truth.', name: 'Elena Duarte', role: 'COO · Vantel Retail', i: 'ED', c: '#8b5cf6' },
+    { k: 'm7', type: 'review', quote: 'Real-time inventory across every warehouse cut our stockouts by 40%.', name: 'David Okoro', role: 'Supply Chain Lead · Cobalt Foods', i: 'DO', c: '#6366f1' },
+    { k: 'm8', type: 'video', company: 'Nimbus Retail', name: 'Ava Chen, Head of Ops', i: 'NR', c: '#0ea5e9', img: IMG('1521737604893-d14cc237f11d') },
   ],
   [
-    { type: 'review', quote: 'The rollout across 14 countries was smoother than any system we have ever deployed.', name: 'Omar Haddad', role: 'VP of IT · Zephyr Group', i: 'OH', c: '#0ea5e9' },
-    { type: 'video', company: 'Fabrik Studios', name: 'Thomas Reed, CEO', i: 'FS', c: '#f97316', img: IMG('1600880292089-90a7e086ee0c') },
-    { type: 'rating', platform: 'Capterra', platColor: '#0f6fde', review: 'Setup was painless and the support team felt like an extension of our own.' },
-    { type: 'review', quote: 'We consolidated 12 regional systems into one — reporting is finally real-time.', name: 'Sofia Ramos', role: 'VP Finance · Orbit Manufacturing', i: 'SR', c: '#ef4444' },
+    { k: 'm9', type: 'review', quote: 'The rollout across 14 countries was smoother than any system we have ever deployed.', name: 'Omar Haddad', role: 'VP of IT · Zephyr Group', i: 'OH', c: '#0ea5e9' },
+    { k: 'm10', type: 'video', company: 'Fabrik Studios', name: 'Thomas Reed, CEO', i: 'FS', c: '#f97316', img: IMG('1600880292089-90a7e086ee0c') },
+    { k: 'm11', type: 'rating', platform: 'Capterra', platColor: '#0f6fde', review: 'Setup was painless and the support team felt like an extension of our own.' },
+    { k: 'm12', type: 'review', quote: 'We consolidated 12 regional systems into one — reporting is finally real-time.', name: 'Sofia Ramos', role: 'VP Finance · Orbit Manufacturing', i: 'SR', c: '#ef4444' },
   ],
 ];
 
 const Testimonials = () => {
+  const { t } = useTranslation();
   return (
     <section className="tst-section" id="testimonials">
       <div className="tst-head">
-        <h2 className="tst-title">10,000 companies have already made the move</h2>
-        <p className="tst-sub">Join the teams running finance, HR, IT and operations on Emvive.</p>
-        <a className="tst-btn" href="#stories">Read customer stories <ArrowRight size={17} /></a>
+        <h2 className="tst-title">{t('testimonials.title', '10,000 companies have already made the move')}</h2>
+        <p className="tst-sub">{t('testimonials.subtitle', 'Join the teams running finance, HR, IT and operations on Emvive.')}</p>
+        <a className="tst-btn" href="#stories">{t('testimonials.btn', 'Read customer stories')} <ArrowRight size={17} /></a>
       </div>
 
       <div className="tst-wrapper">

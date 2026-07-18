@@ -154,14 +154,6 @@ const Header = () => {
           </nav>
 
           <div className="header-actions" ref={actionsRef}>
-            <button
-              className="theme-toggle"
-              onClick={toggleTheme}
-              aria-label={isDark ? 'Switch to light theme' : 'Switch to dark theme'}
-            >
-              {isDark ? <Sun size={19} /> : <Moon size={19} />}
-            </button>
-
             <div className="selector-wrap">
               <button
                 className="selector-btn"

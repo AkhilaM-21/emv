@@ -1,4 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import {
   ArrowRight, Play, Check, Sparkles, Infinity as InfinityIcon,
   UserRound, Landmark, MonitorSmartphone, Scale, PackageSearch,
@@ -37,17 +38,17 @@ const DASH_DAYS = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
 
 // hero dashboard-card metrics
 const DASH_METRICS = [
-  { label: 'REVENUE YTD', value: '$4.28M', accent: true },
-  { label: 'COUNTRIES', value: '42' },
-  { label: 'UPTIME', value: '99.99%' },
+  { k: 'revenueYtd', label: 'REVENUE YTD', value: '$4.28M', accent: true },
+  { k: 'countries', label: 'COUNTRIES', value: '42' },
+  { k: 'uptime', label: 'UPTIME', value: '99.99%' },
 ];
 
 // floating product pills on the right of the dashboard (Emvive products, blue theme)
 const PILLS = [
-  { title: 'Cloud ERP', sub: 'Unified operations', icon: <Layers size={18} />, bg: 'linear-gradient(180deg,#3b82f6,#2563eb)' },
-  { title: 'HR & Payroll', sub: 'People & pay in sync', icon: <UsersRound size={18} />, bg: 'linear-gradient(180deg,#2b70fa,#1e5fe0)' },
-  { title: 'CRM & Sales', sub: 'Grow every relationship', icon: <Home size={18} />, bg: 'linear-gradient(180deg,#60a5fa,#3b82f6)' },
-  { title: 'Advanced Reporting', sub: 'Real-time insights', icon: <BarChart3 size={18} />, bg: 'linear-gradient(180deg,#4f7ef0,#2b5fd0)' },
+  { k: 'erp', title: 'Cloud ERP', sub: 'Unified operations', icon: <Layers size={18} />, bg: 'linear-gradient(180deg,#3b82f6,#2563eb)' },
+  { k: 'hr', title: 'HR & Payroll', sub: 'People & pay in sync', icon: <UsersRound size={18} />, bg: 'linear-gradient(180deg,#2b70fa,#1e5fe0)' },
+  { k: 'crm', title: 'CRM & Sales', sub: 'Grow every relationship', icon: <Home size={18} />, bg: 'linear-gradient(180deg,#60a5fa,#3b82f6)' },
+  { k: 'report', title: 'Advanced Reporting', sub: 'Real-time insights', icon: <BarChart3 size={18} />, bg: 'linear-gradient(180deg,#4f7ef0,#2b5fd0)' },
 ];
 
 // dummy demo video (placeholder for now) — embedded YouTube link
@@ -85,6 +86,7 @@ const INDUSTRIES = [
 ];
 
 const AgenticHero = () => {
+  const { t } = useTranslation();
   const trackRef = useRef(null);
   const pausedRef = useRef(false);
   const videoRef = useRef(null);
@@ -139,18 +141,16 @@ const AgenticHero = () => {
       <div className="ah-grid">
         {/* left — copy */}
         <div className="ah-copy">
-          <span className="ah-eyebrow">THE AGENTIC ENTERPRISE</span>
+          <span className="ah-eyebrow">{t('agenticHero.eyebrow', 'THE AGENTIC ENTERPRISE')}</span>
           <h1 className="ah-title">
-            Business software <span className="ah-grad">designed to think ahead.</span>
+            {t('agenticHero.title_1', 'Business software ')}<span className="ah-grad">{t('agenticHero.title_grad', 'designed to think ahead.')}</span>
           </h1>
           <p className="ah-sub">
-            Emvive is the enterprise AI platform for HR, finance, IT and operations —
-            unified across 42 countries, powered by autonomous agents that solve
-            problems, not just report them.
+            {t('agenticHero.subtitle', 'Emvive is the enterprise AI platform for HR, finance, IT and operations — unified across 42 countries, powered by autonomous agents that solve problems, not just report them.')}
           </p>
           <div className="ah-btns">
             <a href="#demo" className="btn-get-started">
-              Request a free demo
+              {t('agenticHero.demoBtn', 'Request a free demo')}
               <span className="arrow-circle"><ArrowRight size={14} color="#fff" /></span>
             </a>
           </div>
@@ -161,12 +161,12 @@ const AgenticHero = () => {
           <div className="ah-dashcard">
             <div className="ah-dash-head">
               <span className="ah-dash-badge">EMV · GLOBAL</span>
-              <span className="ah-dash-sub">Q3 · Real-time</span>
+              <span className="ah-dash-sub">{t('agenticHero.dashSub', 'Q3 · Real-time')}</span>
             </div>
             <div className="ah-dash-stats">
               {DASH_METRICS.map((m) => (
                 <div key={m.label} className="ah-dash-metric">
-                  <span className="ah-dash-metric-label">{m.label}</span>
+                  <span className="ah-dash-metric-label">{t(`agenticHero.metrics.${m.k}`, m.label)}</span>
                   <b className={m.accent ? 'accent' : ''}>{m.value}</b>
                 </div>
               ))}
@@ -186,7 +186,7 @@ const AgenticHero = () => {
               </svg>
               <span className="ah-chart-play"><Play size={22} fill="#fff" color="#fff" /></span>
               <span className="ah-chart-caption">
-                <b>Watch: The Agentic Enterprise.</b> Emvive is the last operations software your team will ever need.
+                <b>{t('agenticHero.chartCaptionBold', 'Watch: The Agentic Enterprise.')}</b>{t('agenticHero.chartCaption', ' Emvive is the last operations software your team will ever need.')}
               </span>
             </button>
           </div>
@@ -196,8 +196,8 @@ const AgenticHero = () => {
               <div key={p.title} className="ah-pill">
                 <span className="ah-pill-ic" style={{ background: p.bg }}>{p.icon}</span>
                 <span className="ah-pill-txt">
-                  <b>{p.title}</b>
-                  <span>{p.sub}</span>
+                  <b>{t(`agenticHero.pills.${p.k}_t`, p.title)}</b>
+                  <span>{t(`agenticHero.pills.${p.k}_s`, p.sub)}</span>
                 </span>
               </div>
             ))}
@@ -210,8 +210,8 @@ const AgenticHero = () => {
       <div className="ah-industries-wrap">
         <div className="ah-tiles-head">
           <h2 className="ah-tiles-title">
-            A unified AI platform built to serve<br />
-            <span className="ah-grad">your entire organization.</span>
+            {t('agenticHero.tilesTitle_1', 'A unified AI platform built to serve')}<br />
+            <span className="ah-grad">{t('agenticHero.tilesTitle_grad', 'your entire organization.')}</span>
           </h2>
           <div className="ah-tiles-nav">
             <button className="ah-tile-arrow" onClick={() => scrollTiles(-1)} aria-label="Previous"><ChevronLeft size={20} /></button>
@@ -228,9 +228,9 @@ const AgenticHero = () => {
             <div key={ind.key} className="ind-card" style={{ backgroundImage: ind.grad }}>
               <span className="ind-ic">{ind.icon}</span>
               <div className="ind-body">
-                <h3 className="ind-title">{ind.title}</h3>
-                <p className="ind-desc">{ind.desc}</p>
-                <a href="#platform" className="ind-link">{ind.link} <ArrowRight size={15} /></a>
+                <h3 className="ind-title">{t(`agenticHero.industries.${ind.key}_title`, ind.title)}</h3>
+                <p className="ind-desc">{t(`agenticHero.industries.${ind.key}_desc`, ind.desc)}</p>
+                <a href="#platform" className="ind-link">{t(`agenticHero.industries.${ind.key}_link`, ind.link)} <ArrowRight size={15} /></a>
               </div>
             </div>
           ))}

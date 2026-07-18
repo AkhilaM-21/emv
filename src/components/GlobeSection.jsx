@@ -387,8 +387,8 @@ const Globe = () => {
           
           {activePin === i && (
             <div className="globe-popup" onClick={(e) => e.stopPropagation()}>
-              <h4>{t(`header.regions.${m.regionKey}`, m.label)} Office</h4>
-              <p>{m.address}</p>
+              <h4>{t(`header.regions.${m.regionKey}`, m.label)} {t('globe.office', 'Office')}</h4>
+              <p>{t(`globe.address.${m.regionKey}`, m.address)}</p>
             </div>
           )}
         </div>
@@ -576,7 +576,7 @@ const GlobeSection = () => {
           </div>
           <div className="gs-progress"><span style={{ width: '72%' }} /></div>
           <div className="gs-foot">
-            <span>Growing every day</span>
+            <span>{t('globe.growingDaily', 'Growing every day')}</span>
             <span className="gs-up">12.5% ↑</span>
           </div>
         </div>
@@ -596,7 +596,7 @@ const GlobeSection = () => {
             {REGION_FLAGS.map((flag, i) => (
               <span key={i} className="gs-flag">{flag}</span>
             ))}
-            <span className="gs-flag-more">India · UAE · Saudi</span>
+            <span className="gs-flag-more">{t('globe.regionsList', 'India · UAE · Saudi')}</span>
           </div>
         </div>
 
@@ -616,8 +616,8 @@ const GlobeSection = () => {
             <path className="gs-spark-line" fill="none" d="M0,30 C25,26 45,34 65,24 85,14 105,22 125,14 145,7 165,16 185,10 200,12 220,6" />
           </svg>
           <div className="gs-foot">
-            <span>Always here for you</span>
-            <span className="gs-badge">Available</span>
+            <span>{t('globe.alwaysHere', 'Always here for you')}</span>
+            <span className="gs-badge">{t('globe.available', 'Available')}</span>
           </div>
         </div>
       </div>

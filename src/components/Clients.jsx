@@ -25,24 +25,24 @@ const Clients = () => {
       <div className="container emv-clients-container">
 
         <div className="emv-clients-top-block">
-          <div className="emv-subtitle">MEET EMVIVE</div>
+          <div className="emv-subtitle">{t('clients.eyebrow', 'MEET EMVIVE')}</div>
 
           <div className="emv-headline-row">
             <h2 className="emv-headline">
-              Enterprise software and AI that <span className="text-accent">knows your industry.</span>
+              {t('clients.headline_1', 'Enterprise software and AI that ')}<span className="text-accent">{t('clients.headline_2', 'knows your industry.')}</span>
             </h2>
             <a href="#customer-stories" className="emv-customer-btn">
-              View all customer stories <ArrowRight size={16} />
+              {t('clients.viewAll', 'View all customer stories')} <ArrowRight size={16} />
             </a>
           </div>
 
           <p className="emv-description">
-            Emvive is a global leader in cloud enterprise software built for the way industries actually work. We combine deep operational expertise, proven processes and <a href="#ai-agents" className="text-link">AI agents</a> — so your operations don't just run, they think, adapt and act. Turn your business into an agentic enterprise, and set the pace for your industry.
+            {t('clients.desc_1', 'Emvive is a global leader in cloud enterprise software built for the way industries actually work. We combine deep operational expertise, proven processes and ')}<a href="#ai-agents" className="text-link">{t('clients.desc_link', 'AI agents')}</a>{t('clients.desc_2', " — so your operations don't just run, they think, adapt and act. Turn your business into an agentic enterprise, and set the pace for your industry.")}
           </p>
         </div>
 
         <div className="emv-clients-bottom">
-          <h6 className="emv-brands-title">BRANDS THAT TRUST US</h6>
+          <h6 className="emv-brands-title">{t('clients.brandsTitle', 'BRANDS THAT TRUST US')}</h6>
           <div className="emv-marquee-wrapper" dir="ltr">
             <div className="emv-marquee-content">
               {[...CLIENTS, ...CLIENTS, ...CLIENTS].map((client, idx) => (

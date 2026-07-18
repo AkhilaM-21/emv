@@ -398,12 +398,12 @@ const Products = () => {
 
         {/* HEADER BLOCK FROM IMAGE */}
         <div className="emv-products-header">
-          <div className="emv-subtitle">FEATURED PRODUCTS</div>
+          <div className="emv-subtitle">{t('products.featuredLabel', 'FEATURED PRODUCTS')}</div>
           <h2 className="emv-headline">
-            One platform. <span className="text-accent">Every operating layer.</span>
+            {t('products.headline_1', 'One platform. ')}<span className="text-accent">{t('products.headline_2', 'Every operating layer.')}</span>
           </h2>
           <p className="emv-description">
-            Six enterprise-grade applications on a single data model — from the general ledger to the customer record. No integrations to wire. No CSVs to import.
+            {t('products.headline_desc', 'Six enterprise-grade applications on a single data model — from the general ledger to the customer record. No integrations to wire. No CSVs to import.')}
           </p>
         </div>
 
@@ -412,59 +412,59 @@ const Products = () => {
           {/* Left: Purple Card */}
           <div className="emv-agent-studio-card">
             <div className="emv-new-badge">✦ NEW</div>
-            <h3>Introducing<br/>Emvive Agent Studio</h3>
-            <p>Build autonomous agents that reconcile ledgers, chase invoices, draft close notes and more.</p>
-            <a href="#agent-studio" className="emv-btn-outline-white">Explore Agent Studio &rarr;</a>
+            <h3>{t('products.introducing', 'Introducing')}<br/>Emvive Agent Studio</h3>
+            <p>{t('products.agentStudioDesc', 'Build autonomous agents that reconcile ledgers, chase invoices, draft close notes and more.')}</p>
+            <a href="#agent-studio" className="emv-btn-outline-white">{t('products.exploreAgentStudio', 'Explore Agent Studio')} &rarr;</a>
           </div>
 
           {/* Right: Apps Grid */}
           <div className="emv-apps-grid-section">
             <div className="emv-apps-header">
-              <span className="emv-apps-title">FEATURED APPS</span>
-              <a href="#all-products" className="emv-explore-all">Explore all products <ArrowRight size={16}/></a>
+              <span className="emv-apps-title">{t('products.featuredApps', 'FEATURED APPS')}</span>
+              <a href="#all-products" className="emv-explore-all">{t('products.exploreAll', 'Explore all products')} <ArrowRight size={16}/></a>
             </div>
 
             <div className="emv-apps-grid">
               <div className="emv-app-mini-card">
                 <div className="emv-app-icon" style={{background: '#0ea5e9'}}><LayoutDashboard size={18} color="#fff"/></div>
                 <div className="emv-app-info">
-                  <h4>Finance</h4>
-                  <p>Multi-entity GL, consolidation & close</p>
+                  <h4>{t('products.apps.finance_t', 'Finance')}</h4>
+                  <p>{t('products.apps.finance_d', 'Multi-entity GL, consolidation & close')}</p>
                 </div>
               </div>
               <div className="emv-app-mini-card">
                 <div className="emv-app-icon" style={{background: '#f97316'}}><Users size={18} color="#fff"/></div>
                 <div className="emv-app-info">
-                  <h4>People</h4>
-                  <p>Global HR & statutory payroll</p>
+                  <h4>{t('products.apps.people_t', 'People')}</h4>
+                  <p>{t('products.apps.people_d', 'Global HR & statutory payroll')}</p>
                 </div>
               </div>
               <div className="emv-app-mini-card">
                 <div className="emv-app-icon" style={{background: '#10b981'}}><Briefcase size={18} color="#fff"/></div>
                 <div className="emv-app-info">
-                  <h4>CRM</h4>
-                  <p>Pipeline, contracts & revenue</p>
+                  <h4>{t('products.apps.crm_t', 'CRM')}</h4>
+                  <p>{t('products.apps.crm_d', 'Pipeline, contracts & revenue')}</p>
                 </div>
               </div>
               <div className="emv-app-mini-card">
                 <div className="emv-app-icon" style={{background: '#ec4899'}}><Package size={18} color="#fff"/></div>
                 <div className="emv-app-info">
-                  <h4>Inventory</h4>
-                  <p>Supply, warehousing & SKUs</p>
+                  <h4>{t('products.apps.inventory_t', 'Inventory')}</h4>
+                  <p>{t('products.apps.inventory_d', 'Supply, warehousing & SKUs')}</p>
                 </div>
               </div>
               <div className="emv-app-mini-card">
                 <div className="emv-app-icon" style={{background: '#8b5cf6'}}><Settings size={18} color="#fff"/></div>
                 <div className="emv-app-info">
-                  <h4>Automation</h4>
-                  <p>Visual, no-code workflow studio</p>
+                  <h4>{t('products.apps.automation_t', 'Automation')}</h4>
+                  <p>{t('products.apps.automation_d', 'Visual, no-code workflow studio')}</p>
                 </div>
               </div>
               <div className="emv-app-mini-card">
                 <div className="emv-app-icon" style={{background: '#ef4444'}}><FileCheck size={18} color="#fff"/></div>
                 <div className="emv-app-info">
-                  <h4>E-Invoicing</h4>
-                  <p>Native formats in 42 countries</p>
+                  <h4>{t('products.apps.einvoicing_t', 'E-Invoicing')}</h4>
+                  <p>{t('products.apps.einvoicing_d', 'Native formats in 42 countries')}</p>
                 </div>
               </div>
             </div>

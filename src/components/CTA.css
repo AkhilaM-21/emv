@@ -139,6 +139,16 @@
   z-index: 1;
 }
 
+/* ---- RTL (Arabic): mirror the layout — content on the right, video on the left ---- */
+[dir="rtl"] .cta-right {
+  right: auto;
+  left: 0;
+}
+[dir="rtl"] .cta-right::before {
+  /* fade now darkens the video's RIGHT edge (the side that meets the content) */
+  background: linear-gradient(270deg, #141f38 0%, rgba(20, 31, 56, 0.9) 10%, rgba(20, 31, 56, 0) 42%);
+}
+
 /* confetti dots */
 .cta-dot { position: absolute; z-index: 1; border-radius: 3px; }
 .cta-dot--1 { width: 12px; height: 12px; background: #ef4444; top: 8%; right: 34%; transform: rotate(20deg); }

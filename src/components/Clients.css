@@ -48,7 +48,7 @@ body.dark-theme .emv-subtitle {
   color: #1e293b;
   margin: 0;
   letter-spacing: -1.5px;
-  max-width: 850px;
+  max-width: 960px;
 }
 
 body.dark-theme .emv-headline {
@@ -97,7 +97,8 @@ body.dark-theme .emv-customer-btn:hover {
   line-height: 1.6;
   color: #475569;
   margin: 1.5rem 0 0 0;
-  max-width: 80%; /* Takes up roughly the same visual space as the headline */
+  max-width: 960px; /* same width as the headline so their lines align */
+  text-align: justify; /* words stretch to reach the end of each line */
 }
 
 body.dark-theme .emv-description {

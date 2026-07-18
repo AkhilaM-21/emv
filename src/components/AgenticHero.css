@@ -82,11 +82,11 @@
   color: transparent;
 }
 .ah-sub {
-  font-size: 1.12rem;
+  font-size: 1.32rem;
   line-height: 1.7;
   color: #9fb0cc;
   margin: 0 0 2.2rem;
-  max-width: 540px;
+  max-width: 560px;
 }
 .ah-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
 .ah-btn-primary {
@@ -846,8 +846,8 @@
   color: rgba(255, 255, 255, 0.32);
 }
 .ind-body { display: flex; flex-direction: column; }
-.ind-title { font-size: 2rem; font-weight: 800; color: #ffffff; margin: 0 0 0.6rem; letter-spacing: -0.5px; }
-.ind-desc { font-size: 0.92rem; line-height: 1.5; color: rgba(255, 255, 255, 0.82); margin: 0 0 1.1rem; }
+.ind-title { font-size: 2.1rem; font-weight: 800; color: #ffffff; margin: 0 0 0.6rem; letter-spacing: -0.5px; }
+.ind-desc { font-size: 1.08rem; line-height: 1.55; color: rgba(255, 255, 255, 0.86); margin: 0 0 1.1rem; }
 .ind-link {
   display: inline-flex;
   align-items: center;

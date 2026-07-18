@@ -52,7 +52,15 @@
     ]
   },
   "clients": {
-    "trusted": "3600+ Trusted companies all over the world"
+    "trusted": "3600+ Trusted companies all over the world",
+    "eyebrow": "MEET EMVIVE",
+    "headline_1": "Enterprise software and AI that ",
+    "headline_2": "knows your industry.",
+    "viewAll": "View all customer stories",
+    "desc_1": "Emvive is a global leader in cloud enterprise software built for the way industries actually work. We combine deep operational expertise, proven processes and ",
+    "desc_link": "AI agents",
+    "desc_2": " — so your operations don't just run, they think, adapt and act. Turn your business into an agentic enterprise, and set the pace for your industry.",
+    "brandsTitle": "BRANDS THAT TRUST US"
   },
   "about": {
     "badge": "About Us",
@@ -185,6 +193,29 @@
         "paidStamp": "PAID",
         "recentActivity": "Recent Activity"
       }
+    },
+    "featuredLabel": "FEATURED PRODUCTS",
+    "headline_1": "One platform. ",
+    "headline_2": "Every operating layer.",
+    "headline_desc": "Six enterprise-grade applications on a single data model — from the general ledger to the customer record. No integrations to wire. No CSVs to import.",
+    "introducing": "Introducing",
+    "agentStudioDesc": "Build autonomous agents that reconcile ledgers, chase invoices, draft close notes and more.",
+    "exploreAgentStudio": "Explore Agent Studio",
+    "featuredApps": "FEATURED APPS",
+    "exploreAll": "Explore all products",
+    "apps": {
+      "finance_t": "Finance",
+      "finance_d": "Multi-entity GL, consolidation & close",
+      "people_t": "People",
+      "people_d": "Global HR & statutory payroll",
+      "crm_t": "CRM",
+      "crm_d": "Pipeline, contracts & revenue",
+      "inventory_t": "Inventory",
+      "inventory_d": "Supply, warehousing & SKUs",
+      "automation_t": "Automation",
+      "automation_d": "Visual, no-code workflow studio",
+      "einvoicing_t": "E-Invoicing",
+      "einvoicing_d": "Native formats in 42 countries"
     }
   },
   "productsData": {
@@ -200,7 +231,38 @@
     "p5_desc": "Eliminate manual tasks and optimize business efficiency. Design custom workflows that automatically route approvals, trigger actions, and reduce human error.",
     "p6_title": "E-Invoicing",
     "p6_desc": "Secure, compliant, and seamless electronic invoicing. Digitize your billing process, track invoice statuses, and integrate directly with your financial systems.",
-    "targetIndustries": "Target Industries"
+    "targetIndustries": "Target Industries",
+    "industries": {
+      "Manufacturing": "Manufacturing",
+      "Retail": "Retail",
+      "Logistics": "Logistics",
+      "Wholesale": "Wholesale",
+      "Construction": "Construction",
+      "Healthcare": "Healthcare",
+      "Education": "Education",
+      "Corporate": "Corporate",
+      "Hospitality": "Hospitality",
+      "Non-Profit": "Non-Profit",
+      "RealEstate": "Real Estate",
+      "Finance": "Finance",
+      "E-commerce": "E-commerce",
+      "Consulting": "Consulting",
+      "SaaS": "SaaS",
+      "Technology": "Technology",
+      "Telecom": "Telecom",
+      "Government": "Government",
+      "Marketing": "Marketing",
+      "Energy": "Energy",
+      "ITServices": "IT Services",
+      "Media": "Media",
+      "Operations": "Operations",
+      "Legal": "Legal",
+      "CustomerSupport": "Customer Support",
+      "Accounting": "Accounting",
+      "B2BTrade": "B2B Trade",
+      "Freelance": "Freelance",
+      "SupplyChain": "Supply Chain"
+    }
   },
   "why": {
     "badge": "Benefits",
@@ -241,7 +303,21 @@
     "scaling": "Scaling their business with us",
     "badge": "GLOBAL PRESENCE",
     "title": "One platform, offices across the globe",
-    "subtitle": "From India to Saudi Arabia and Dubai, Emvive powers enterprises across regions — drag the globe to explore where we operate."
+    "subtitle": "From India to Saudi Arabia and Dubai, Emvive powers enterprises across regions — drag the globe to explore where we operate.",
+    "office": "Office",
+    "growingDaily": "Growing every day",
+    "alwaysHere": "Always here for you",
+    "available": "Available",
+    "regionsList": "India · UAE · Saudi",
+    "stat_0_label": "Server Uptime",
+    "stat_1_label": "Global Regions",
+    "stat_2_label": "Active Users",
+    "stat_3_label": "Support",
+    "address": {
+      "india": "Cyber City, DLF Phase 2, Gurugram, Haryana 122002, India",
+      "saudi": "King Fahd Road, Olaya District, Riyadh 12214, Saudi Arabia",
+      "dubai": "Sheikh Zayed Road, Trade Centre, Dubai, UAE"
+    }
   },
   "footer": {
     "emailLabel": "Email Address*",
@@ -434,5 +510,100 @@
       "conditionBlock": "Condition",
       "actionBlock": "Action"
     }
+  },
+  "agenticHero": {
+    "eyebrow": "THE AGENTIC ENTERPRISE",
+    "title_1": "Business software ",
+    "title_grad": "designed to think ahead.",
+    "subtitle": "Emvive is the enterprise AI platform for HR, finance, IT and operations — unified across 42 countries, powered by autonomous agents that solve problems, not just report them.",
+    "demoBtn": "Request a free demo",
+    "dashSub": "Q3 · Real-time",
+    "metrics": {
+      "revenueYtd": "REVENUE YTD",
+      "countries": "COUNTRIES",
+      "uptime": "UPTIME"
+    },
+    "pills": {
+      "erp_t": "Cloud ERP",
+      "erp_s": "Unified operations",
+      "hr_t": "HR & Payroll",
+      "hr_s": "People & pay in sync",
+      "crm_t": "CRM & Sales",
+      "crm_s": "Grow every relationship",
+      "report_t": "Advanced Reporting",
+      "report_s": "Real-time insights"
+    },
+    "chartCaptionBold": "Watch: The Agentic Enterprise.",
+    "chartCaption": " Emvive is the last operations software your team will ever need.",
+    "tilesTitle_1": "A unified AI platform built to serve",
+    "tilesTitle_grad": "your entire organization.",
+    "industries": {
+      "hr_title": "HR",
+      "hr_desc": "Elevate the potential of your people with human-AI collaboration.",
+      "hr_link": "Human Capital Management",
+      "finance_title": "Finance",
+      "finance_desc": "Close faster, plan smarter, run global operations from one ledger.",
+      "finance_link": "Financial Management",
+      "it_title": "IT",
+      "it_desc": "One platform, one data model — retire your integration debt.",
+      "it_link": "Platform & APIs",
+      "legal_title": "Legal",
+      "legal_desc": "Compliance workflows and audit trails, live in 42 countries.",
+      "legal_link": "Compliance suite",
+      "ops_title": "Operations",
+      "ops_desc": "Supply, inventory, and logistics — orchestrated end-to-end.",
+      "ops_link": "Ops suite",
+      "mfg_title": "Manufacturing",
+      "mfg_desc": "Plan production, track output and cut waste in real time.",
+      "mfg_link": "Production suite",
+      "retail_title": "Retail",
+      "retail_desc": "Unify online and in-store commerce with live data.",
+      "retail_link": "Commerce suite",
+      "health_title": "Healthcare",
+      "health_desc": "Streamline care operations, staffing and billing.",
+      "health_link": "Care suite",
+      "supply_title": "Supply Chain",
+      "supply_desc": "Forecast demand and automate fulfillment everywhere.",
+      "supply_link": "Logistics suite"
+    }
+  },
+  "testimonials": {
+    "title": "10,000 companies have already made the move",
+    "subtitle": "Join the teams running finance, HR, IT and operations on Emvive.",
+    "btn": "Read customer stories",
+    "items": {
+      "m1_name": "Sarah Kim, Ops Director",
+      "m2_quote": "Emvive replaced five disconnected tools. Our month-end close went from 9 days to 2.",
+      "m2_role": "CFO · Northwind Logistics",
+      "m3_quote": "Onboarding a new hire used to take a week of paperwork. Now it takes 20 minutes.",
+      "m3_role": "Head of People · Brightwave",
+      "m4_quote": "Compliance audits that used to take weeks are now just a few clicks.",
+      "m4_role": "Legal Counsel · Meridian Bank",
+      "m5_review": "Emvive is the most complete platform we evaluated — and by far the easiest to roll out.",
+      "m6_quote": "One data model across finance, HR and operations finally gave us a single source of truth.",
+      "m6_role": "COO · Vantel Retail",
+      "m7_quote": "Real-time inventory across every warehouse cut our stockouts by 40%.",
+      "m7_role": "Supply Chain Lead · Cobalt Foods",
+      "m8_name": "Ava Chen, Head of Ops",
+      "m9_quote": "The rollout across 14 countries was smoother than any system we have ever deployed.",
+      "m9_role": "VP of IT · Zephyr Group",
+      "m10_name": "Thomas Reed, CEO",
+      "m11_review": "Setup was painless and the support team felt like an extension of our own.",
+      "m12_quote": "We consolidated 12 regional systems into one — reporting is finally real-time.",
+      "m12_role": "VP Finance · Orbit Manufacturing"
+    }
+  },
+  "cta": {
+    "badges": {
+      "b1_title": "High Performer",
+      "b1_sub": "Winter 2025",
+      "b2_title": "Momentum Leader",
+      "b2_sub": "Winter 2025",
+      "b3_title": "Users Love Us",
+      "b3_sub": "2025"
+    },
+    "title_1": "Ready to run your entire",
+    "title_2": "enterprise smarter?",
+    "btn": "Get Started"
   }
 }
