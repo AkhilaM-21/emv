@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { ArrowRight } from 'lucide-react';
 import './Clients.css';
-import { Target, Layers, Cpu, Cloud, Box, Database } from 'lucide-react';
 
 const CLIENTS = [
   { id: 1, imgSrc: 'https://tekspurts.com/EMvive/assets/img/brand/home-3/brand-1.png' },
@@ -21,33 +21,39 @@ const CLIENTS = [
 const Clients = () => {
   const { t } = useTranslation();
   return (
-    <section className="neurox-clients-section">
-      <div className="nc-dark-bg">
-        {/* Diagonal Stripes Background */}
-        <div className="nc-stripes"></div>
+    <section className="emv-clients-section">
+      <div className="container emv-clients-container">
 
-        {/* Logos Marquee */}
-        <div className="nc-marquee-container" dir="ltr">
-          <div className="nc-marquee-track">
-            {/* Double the array for infinite scroll effect */}
-            {[...CLIENTS, ...CLIENTS, ...CLIENTS].map((client, idx) => (
-              <div className="nc-logo-card" key={idx}>
-                <div className="nc-logo-content">
-                  <img src={client.imgSrc} alt={`Client ${client.id}`} className="nc-client-img" />
+        <div className="emv-clients-top-block">
+          <div className="emv-subtitle">MEET EMVIVE</div>
+
+          <div className="emv-headline-row">
+            <h2 className="emv-headline">
+              Enterprise software and AI that <span className="text-accent">knows your industry.</span>
+            </h2>
+            <a href="#customer-stories" className="emv-customer-btn">
+              View all customer stories <ArrowRight size={16} />
+            </a>
+          </div>
+
+          <p className="emv-description">
+            Emvive is a global leader in cloud enterprise software built for the way industries actually work. We combine deep operational expertise, proven processes and <a href="#ai-agents" className="text-link">AI agents</a> — so your operations don't just run, they think, adapt and act. Turn your business into an agentic enterprise, and set the pace for your industry.
+          </p>
+        </div>
+
+        <div className="emv-clients-bottom">
+          <h6 className="emv-brands-title">BRANDS THAT TRUST US</h6>
+          <div className="emv-marquee-wrapper" dir="ltr">
+            <div className="emv-marquee-content">
+              {[...CLIENTS, ...CLIENTS, ...CLIENTS].map((client, idx) => (
+                <div className="emv-logo-item" key={idx}>
+                  <img src={client.imgSrc} alt={`Client ${client.id}`} />
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
 
-        {/* Bottom Cutout */}
-        <div className="nc-bottom-cutout">
-          <div className="nc-cutout-inner">
-            <span className="nc-cutout-text">
-              <span className="text-blue">3600+</span> {t('clients.trusted', 'Trusted companies all over the world').replace('3600+ ', '')}
-            </span>
-          </div>
-        </div>
       </div>
     </section>
   );

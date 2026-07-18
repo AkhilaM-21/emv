@@ -1,6 +1,28 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Zap, Users, LineChart, PieChart, GitMerge, FileCheck, Search, LayoutDashboard, Briefcase, Headphones, Folder, Handshake, MessageSquare, Settings, LogOut, ChevronDown, Bell, User, CheckCircle, Clock } from 'lucide-react';
+import {
+  Zap, Users, LineChart, PieChart, GitMerge, FileCheck, Search,
+  LayoutDashboard, Briefcase, Headphones, Folder, Handshake,
+  MessageSquare, Settings, LogOut, ChevronDown, Bell, User,
+  CheckCircle, Clock, ArrowRight, ChevronLeft, ChevronRight, Package,
+  Factory, ShoppingCart, Truck, Boxes, HardHat, HeartPulse, GraduationCap,
+  Building2, Hotel, HeartHandshake, Home, Landmark, ShoppingBag, Cloud,
+  Cpu, RadioTower, Megaphone, Server, Clapperboard, Cog, Scale, Calculator,
+  IdCard, BarChart3, Workflow, ReceiptText, Database, Target, Waypoints,
+  Network, BadgeDollarSign, TrendingUp
+} from 'lucide-react';
+
+// Icon per target-industry (reference style pills)
+const INDUSTRY_ICONS = {
+  Manufacturing: Factory, Retail: ShoppingCart, Logistics: Truck, Wholesale: Boxes,
+  Construction: HardHat, Healthcare: HeartPulse, Education: GraduationCap,
+  Corporate: Building2, Hospitality: Hotel, 'Non-Profit': HeartHandshake,
+  'Real Estate': Home, Finance: Landmark, 'E-commerce': ShoppingBag, Consulting: Briefcase,
+  SaaS: Cloud, Technology: Cpu, Telecom: RadioTower, Government: Landmark,
+  Marketing: Megaphone, Energy: Zap, 'IT Services': Server, Media: Clapperboard,
+  Operations: Cog, Legal: Scale, 'Customer Support': Headphones, Accounting: Calculator,
+  'B2B Trade': Handshake, Freelance: User, 'Supply Chain': Truck,
+};
 import './Products.css';
 
 const productsList = [
@@ -9,7 +31,7 @@ const productsList = [
     title: 'Cloud ERP',
     description: 'A comprehensive, scalable Enterprise Resource Planning solution that integrates all your core business processes in real-time. Unify your financials, supply chain, operations, and commerce.',
     industries: ['Manufacturing', 'Retail', 'Logistics', 'Wholesale', 'Construction'],
-    icon: <Zap size={22} color="#fff" />
+    icon: <Database size={22} color="#fff" />
   },
   {
     id: 2,
@@ -23,38 +45,37 @@ const productsList = [
     title: 'CRM & Sales',
     description: 'Build stronger customer relationships and drive sales growth. Track interactions, manage pipelines, and leverage actionable insights to close deals faster.',
     industries: ['Real Estate', 'Finance', 'E-commerce', 'Consulting', 'SaaS'],
-    icon: <LineChart size={22} color="#fff" />
+    icon: <TrendingUp size={22} color="#fff" />
   },
   {
     id: 4,
     title: 'Advanced Reporting',
     description: 'Transform your raw data into meaningful intelligence. Create custom dashboards, visualize trends, and make data-driven decisions with powerful analytics.',
     industries: ['Technology', 'Telecom', 'Government', 'Marketing', 'Energy'],
-    icon: <PieChart size={22} color="#fff" />
+    icon: <BarChart3 size={22} color="#fff" />
   },
   {
     id: 5,
     title: 'Workflow Automation',
     description: 'Eliminate manual tasks and optimize business efficiency. Design custom workflows that automatically route approvals, trigger actions, and reduce human error.',
     industries: ['IT Services', 'Media', 'Operations', 'Legal', 'Customer Support'],
-    icon: <GitMerge size={22} color="#fff" />
+    icon: <Network size={22} color="#fff" />
   },
   {
     id: 6,
     title: 'E-Invoicing',
     description: 'Secure, compliant, and seamless electronic invoicing. Digitize your billing process, track invoice statuses, and integrate directly with your financial systems.',
     industries: ['Accounting', 'B2B Trade', 'Freelance', 'Supply Chain', 'Legal'],
-    icon: <FileCheck size={22} color="#fff" />
+    icon: <ReceiptText size={22} color="#fff" />
   }
 ];
 
-// Custom CountUp Component
 const CountUp = ({ end, duration = 2000, prefix='', suffix='', inView, isFloat=false }) => {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
     if (!inView) {
-      setCount(0); // Reset count when out of view
+      setCount(0);
       return;
     }
     let startTime = null;
@@ -77,12 +98,10 @@ const CountUp = ({ end, duration = 2000, prefix='', suffix='', inView, isFloat=f
   );
 };
 
-// Helper to wrap dashboards in the common Mac-like window
 const DashboardWindow = ({ title, sidebarItems, children, inView }) => {
   const { t } = useTranslation();
   return (
   <div className={`detailed-dashboard ${inView ? 'is-visible' : ''}`}>
-    {/* Sidebar */}
     <div className="dd-sidebar">
       <div className="dd-logo">
         <div className="dd-logo-icon"></div>
@@ -97,8 +116,6 @@ const DashboardWindow = ({ title, sidebarItems, children, inView }) => {
         <div className="dd-nav-item"><Settings size={14} /> {t('products.dash.settings', 'Settings')}</div>
       </div>
     </div>
-
-    {/* Main Area */}
     <div className="dd-main">
       <header className="dd-header">
         <div className="dd-header-title">{t('products.dash.dashboard', 'Dashboard')} <span>/{t('products.dash.overview', 'Overview')}</span></div>
@@ -117,7 +134,6 @@ const DashboardWindow = ({ title, sidebarItems, children, inView }) => {
   );
 };
 
-// 1. Cloud ERP Dashboard
 const DashboardERP = ({ inView }) => {
   const { t } = useTranslation();
   return (
@@ -145,7 +161,6 @@ const DashboardERP = ({ inView }) => {
   );
 };
 
-// 2. HR & Payroll
 const DashboardHR = ({ inView }) => {
   const { t } = useTranslation();
   return (
@@ -177,7 +192,6 @@ const DashboardHR = ({ inView }) => {
   );
 };
 
-// 3. CRM & Sales
 const DashboardCRM = ({ inView }) => {
   const { t } = useTranslation();
   return (
@@ -206,7 +220,6 @@ const DashboardCRM = ({ inView }) => {
   );
 };
 
-// 4. Advanced Reporting
 const DashboardReporting = ({ inView }) => {
   const { t } = useTranslation();
   return (
@@ -235,7 +248,6 @@ const DashboardReporting = ({ inView }) => {
   );
 };
 
-// 5. Workflow Automation
 const DashboardWorkflow = ({ inView }) => {
   const { t } = useTranslation();
   return (
@@ -263,7 +275,6 @@ const DashboardWorkflow = ({ inView }) => {
   );
 };
 
-// 6. E-Invoicing
 const DashboardInvoice = ({ inView }) => {
   const { t } = useTranslation();
   return (
@@ -292,7 +303,74 @@ const DashboardInvoice = ({ inView }) => {
   );
 };
 
-// Remove Network Constellation Component completely
+// Sparse decorative accents behind the carousel card (reference style):
+// soft blurred orbs, thin outline rings, and small dot clusters.
+const DotCluster = ({ x, y, rows = 4, cols = 5, gap = 11, r = 1.8, fill = '#c7d2fe' }) => {
+  const dots = [];
+  for (let i = 0; i < rows; i++) {
+    for (let j = 0; j < cols; j++) {
+      dots.push(<circle key={`${i}-${j}`} cx={x + j * gap} cy={y + i * gap} r={r} fill={fill} />);
+    }
+  }
+  return <g opacity="0.5">{dots}</g>;
+};
+
+// Tiny 4-point sparkle particle
+const Sparkle = ({ x, y, s = 6, fill = '#93c5fd', opacity = 0.7 }) => (
+  <path
+    d={`M${x} ${y - s} Q ${x + s * 0.16} ${y - s * 0.16} ${x + s} ${y} Q ${x + s * 0.16} ${y + s * 0.16} ${x} ${y + s} Q ${x - s * 0.16} ${y + s * 0.16} ${x - s} ${y} Q ${x - s * 0.16} ${y - s * 0.16} ${x} ${y - s} Z`}
+    fill={fill}
+    opacity={opacity}
+  />
+);
+
+const ProductsDecor = () => (
+  <svg
+    className="prod-decor-svg"
+    viewBox="0 0 1200 560"
+    preserveAspectRatio="xMidYMid slice"
+    xmlns="http://www.w3.org/2000/svg"
+    aria-hidden="true"
+  >
+    <defs>
+      <filter id="pdGlow" x="-80%" y="-80%" width="260%" height="260%">
+        <feGaussianBlur stdDeviation="30" />
+      </filter>
+    </defs>
+
+    {/* Large soft glow spheres (corners only) */}
+    <circle cx="1150" cy="52" r="58" fill="#bfdbfe" opacity="0.42" filter="url(#pdGlow)" />
+    <circle cx="36" cy="512" r="72" fill="#ddd6fe" opacity="0.38" filter="url(#pdGlow)" />
+
+    {/* Top-left: concentric rings (medium) */}
+    <g fill="none" stroke="#c7d2fe" strokeWidth="1.2">
+      <circle cx="18" cy="22" r="70" opacity="0.5" />
+      <circle cx="18" cy="22" r="112" opacity="0.3" />
+      <circle cx="134" cy="64" r="13" stroke="#a5b4fc" opacity="0.5" />
+    </g>
+
+    {/* Bottom-left: LARGE concentric rings (varied scale) */}
+    <g fill="none" stroke="#c7d2fe" strokeWidth="1.2">
+      <circle cx="52" cy="558" r="106" opacity="0.4" />
+      <circle cx="52" cy="558" r="156" opacity="0.24" />
+      <circle cx="52" cy="558" r="206" opacity="0.13" />
+    </g>
+
+    {/* Top-right: dotted grid texture */}
+    <DotCluster x="1066" y="34" rows={5} cols={6} fill="#c7d2fe" />
+
+    {/* Bottom-right: soft curved flowing lines */}
+    <g fill="none">
+      <path d="M952 560 C 1048 494 1136 520 1214 456" stroke="#c7d2fe" strokeWidth="1.2" opacity="0.5" />
+      <path d="M982 560 C 1072 510 1152 532 1214 480" stroke="#a5b4fc" strokeWidth="1" opacity="0.34" />
+      <path d="M1014 560 C 1096 524 1162 542 1214 502" stroke="#c7d2fe" strokeWidth="0.8" opacity="0.28" />
+    </g>
+
+    {/* A couple of tiny sparkles near corners (never the center) */}
+    <Sparkle x={1036} y={150} s={6} fill="#93c5fd" opacity={0.65} />
+    <Sparkle x={168} y={150} s={5} fill="#c4b5fd" opacity={0.55} />
+  </svg>
+);
 
 const DashboardWrapper = ({ product, inView }) => {
   switch(product.id) {
@@ -306,157 +384,164 @@ const DashboardWrapper = ({ product, inView }) => {
   }
 };
 
-// Parametric line-art ribbon (fans out smoothly, no hard cut) — sits on the right
-const ParametricLines = () => {
-  const W = 620;
-  const H = 300;
-  const count = 30;
-  const lines = [];
-  for (let i = 0; i < count; i++) {
-    const phase = i * 0.26;
-    const amp = 10 + i * 1.4;
-    const yBase = 14 + i * 6;
-    let d = `M 0 ${yBase}`;
-    for (let x = 20; x <= W; x += 18) {
-      const t = x / W;
-      const y = yBase + Math.sin(x * 0.013 + phase) * amp * t;
-      d += ` L ${x} ${y.toFixed(1)}`;
-    }
-    lines.push(
-      <path
-        key={i}
-        d={d}
-        stroke="#2563eb"
-        strokeWidth="1"
-        fill="none"
-        opacity={(0.05 + (i / count) * 0.13).toFixed(3)}
-      />,
-    );
-  }
-  return (
-    <svg className="product-lines-right" viewBox={`0 0 ${W} ${H}`} fill="none" preserveAspectRatio="none" aria-hidden="true">
-      {lines}
-    </svg>
-  );
-};
-
-// Flowing dotted wave (halftone ribbon) — sits at the bottom-left
-const DotWave = () => {
-  const cols = 58;
-  const rows = 10;
-  const dots = [];
-  for (let c = 0; c < cols; c++) {
-    const x = c * 11;
-    const center = 90 + Math.sin(c * 0.26) * 40;
-    for (let r = 0; r < rows; r++) {
-      const off = r - (rows - 1) / 2;
-      const y = center + off * 10;
-      const dist = Math.abs(off) / ((rows - 1) / 2);
-      const rad = (1.9 - dist * 1.1).toFixed(2);
-      const op = (0.28 - dist * 0.18).toFixed(3);
-      dots.push(<circle key={`${c}-${r}`} cx={x} cy={y.toFixed(1)} r={rad} fill="#7db4ff" opacity={op} />);
-    }
-  }
-  return (
-    <svg className="product-dots-left" viewBox="0 0 640 220" fill="none" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
-      {dots}
-    </svg>
-  );
-};
-
 const Products = () => {
   const { t } = useTranslation();
-  const [activeIndex, setActiveIndex] = useState(0);
-  const itemRefs = useRef([]);
+  const [activeSlide, setActiveSlide] = useState(0);
+  const slideCount = productsList.length;
 
-  useEffect(() => {
-    const handleScroll = () => {
-      let currentActive = 0;
-      // Loop through refs to find the highest index card that has reached its sticky position
-      itemRefs.current.forEach((ref, index) => {
-        if (ref) {
-          const rect = ref.getBoundingClientRect();
-          const stickyTop = 100 + (index * 20); // matching the inline style top position
-          // If the top of the card is at or above its sticky point, it is active
-          if (rect.top <= stickyTop + 10) {
-            currentActive = index;
-          }
-        }
-      });
-      setActiveIndex(currentActive);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Check on mount
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  const goPrev = () => setActiveSlide((s) => (s - 1 + slideCount) % slideCount);
+  const goNext = () => setActiveSlide((s) => (s + 1) % slideCount);
 
   return (
     <section id="products" className="products-section">
       <div className="container">
-        <div className="section-title" style={{ textAlign: 'center', marginBottom: '4rem' }}>
-          <span className="global-section-badge"><span className="global-badge-dot"></span> {t('products.badge', 'Our Products')}</span>
-          <h2 className="product-title-top">{t('products.title', 'Intelligent Enterprise Solutions')}</h2>
+
+        {/* HEADER BLOCK FROM IMAGE */}
+        <div className="emv-products-header">
+          <div className="emv-subtitle">FEATURED PRODUCTS</div>
+          <h2 className="emv-headline">
+            One platform. <span className="text-accent">Every operating layer.</span>
+          </h2>
+          <p className="emv-description">
+            Six enterprise-grade applications on a single data model — from the general ledger to the customer record. No integrations to wire. No CSVs to import.
+          </p>
         </div>
 
-        <div className="timeline-container">
-          {productsList.map((product, index) => {
-            const itemZIndex = index + 10;
-            const isActive = activeIndex === index;
+        {/* EXACT APP STUDIO GRID BLOCK FROM IMAGE */}
+        <div className="emv-featured-apps-container">
+          {/* Left: Purple Card */}
+          <div className="emv-agent-studio-card">
+            <div className="emv-new-badge">✦ NEW</div>
+            <h3>Introducing<br/>Emvive Agent Studio</h3>
+            <p>Build autonomous agents that reconcile ledgers, chase invoices, draft close notes and more.</p>
+            <a href="#agent-studio" className="emv-btn-outline-white">Explore Agent Studio &rarr;</a>
+          </div>
 
-            return (
-              <div 
-                key={product.id} 
-                className={`timeline-item ${isActive ? 'active' : ''}`}
-                style={{ zIndex: itemZIndex, top: `${100 + (index * 20)}px` }}
-                ref={(el) => (itemRefs.current[index] = el)}
-              >
-                
-                {/* Parametric line art — right side, above the dashboard */}
-                <ParametricLines />
+          {/* Right: Apps Grid */}
+          <div className="emv-apps-grid-section">
+            <div className="emv-apps-header">
+              <span className="emv-apps-title">FEATURED APPS</span>
+              <a href="#all-products" className="emv-explore-all">Explore all products <ArrowRight size={16}/></a>
+            </div>
 
-                {/* Dotted flowing wave — bottom-left, below the industries */}
-                <DotWave />
-
-                <div className="timeline-content">
-                  <div className="product-info">
-                    {/* 3D Glowing Icon & Title Header */}
-                    <div className="product-header-top">
-                      <div className="product-icon-3d">
-                        {product.icon}
-                      </div>
-                      <h3 className="product-title-top">{t(`productsData.p${product.id}_title`, product.title)}</h3>
-                    </div>
-
-                    <p className="product-desc">{t(`productsData.p${product.id}_desc`, product.description)}</p>
-
-                    {/* Industries Tags */}
-                    <div className="product-industries">
-                      <span className="industry-label">{t('productsData.targetIndustries', 'Target Industries')}</span>
-                      <div className="industry-tags">
-                        {product.industries.map((ind, i) => (
-                          <span key={i} className="industry-tag">{t(`productsData.industries.${ind.replace(/\\s+/g, '')}`, ind)}</span>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Pass isActive down to DashboardWrapper */}
-                  <div className="product-dashboard">
-                     <DashboardWrapper product={product} inView={isActive} />
-                  </div>
-
+            <div className="emv-apps-grid">
+              <div className="emv-app-mini-card">
+                <div className="emv-app-icon" style={{background: '#0ea5e9'}}><LayoutDashboard size={18} color="#fff"/></div>
+                <div className="emv-app-info">
+                  <h4>Finance</h4>
+                  <p>Multi-entity GL, consolidation & close</p>
                 </div>
-
               </div>
-            );
-          })}
-
-          {/* Spacer gives the LAST card real in-flow room to stay pinned/stacked
-              (a container padding-bottom can't do this — sticky is bounded by the
-              content box, and the last card's own margin collapses through it). */}
-          <div className="timeline-end-spacer" aria-hidden="true" />
+              <div className="emv-app-mini-card">
+                <div className="emv-app-icon" style={{background: '#f97316'}}><Users size={18} color="#fff"/></div>
+                <div className="emv-app-info">
+                  <h4>People</h4>
+                  <p>Global HR & statutory payroll</p>
+                </div>
+              </div>
+              <div className="emv-app-mini-card">
+                <div className="emv-app-icon" style={{background: '#10b981'}}><Briefcase size={18} color="#fff"/></div>
+                <div className="emv-app-info">
+                  <h4>CRM</h4>
+                  <p>Pipeline, contracts & revenue</p>
+                </div>
+              </div>
+              <div className="emv-app-mini-card">
+                <div className="emv-app-icon" style={{background: '#ec4899'}}><Package size={18} color="#fff"/></div>
+                <div className="emv-app-info">
+                  <h4>Inventory</h4>
+                  <p>Supply, warehousing & SKUs</p>
+                </div>
+              </div>
+              <div className="emv-app-mini-card">
+                <div className="emv-app-icon" style={{background: '#8b5cf6'}}><Settings size={18} color="#fff"/></div>
+                <div className="emv-app-info">
+                  <h4>Automation</h4>
+                  <p>Visual, no-code workflow studio</p>
+                </div>
+              </div>
+              <div className="emv-app-mini-card">
+                <div className="emv-app-icon" style={{background: '#ef4444'}}><FileCheck size={18} color="#fff"/></div>
+                <div className="emv-app-info">
+                  <h4>E-Invoicing</h4>
+                  <p>Native formats in 42 countries</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+
+        {/* HERO-STYLE CAROUSEL FOR DETAILED DASHBOARDS */}
+        <div className="products-carousel-stage">
+          <button className="prod-arrow prev" onClick={goPrev} aria-label="Previous slide">
+            <ChevronLeft size={24} />
+          </button>
+
+          <div className="products-carousel-track">
+            {productsList.map((product, index) => {
+              const isActive = activeSlide === index;
+              return (
+                <div
+                  key={product.id}
+                  className={`prod-carousel-slide ${isActive ? 'active' : ''}`}
+                >
+                  <div className="prod-card-decor">
+                    <ProductsDecor />
+                  </div>
+                  <div className="prod-card-watermark">
+                    {React.cloneElement(product.icon, { size: 200, color: '#2563eb' })}
+                  </div>
+                  <div className="timeline-content slide-content">
+                    <div className="product-info">
+                      <div className="product-header-top">
+                        <h3 className="product-title-top">{t(`productsData.p${product.id}_title`, product.title)}</h3>
+                      </div>
+                      <p className="product-desc">{t(`productsData.p${product.id}_desc`, product.description)}</p>
+                      <div className="product-industries">
+                        <span className="industry-label">{t('productsData.targetIndustries', 'Target Industries')}</span>
+                        <div className="industry-tags">
+                          {product.industries.map((ind, i) => {
+                            const IndIcon = INDUSTRY_ICONS[ind] || Briefcase;
+                            return (
+                              <span key={i} className="industry-tag">
+                                <IndIcon size={15} className="industry-tag-icon" />
+                                {t(`productsData.industries.${ind.replace(/\s+/g, '')}`, ind)}
+                              </span>
+                            );
+                          })}
+                        </div>
+                      </div>
+                    </div>
+                    <div className="product-dashboard">
+                       <div className="product-dashboard-inner">
+                         <DashboardWrapper product={product} inView={isActive} />
+                         <span className="prod-dash-badge">
+                           {React.cloneElement(product.icon, { size: 30, color: '#fff' })}
+                         </span>
+                       </div>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+          <button className="prod-arrow next" onClick={goNext} aria-label="Next slide">
+            <ChevronRight size={24} />
+          </button>
+
+          <div className="prod-dots">
+            {productsList.map((_, i) => (
+              <button
+                key={i}
+                className={`prod-dot ${activeSlide === i ? 'active' : ''}`}
+                onClick={() => setActiveSlide(i)}
+                aria-label={`Go to slide ${i + 1}`}
+              />
+            ))}
+          </div>
+        </div>
+
       </div>
     </section>
   );

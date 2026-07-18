@@ -24,76 +24,65 @@
   left: 0;
   width: 100%;
   z-index: 1000;
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  background-color: #ffffff;
+  /* the hairline that sits below the navbar (as in the reference) */
+  border-bottom: 1px solid rgba(15, 23, 42, 0.09);
+  transition: box-shadow 0.3s ease;
   display: flex;
   flex-direction: column;
 }
 
-/* Past the hero: whole bar becomes solid white (logo area included) */
+/* Past the hero: add a soft lift shadow */
 .neurox-header.scrolled {
-  background-color: #ffffff;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-  border-bottom-left-radius: 40px;
-  border-bottom-right-radius: 40px;
+  box-shadow: 0 6px 24px rgba(15, 23, 42, 0.07);
 }
 
-.neurox-header.scrolled .logo-text {
-  color: #111111;
-}
-
-/* Let the header's own white carry the rounded bottom; drop the panel's bg */
-.neurox-header.scrolled .header-right-bg {
-  background: transparent;
-  border-bottom-left-radius: 0;
-  box-shadow: none;
-}
-
-.header-container {
+/* Full-width strip that holds the centered floating pill */
+.header-inner {
   display: flex;
   width: 100%;
-  height: 90px;
+  padding: 0.85rem 1.5rem;
 }
 
-/* Logo Section on the left */
+/* The single rounded pill — logo + nav + actions all live inside it */
+.header-pill {
+  width: 100%;
+  max-width: 1500px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  height: 62px;
+  background: #ffffff;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 999px;
+  padding: 0 0.55rem 0 1.6rem;
+  box-shadow: 0 10px 30px -14px rgba(15, 23, 42, 0.2);
+}
+
+/* Logo Section (inside the pill) */
 .header-logo {
   display: flex;
   align-items: center;
-  padding-left: 4rem;
-  width: 18%; /* Takes up less space so white bg can expand */
   gap: 0.5rem;
+  flex-shrink: 0;
+  text-decoration: none;
 }
 
 .logo-text {
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: #ffffff;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #0f172a;
   letter-spacing: -0.5px;
 }
 
-/* White background section that stretches to the right */
-.header-right-bg {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 1.75rem;
-  background-color: #ffffff;
-  width: 82%; /* Extended further left */
-  height: 100%;
-  border-bottom-left-radius: 40px; /* The curve on the bottom left */
-  padding: 0 4rem 0 3rem;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-  transition: all 0.3s ease;
-}
-
-.header-right-bg.scrolled {
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-}
-
-/* Navigation Links */
+/* Navigation Links — centered in the pill */
 .header-nav {
   display: flex;
   gap: 1.75rem;
   align-items: center;
+  flex: 1;
+  justify-content: center;
 }
 
 .nav-item {
@@ -144,7 +133,8 @@
   position: relative;
   display: flex;
   align-items: center;
-  gap: 1.75rem;
+  gap: 1.4rem;
+  flex-shrink: 0;
 }
 
 /* Theme toggle */
@@ -314,8 +304,7 @@
 /* Tighten the full desktop nav so it fits on smaller laptops (down to ~1200px)
    BEFORE the hamburger takes over — prevents the nav from sliding under the logo. */
 @media (max-width: 1450px) {
-  .header-logo { padding-left: 2.5rem; width: auto; }
-  .header-right-bg { padding: 0 2.5rem; gap: 1.25rem; }
+  .header-pill { padding: 0 0.5rem 0 1.2rem; gap: 1rem; }
   .header-nav { gap: 1rem; }
   .header-nav a { font-size: 0.95rem; }
   .nav-item { gap: 0.3rem; }
@@ -511,20 +500,12 @@
 
 /* ---- TABLET / SMALL LAPTOP: switch to hamburger (<=1300px) ---- */
 @media (max-width: 1300px) {
-  .header-right-bg {
-    width: 100%;
-    border-bottom-left-radius: 0;
-    justify-content: flex-end;
-    gap: 1rem;
-  }
-  .header-logo {
-    position: absolute;
-    left: 2rem;
-    z-index: 10;
-    width: auto;
-  }
   .header-nav, .selector-wrap {
     display: none;
+  }
+  /* keep the logo left, actions right inside the pill */
+  .header-actions {
+    margin-left: auto;
   }
   .mobile-menu-toggle {
     display: inline-flex;
@@ -536,17 +517,17 @@
 
 /* ---- PHONES (<=560px): move the single Get Started into the panel ---- */
 @media (max-width: 560px) {
-  .header-right-bg .btn-get-started {
+  .header-actions .btn-get-started {
     display: none;          /* hide the top-bar CTA... */
   }
   .mobile-get-started {
     display: flex;          /* ...and show it inside the panel instead */
   }
-  .header-logo {
-    left: 1.25rem;
+  .header-inner {
+    padding: 0.6rem 1rem;
   }
-  .header-right-bg {
-    padding: 0 1.25rem;
+  .header-pill {
+    padding: 0 0.5rem 0 1.1rem;
   }
 }
 

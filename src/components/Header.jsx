@@ -101,26 +101,24 @@ const Header = () => {
 
   return (
     <header className={`neurox-header ${isScrolled || openNav || mobileOpen || !isHome ? 'scrolled' : ''}`}>
-      <div className="header-container">
+      <div className="header-inner">
+        <div className="header-pill">
 
-        {/* Left Side: Logo (click → home) */}
-        <Link
-          to="/"
-          className="header-logo"
-          onClick={() => {
-            setOpenNav(null);
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-          }}
-        >
-          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-             <path d="M16 2L2 10V22L16 30L30 22V10L16 2Z" stroke="#FF6B6B" strokeWidth="2" strokeLinejoin="round"/>
-             <path d="M16 8L8 13V19L16 24L24 19V13L16 8Z" stroke="#4ECDC4" strokeWidth="2" strokeLinejoin="round"/>
-          </svg>
-          <span className="logo-text">Emvive</span>
-        </Link>
-
-        {/* Right Side: White Background Section */}
-        <div className={`header-right-bg ${isScrolled ? 'scrolled' : ''}`}>
+          {/* Logo (click → home) — now lives inside the pill */}
+          <Link
+            to="/"
+            className="header-logo"
+            onClick={() => {
+              setOpenNav(null);
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }}
+          >
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+               <path d="M16 2L2 10V22L16 30L30 22V10L16 2Z" stroke="#FF6B6B" strokeWidth="2" strokeLinejoin="round"/>
+               <path d="M16 8L8 13V19L16 24L24 19V13L16 8Z" stroke="#4ECDC4" strokeWidth="2" strokeLinejoin="round"/>
+            </svg>
+            <span className="logo-text">Emvive</span>
+          </Link>
 
           <nav className="header-nav">
             {NAV_ITEMS.map((itemObj) => {

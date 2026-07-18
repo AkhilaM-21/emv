@@ -1,217 +1,398 @@
 .products-section {
   padding: 6rem 0 10rem 0;
   position: relative;
-  background-color: #e8ecf3; /* soft tinted surface so white cards pop */
+  background-color: #e8ecf3;
+  /* Let the oversized dashboard break out of its frame without
+     creating a horizontal page scrollbar */
+  overflow-x: clip;
 }
 
-/* Force the container in the products section to be extremely wide */
 .products-section .container {
-  max-width: 1800px !important;
-  width: 95%;
-  margin: 0 auto;
+  max-width: none !important;
+  width: 80%;
+  /* left-aligned */
+  margin: 0;
 }
 
-.timeline-container {
+/* =========================================
+   HEADER & AGENT STUDIO BLOCK
+========================================= */
+.emv-products-header {
+  /* left indent so the bare heading text isn't flush to the edge */
+  margin: 0 0 4rem 4rem;
+}
+.emv-subtitle {
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: #dc2626;
+  text-transform: uppercase;
+}
+.emv-headline {
+  font-size: 3.4rem;
+  font-weight: 800;
+  line-height: 1.15;
+  color: #1e293b;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  letter-spacing: -1.5px;
+}
+/* keep the headline on a single line — scoped to the products section only */
+.products-section .emv-headline {
+  white-space: nowrap;
+}
+.text-accent { color: #dc2626; }
+.emv-description {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: #475569;
+  max-width: 800px;
+}
+
+.emv-featured-apps-container {
+  display: flex;
+  gap: 4rem;
+  /* left indent to match the header */
+  margin: 0 0 6rem 4rem;
+  align-items: flex-start;
+}
+
+/* Purple Card */
+.emv-agent-studio-card {
   position: relative;
-  max-width: 100%;
-  margin: 0 auto;
-  padding: 0;
-}
-
-/* Neumorphic soft-3D slab — the scroll-stacking DECK (same on every device):
-   each card is `position: sticky` and pins with a small per-card `top` stagger
-   so cards stack over one another as you scroll. Inside, the header sits in
-   normal flow at the top (NOT absolute) so the title never overlaps the text,
-   then the two-column body (info left, dashboard right) below it. */
-.timeline-item {
-  position: sticky;
-  top: 90px;
+  overflow: hidden;
+  flex: 0 0 380px;
+  background:
+    radial-gradient(130% 90% at 12% 6%, rgba(255, 255, 255, 0.16) 0%, rgba(255, 255, 255, 0) 46%),
+    radial-gradient(120% 120% at 100% 100%, rgba(217, 70, 239, 0.35) 0%, rgba(217, 70, 239, 0) 55%),
+    linear-gradient(150deg, #3b0764 0%, #5b21b6 48%, #7c3aed 100%);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 24px;
+  padding: 2rem;
+  color: #ffffff;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  align-items: stretch;
-  width: 100%;
-  /* Fit the content instead of a rigid 75vh — no empty vertical gaps.
-     A modest min-height keeps short cards (e.g. E-Invoicing) from looking
-     stubby, but tall content is free to grow. */
-  min-height: min(560px, 82vh);
-  /* Same 3D recipe as the Get Started button */
-  background: linear-gradient(180deg, #ffffff 0%, #eef1f6 100%);
-  border: 1px solid rgba(0, 0, 0, 0.06);
+  align-items: flex-start;
+  text-align: left;
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.9),       /* top inner highlight */
-    inset 0 -2px 3px rgba(0, 0, 0, 0.04),          /* bottom inner shade */
-    0 2px 4px rgba(0, 0, 0, 0.1),                  /* contact shadow */
-    0 16px 34px rgba(0, 0, 0, 0.16);               /* elevation */
-  border-radius: 44px;
-  margin-bottom: 2rem;
-  padding: 2.5rem 3rem;
-  transition: all 0.3s ease;
-  overflow: hidden;
+    inset 0 1px 0 rgba(255, 255, 255, 0.18),
+    0 24px 50px -18px rgba(76, 29, 149, 0.5);
+}
+.emv-new-badge {
+  background: rgba(255,255,255,0.15);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 1rem;
 }
 
-.timeline-item:last-child {
-  margin-bottom: 0;
+.emv-agent-studio-card h3 {
+  font-size: 1.8rem;
+  font-weight: 800;
+  margin-bottom: 0.75rem;
+  line-height: 1.2;
+}
+.emv-agent-studio-card p {
+  color: #c4b5fd;
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+}
+.emv-btn-outline-white {
+  padding: 10px 20px;
+  border: 1px solid rgba(255,255,255,0.4);
+  border-radius: 50px;
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.2s;
+  font-size: 0.9rem;
+}
+.emv-btn-outline-white:hover {
+  background: rgba(255,255,255,0.1);
 }
 
-/* Blue border for the active/focused card - FULL Top */
-.timeline-item::after {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  border-radius: inherit;
-  box-shadow: inset 0 4px 0 0 #2563eb;
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity 0.5s ease;
-  z-index: 20;
+/* Apps Grid */
+.emv-apps-grid-section {
+  flex: 1;
+  border-top: 1px solid #cbd5e1;
+  padding-top: 1.5rem;
 }
-
-.timeline-item.active::after {
-  opacity: 1;
+.emv-apps-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3rem;
 }
-
-/* Gives the LAST sticky card real in-flow room below it so it can stay pinned
-   and fully reveal (dashboard included) before the section ends. */
-.timeline-end-spacer {
-  display: block;
-  height: 55vh;
+.emv-apps-title {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #64748b;
+  letter-spacing: 1.5px;
 }
-
-.product-header-top {
-  position: static;
+.emv-explore-all {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
-  gap: 1.25rem;
-  margin-bottom: 1.5rem;
-  z-index: 10;
+  gap: 8px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #1e293b;
+  text-decoration: none;
 }
-
-/* Card title in the flow (overrides the global 3.2rem for the per-card title) */
-.product-header-top .product-title-top {
-  font-size: 2.4rem !important;
-  margin-bottom: 0 !important;
+.emv-apps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem 2rem;
 }
-
-.product-icon-3d {
-  width: 48px;
-  height: 48px;
-  background: linear-gradient(135deg, #60a5fa 0%, #2563eb 100%);
-  border-radius: 12px;
+.emv-app-mini-card {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+.emv-app-icon {
+  position: relative;
+  overflow: hidden;
+  width: 44px;
+  height: 44px;
+  border-radius: 13px;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 
-    inset 0 2px 4px rgba(255, 255, 255, 0.6),
-    inset 0 -4px 8px rgba(0, 0, 0, 0.15),
-    0 8px 0 #1e40af, 
-    0 15px 25px rgba(37, 99, 235, 0.4);
-  position: relative;
+  flex-shrink: 0;
+  box-shadow:
+    inset 0 1px 1px rgba(255, 255, 255, 0.5),
+    inset 0 -3px 5px rgba(0, 0, 0, 0.16),
+    0 7px 16px -3px rgba(15, 23, 42, 0.24);
 }
-
-.product-icon-3d::before {
+/* glossy top-left sheen over the colored background */
+.emv-app-icon::after {
   content: '';
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 150px;
-  height: 150px;
-  background: radial-gradient(circle, rgba(59, 130, 246, 0.3) 0%, rgba(59, 130, 246, 0) 60%);
-  z-index: -1;
+  inset: 0;
+  background: linear-gradient(150deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 52%);
+  z-index: 1;
   pointer-events: none;
 }
-
-.product-title-top {
-  font-size: 2.5rem;
-  color: #111;
+.emv-app-icon svg {
+  position: relative;
+  z-index: 2;
+}
+.emv-app-info h4 {
+  font-size: 1.1rem;
   font-weight: 800;
+  margin: 0 0 4px 0;
+  color: #0f172a;
+}
+.emv-app-info p {
+  font-size: 0.9rem;
+  color: #64748b;
   margin: 0;
-  letter-spacing: -1px;
+  line-height: 1.4;
 }
 
-/* Parametric line-art ribbon — right side, near the top of the card */
-.product-lines-right {
+/* =========================================
+   HERO-STYLE CAROUSEL
+========================================= */
+.products-carousel-stage {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 4rem;
+  width: 100%;
+}
+
+.products-carousel-track {
+  position: relative;
+  width: 100%;
+  display: grid;
+}
+
+.prod-carousel-slide {
+  grid-area: 1 / 1;
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(0.98);
+  transition: opacity 0.5s ease, visibility 0.5s ease, transform 0.5s ease;
+
+  /* Premium layered mesh: soft white -> sky blue -> lavender, with ambient
+     glows (one sits behind the dashboard). Decorative accents live in
+     .prod-card-decor; noise + glass live in ::after. */
+  /* Clean light surface */
+  background-color: #f4f7fc;
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.95),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.4),
+    0 22px 46px -30px rgba(15, 23, 42, 0.10);
+  border-radius: 44px;
+  padding: 2rem 4rem;
+  overflow: visible; /* dashboard intentionally overflows the frame */
+  display: flex;
+}
+
+.prod-carousel-slide.active {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
+  z-index: 2;
+}
+
+/* Large faint product-icon watermark in the middle of the card */
+.prod-card-watermark {
   position: absolute;
-  top: -1rem;
-  right: 0;
-  width: 52%;
-  height: 40%;
+  /* somewhat toward the bottom */
+  top: 64%;
+  /* sit just before the dashboard (right area of the card) */
+  left: 62%;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+  opacity: 0.05;
+  line-height: 0;
+  pointer-events: none;
+}
+
+/* Decorative accents layer (orbs, rings, dot clusters), clipped to the card */
+.prod-card-decor {
+  position: absolute;
+  inset: 0;
+  border-radius: 44px;
+  overflow: hidden;
   z-index: 0;
   pointer-events: none;
-  -webkit-mask-image: linear-gradient(to left, #000 40%, transparent 100%);
-  mask-image: linear-gradient(to left, #000 40%, transparent 100%);
+}
+.prod-decor-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
 }
 
-/* Dotted flowing wave — bottom-left, below the industry pills */
-.product-dots-left {
+.prod-arrow {
   position: absolute;
-  bottom: 1.5rem;
-  left: 3rem;
-  width: 52%;
-  height: 34%;
-  z-index: 0;
-  pointer-events: none;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 1px solid rgba(15, 23, 42, 0.25);
+  background: transparent;
+  color: #334155;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  box-shadow: none;
+  transition: all 0.2s ease;
+}
+.prod-arrow:hover {
+  background: rgba(255, 255, 255, 0.7);
+  border-color: rgba(15, 23, 42, 0.45);
+}
+.prod-arrow.prev { left: 0; }
+/* pinned to the far right of the screen (past the left-aligned 80% card) */
+.prod-arrow.next { right: calc(2rem - 20vw); }
+
+.industry-tag-icon { position: relative; z-index: 1; flex-shrink: 0; }
+
+/* Dot pagination (reference style) */
+.prod-dots {
+  position: absolute;
+  bottom: 1.75rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 6;
+}
+.prod-dot {
+  width: 11px;
+  height: 11px;
+  padding: 0;
+  border-radius: 50%;
+  border: 1px solid #94a3b8;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.prod-dot.active {
+  background: #0f172a;
+  border-color: #0f172a;
 }
 
-/* Content Layout — TWO COLUMN: info on the LEFT, dashboard on the RIGHT */
-.timeline-content {
+.slide-content {
+  position: relative;
+  z-index: 1; /* sit above the faceted background */
   display: flex;
   flex-direction: row;
   width: 100%;
   align-items: center;
-  gap: 3rem;
-  z-index: 10;
-  padding-top: 0;
+  gap: 1.25rem;
 }
-
 .product-info {
-  position: relative;
-  flex: 1 1 45%;
-  min-width: 0;
-  max-width: 46%;
-  text-align: left;
+  /* info takes most of the card so the dashboard column is small */
+  flex: 0 0 70%;
+  max-width: 70%;
 }
-
 .product-dashboard {
-  flex: 1 1 55%;
-  min-width: 0;
-  padding: 0;
+  /* small column so the image overflows it and sits ~half outside the card */
+  flex: 0 0 30%;
   display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-/* Typography */
-.product-desc {
-  color: #667085;
-  font-size: 1.1rem;
-  line-height: 1.7;
-  /* Align the text with the start of the heading (past the icon + gap) */
-  padding-left: calc(48px + 1.25rem);
-}
-
-/* Industries Tags */
-.product-industries {
-  margin-top: 2rem;
-  /* Align with the heading start (past the icon + gap), same as the description */
-  padding-left: calc(48px + 1.25rem);
-}
-.industry-label {
-  font-size: 0.95rem;
-  text-transform: uppercase;
-  color: #888; 
-  letter-spacing: 1px;
-  font-weight: 700;
-  margin-bottom: 0.75rem;
-  display: block;
-}
-.industry-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
   justify-content: flex-start;
+  align-items: center;
+  overflow: visible;
+}
+.product-dashboard { position: relative; }
+
+/* Fixed dashboard size; it overflows the narrow column to hang past the edge */
+.product-dashboard-inner {
+  position: relative;
+  width: 500px;
+  max-width: none;
+}
+/* Frosted-glass icon chip on the dashboard's bottom-left corner */
+.prod-dash-badge {
+  position: absolute;
+  left: -24px;
+  bottom: 40px;
+  width: 66px;
+  height: 66px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, rgba(96, 165, 250, 0.55) 0%, rgba(37, 99, 235, 0.6) 100%);
+  backdrop-filter: blur(10px) saturate(1.4);
+  -webkit-backdrop-filter: blur(10px) saturate(1.4);
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow:
+    inset 0 1px 2px rgba(255, 255, 255, 0.7),
+    inset 0 -6px 12px rgba(37, 99, 235, 0.25),
+    0 12px 26px rgba(37, 99, 235, 0.32);
+  z-index: 3;
+}
+
+/* Elements inside info — reduced ~15-20% to give the dashboard more room */
+.product-header-top { display: flex; align-items: center; gap: 1rem; margin-bottom: 0.6rem; }
+.product-icon-3d {
+  width: 46px; height: 46px;
+  background: linear-gradient(135deg, #60a5fa 0%, #2563eb 100%);
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: inset 0 2px 4px rgba(255,255,255,0.6), 0 10px 20px rgba(37,99,235,0.4);
+}
+.product-title-top { font-size: 2.05rem; font-weight: 800; color: #0f172a; margin: 0; letter-spacing: -1px; line-height: 1.1; }
+.product-desc { font-size: 1rem; color: #475569; line-height: 1.55; margin-bottom: 1.85rem; max-width: 90%; }
+
+.industry-label { display: block; font-size: 0.9rem; font-weight: 700; color: #94a3b8; text-transform: uppercase; margin-bottom: 0.75rem; }
+.industry-tags {
+  /* force 3 pills on the first row, 2 on the second */
+  display: grid;
+  grid-template-columns: repeat(3, max-content);
+  gap: 0.85rem;
+  justify-content: start;
 }
 
 @keyframes border-spin {
@@ -221,20 +402,22 @@
 .industry-tag {
   position: relative;
   overflow: hidden;
-  background: linear-gradient(180deg, #ffffff 0%, #eef1f6 100%);
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: linear-gradient(180deg, #ffffff 0%, #f1f4f9 100%);
   color: #3b82f6;
-  padding: 12px 24px;
-  border-radius: 24px;
-  font-size: 1rem;
+  padding: 8px 16px;
+  border-radius: 26px;
+  font-size: 0.88rem;
   font-weight: 600;
   text-align: center;
   z-index: 1;
-  border: 1px solid rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(0, 0, 0, 0.05);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.9),
-    inset 0 -2px 3px rgba(0, 0, 0, 0.04),
-    0 2px 4px rgba(0, 0, 0, 0.1),
-    0 6px 14px rgba(0, 0, 0, 0.12);
+    0 2px 5px rgba(15, 23, 42, 0.04),
+    0 4px 10px rgba(15, 23, 42, 0.05);
   transition: box-shadow 0.2s ease, transform 0.2s ease;
 }
 
@@ -260,7 +443,7 @@
   right: 1px;
   bottom: 1px;
   background: #ffffff;
-  border-radius: 19px;
+  border-radius: 25px;
   z-index: -1;
 }
 
@@ -286,65 +469,41 @@
 }
 
 /* =========================================
-   NEW MODULAR DASHBOARDS
+   DASHBOARDS CSS (Reused from before)
 ========================================= */
-
 .detailed-dashboard {
+  /* Fills the inner box; the inner box handles size + right breakout */
   width: 100%;
-  max-width: 650px;
-  height: 480px;
-  margin: 0 auto;
+  max-width: none;
+  height: 372px;
+  margin: 0;
   background: linear-gradient(180deg, #ffffff 0%, #f4f7fb 100%);
   border: 1px solid rgba(0, 0, 0, 0.06);
   border-radius: 16px;
-  /* Same 3D recipe as the button/cards */
+  /* Normal soft shadow */
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.9),
-    inset 0 -2px 4px rgba(0, 0, 0, 0.04),
-    0 2px 4px rgba(0, 0, 0, 0.1),
-    0 22px 45px rgba(0, 0, 0, 0.18);
+    0 22px 48px -26px rgba(15, 23, 42, 0.22);
   display: flex;
   overflow: hidden;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  transform: perspective(1000px) rotateY(-2deg) scale(0.95);
-  opacity: 0.5;
-  transition: transform 0.6s cubic-bezier(0.1, 0.9, 0.2, 1), opacity 0.6s ease;
+  /* Anchored right (flex-end), then nudged further right to overflow the frame */
+  transform: perspective(1600px) rotateY(-3deg) scale(0.96);
+  opacity: 0;
+  transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.7s ease;
 }
-/* Pop in when in view */
-.detailed-dashboard.is-visible {
-  transform: perspective(1000px) rotateY(-2deg) scale(1);
+.active .detailed-dashboard {
+  transform: perspective(1600px) rotateY(-3deg) scale(1);
   opacity: 1;
 }
-.detailed-dashboard.is-visible:hover {
-  transform: perspective(1000px) rotateY(0deg) translateY(-5px) scale(1);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.9),
-    inset 0 -2px 4px rgba(0, 0, 0, 0.04),
-    0 4px 8px rgba(0, 0, 0, 0.12),
-    0 32px 60px rgba(0, 0, 0, 0.24);
-}
 
-
-/* Sidebar */
-.dd-sidebar {
-  width: 140px;
-  background: #f8fafc;
-  border-right: 1px solid #e2e8f0;
-  display: flex;
-  flex-direction: column;
-  padding: 0.75rem 0;
-}
-.dd-logo {
-  display: flex; align-items: center; gap: 6px; padding: 0 0.75rem 1rem;
-  font-weight: 700; color: #0f172a; font-size: 0.8rem;
-}
+.dd-sidebar { width: 140px; background: #f8fafc; border-right: 1px solid #e2e8f0; display: flex; flex-direction: column; padding: 0.75rem 0; }
+.dd-logo { display: flex; align-items: center; gap: 6px; padding: 0 0.75rem 1rem; font-weight: 700; color: #0f172a; font-size: 0.8rem; }
 .dd-logo-icon { width: 16px; height: 16px; background: #3b82f6; border-radius: 4px; }
 .dd-nav { display: flex; flex-direction: column; flex: 1; }
 .dd-nav-item { padding: 8px 0.75rem; display: flex; align-items: center; gap: 8px; color: #64748b; font-size: 0.7rem; cursor: pointer; }
 .dd-nav-item.active { color: #3b82f6; background: rgba(59, 130, 246, 0.1); border-right: 2px solid #3b82f6; }
 .dd-sidebar-footer { padding-top: 0.5rem; border-top: 1px solid #e2e8f0; }
-
-/* Main Area */
 .dd-main { flex: 1; display: flex; flex-direction: column; background: #ffffff; }
 .dd-header { height: 40px; border-bottom: 1px solid #e2e8f0; display: flex; justify-content: space-between; align-items: center; padding: 0 1rem; }
 .dd-header-title { color: #0f172a; font-weight: 600; font-size: 0.8rem; }
@@ -353,8 +512,6 @@
 .dd-icon-btn { background: transparent; border: none; color: #64748b; }
 .dd-avatar { width: 20px; height: 20px; background: #e2e8f0; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #64748b; }
 .dd-content { flex: 1; padding: 1rem; overflow: hidden; display: flex; flex-direction: column; }
-
-/* Reusable UI Components inside Dashboards */
 .db-grid { display: grid; gap: 0.75rem; width: 100%; height: 100%; }
 .db-card { background: #ffffff; border: 1px solid #e2e8f0; box-shadow: 0 2px 4px rgba(0,0,0,0.02); border-radius: 6px; padding: 0.75rem; display: flex; flex-direction: column; }
 .db-card h4 { margin: 0 0 0.5rem 0; font-size: 0.7rem; color: #475569; font-weight: 600; }
@@ -363,50 +520,33 @@
 .text-blue { color: #3b82f6; }
 .text-green { color: #10b981; }
 .text-orange { color: #f97316; }
-
 .badge { padding: 2px 6px; border-radius: 4px; font-size: 0.55rem; font-weight: 600; }
 .badge.green { background: rgba(16, 185, 129, 0.15); color: #10b981; }
 .badge.orange { background: rgba(249, 115, 22, 0.15); color: #f97316; }
 .list-item { display: flex; justify-content: space-between; align-items: center; padding: 4px 0; border-bottom: 1px solid #f1f5f9; font-size: 0.65rem; color: #475569; }
 .list-item:last-child { border-bottom: none; }
 
-
-/* =========================
-   ANIMATIONS
-========================= */
-
-/* Continuous Live Data Animations */
-@keyframes bar-pulse-1 {
-  0%, 100% { transform: scaleY(1); }
-  50% { transform: scaleY(0.85); }
-}
-@keyframes bar-pulse-2 {
-  0%, 100% { transform: scaleY(1); }
-  50% { transform: scaleY(1.15); }
-}
-@keyframes line-pulse {
-  0%, 100% { opacity: 1; width: 100%; }
-  50% { opacity: 0.6; width: 85%; }
-}
-
-/* 1. ERP Layout */
+/* Dashboard Grids */
 .erp-grid { grid-template-columns: 1fr 1fr 1fr; grid-template-rows: auto 1fr; }
 .erp-grid .main-chart { grid-column: 1 / 3; }
 .erp-grid .side-list { grid-column: 3 / 4; }
-.chart-bars { display: flex; align-items: flex-end; justify-content: space-around; height: 100%; padding-top: 10px;}
-.c-bar { width: 15%; border-radius: 2px 2px 0 0; transform-origin: bottom; }
-.c-bar.blue { background: #3b82f6; }
-/* Animate Bars Initial + Continuous */
-.c-bar { height: 0; transition: height 1.2s cubic-bezier(0.1, 0.9, 0.2, 1); }
-.in-view .c-bar { height: var(--target-h); }
-.in-view .c-bar:nth-child(odd) { animation: bar-pulse-1 3s ease-in-out infinite 1.2s; }
-.in-view .c-bar:nth-child(even) { animation: bar-pulse-2 2.5s ease-in-out infinite 1.2s; }
-
-
-/* 2. HR Layout */
 .hr-grid { grid-template-columns: 1fr 1fr 1fr; grid-template-rows: auto 1fr; }
 .hr-grid .roster { grid-column: 1 / 3; }
 .hr-grid .payroll-chart { grid-column: 3 / 4; align-items: center; justify-content: center; }
+.crm-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto 1fr; }
+.crm-grid .funnel { grid-column: 1 / 2; }
+.crm-grid .deal-list { grid-column: 2 / 3; }
+.report-grid { grid-template-columns: 1fr 1fr 1fr; grid-template-rows: auto 1fr; }
+.report-grid .radar { grid-column: 1 / 2; align-items: center; justify-content: center; }
+.report-grid .bars { grid-column: 2 / 4; }
+.flow-grid { grid-template-columns: 1fr; grid-template-rows: auto 1fr; }
+.inv-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto 1fr; }
+.inv-grid .inv-preview { grid-column: 1 / 2; grid-row: 1 / 3; align-items: center; justify-content: center; }
+.inv-grid .inv-list { grid-column: 2 / 3; grid-row: 2 / 3; }
+
+/* Visual Elements */
+.chart-bars { display: flex; align-items: flex-end; justify-content: space-around; height: 100%; padding-top: 10px;}
+.c-bar { width: 15%; border-radius: 2px 2px 0 0; transform-origin: bottom; height: var(--target-h); background: #3b82f6; }
 .avatar-list { display: flex; flex-direction: column; gap: 8px; }
 .av-row { display: flex; align-items: center; gap: 8px; }
 .av { width: 24px; height: 24px; border-radius: 50%; background: #e2e8f0; }
@@ -414,189 +554,50 @@
 .av-info span { font-size: 0.55rem; color: #64748b; }
 .donut-wrap { width: 80px; height: 80px; }
 .mini-donut { width: 100%; height: 100%; transform: rotate(-90deg); }
-/* Animate Donut */
-.d-layer { transition: stroke-dashoffset 1.5s cubic-bezier(0.1, 0.9, 0.2, 1); }
-.in-view .d-layer.l1 { stroke-dashoffset: 0; }
-.in-view .d-layer.l2 { stroke-dashoffset: -180; }
-.in-view .d-layer.l3 { stroke-dashoffset: -240; }
-
-
-/* 3. CRM Layout */
-.crm-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto 1fr; }
-.crm-grid .funnel { grid-column: 1 / 2; }
-.crm-grid .deal-list { grid-column: 2 / 3; }
 .funnel-chart { display: flex; flex-direction: column; align-items: center; gap: 4px; height: 100%; justify-content: center; }
-.f-layer { background: #3b82f6; color: #fff; font-size: 0.55rem; text-align: center; padding: 4px; }
-.f-layer.l1 { opacity: 0.4; }
-.f-layer.l2 { opacity: 0.6; }
-.f-layer.l3 { opacity: 0.8; }
-.f-layer.l4 { opacity: 1; }
-/* Animate Funnel */
-.f-layer { width: 0; transition: width 1s cubic-bezier(0.1, 0.9, 0.2, 1); }
-.in-view .f-layer { width: var(--target-w); }
-
-
-/* 4. Reporting Layout */
-.report-grid { grid-template-columns: 1fr 1fr 1fr; grid-template-rows: auto 1fr; }
-.report-grid .radar { grid-column: 1 / 2; align-items: center; justify-content: center; }
-.report-grid .bars { grid-column: 2 / 4; }
-.line-graph { height: 2px; width: 0; margin-top: 8px; position: relative; transition: width 1s ease-out; }
-.in-view .line-graph { width: 100%; animation: line-pulse 4s ease-in-out infinite 1s; }
-.line-graph.blue { background: #3b82f6; }
-.line-graph.orange { background: #f97316; }
-.line-graph.green { background: #10b981; }
+.f-layer { background: #3b82f6; color: #fff; font-size: 0.55rem; text-align: center; padding: 4px; width: var(--target-w); }
+.line-graph { height: 2px; width: 100%; margin-top: 8px; background: #3b82f6;}
 .radar-circle { width: 80px; height: 80px; border-radius: 50%; border: 1px dashed #cbd5e1; position: relative; }
-.r-line { position: absolute; top: 0; bottom: 0; left: 50%; width: 1px; background: #e2e8f0; }
-.r-line.rot1 { transform: rotate(60deg); }
-.r-line.rot2 { transform: rotate(120deg); }
 .r-poly { position: absolute; top: 20%; left: 20%; right: 20%; bottom: 20%; background: rgba(59, 130, 246, 0.2); border: 1px solid #3b82f6; clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%); }
-.multi { gap: 10px; }
-.c-bar-group { display: flex; align-items: flex-end; gap: 2px; height: 100%; width: 20%; }
-/* Animate Radar */
-@keyframes radar-spin {
-  100% { transform: scale(1) rotate(360deg); }
-}
-.r-poly { transform: scale(0); opacity: 0; transition: all 1s cubic-bezier(0.1, 0.9, 0.2, 1); }
-.in-view .r-poly { transform: scale(1); opacity: 1; animation: radar-spin 15s linear infinite 1s; }
-
-
-/* 5. Workflow Layout */
-.flow-grid { grid-template-columns: 1fr; grid-template-rows: auto 1fr; }
 .node-map { display: flex; flex-direction: column; align-items: center; padding-top: 10px; }
-.node { background: #ffffff; border: 1px solid #cbd5e1; padding: 6px 12px; font-size: 0.6rem; color: #0f172a; border-radius: 4px; position: relative;}
-.node.trigger { border-color: #f97316; }
-.node.action { border-color: #3b82f6; }
-.node.end { border-color: #10b981; }
+.node { background: #ffffff; border: 1px solid #cbd5e1; padding: 6px 12px; font-size: 0.6rem; color: #0f172a; border-radius: 4px; }
 .line-down { width: 2px; height: 15px; background: #cbd5e1; }
 .line-split { width: 80px; height: 15px; border-top: 2px solid #cbd5e1; border-left: 2px solid #cbd5e1; border-right: 2px solid #cbd5e1; }
 .node-row { display: flex; gap: 30px; }
-/* Animate Nodes */
-@keyframes node-pulse {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.2); }
-  50% { box-shadow: 0 0 10px 2px rgba(59, 130, 246, 0.4); border-color: #3b82f6; }
-}
-.node-map > * { opacity: 0; transform: translateY(-10px); transition: all 0.6s ease; }
-.in-view.node-map > * { opacity: 1; transform: translateY(0); }
-.in-view.node-map > *:nth-child(1) { transition-delay: 0.1s; }
-.in-view.node-map > *:nth-child(2) { transition-delay: 0.3s; }
-.in-view.node-map > *:nth-child(3) { transition-delay: 0.5s; }
-.in-view.node-map > *:nth-child(4) { transition-delay: 0.7s; }
-.in-view.node-map > *:nth-child(5) { transition-delay: 0.9s; }
-.in-view .node.action { animation: node-pulse 2s infinite 1.5s; }
-
-
-/* 6. Invoice Layout */
-.inv-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto 1fr; }
-.inv-grid .inv-preview { grid-column: 1 / 2; grid-row: 1 / 3; align-items: center; justify-content: center; }
-.inv-grid .inv-list { grid-column: 2 / 3; grid-row: 2 / 3; }
 .inv-doc { background: #f8fafc; width: 120px; padding: 10px; border-radius: 4px; border: 1px solid #e2e8f0; position: relative; }
 .inv-head { display: flex; flex-direction: column; color: #0f172a; font-size: 0.5rem; }
-.inv-head b { font-size: 0.6rem; }
 .inv-line { height: 1px; background: #cbd5e1; margin: 4px 0; }
 .inv-row { display: flex; justify-content: space-between; font-size: 0.45rem; color: #475569; margin-bottom: 2px; }
 .inv-total { border-top: 1px solid #94a3b8; margin-top: 4px; padding-top: 2px; font-size: 0.55rem; font-weight: bold; color: #0f172a; text-align: right; }
 .paid-stamp { position: absolute; top: 40%; left: 20%; transform: rotate(-15deg) scale(1.5); opacity: 0.8; }
-/* Animate Invoice Stamp */
-.paid-stamp { opacity: 0; transform: rotate(-15deg) scale(3); transition: all 0.5s cubic-bezier(0.1, 0.9, 0.2, 1); }
-.in-view.inv-doc .paid-stamp { opacity: 0.8; transform: rotate(-15deg) scale(1.5); transition-delay: 0.8s; }
 
-
-/* Responsive adjustments — see the RELEASE block below (<=1100px). */
-
-/* Safe additive guards: never let media overflow its container */
-.detailed-dashboard,
-.product-lines-right,
-.product-dots-left,
-.mini-donut { max-width: 100%; }
-
-/* Decorative floating SVGs were positioned for the old pinned two-column
-   card; hide them everywhere for the clean stacked layout. */
-.product-lines-right,
-.product-dots-left { display: none; }
-
-/* =========================================================
-   RESPONSIVE — KEEP THE LAPTOP DECK ON EVERY DEVICE
-   Same sticky scroll-stacking, same two-column card UI; we only
-   scale paddings, type and the dashboard preview down so the exact
-   laptop layout fits smaller screens instead of being redesigned.
-========================================================= */
-
-/* ---- TABLET (<=1100px) ---- */
+/* Responsive */
 @media (max-width: 1100px) {
-  .products-section { padding: 4rem 0 6rem 0; }
-  .products-section .container { width: 94%; }
-
-  .timeline-item { padding: 2rem 2.5rem; }
-  .product-header-top { margin-bottom: 1.25rem; gap: 1rem; }
-  .product-icon-3d { width: 54px; height: 54px; border-radius: 15px; }
-  .product-header-top .product-title-top { font-size: 2rem !important; }
-
-  .timeline-content { gap: 1.75rem; }
-  .product-info { flex-basis: 42%; max-width: 42%; }
-  .product-desc { font-size: 1rem; line-height: 1.6; padding-left: calc(54px + 1rem); }
-  .product-industries { padding-left: calc(54px + 1rem); }
-  .detailed-dashboard { height: auto; min-height: 380px; max-height: 460px; }
-
-  .industry-tag { padding: 9px 16px; font-size: 0.9rem; }
-}
-
-/* ---- PHONES / SMALL TABLET (<=820px) ----
-   Two columns get cramped on a phone, so the pinned card stacks its content
-   into ONE column (info over dashboard). Still the same sticky deck — it just
-   reflows, and the card grows to fit so there's no forced empty space. */
-@media (max-width: 820px) {
-  .products-section { padding: 3rem 0 4rem 0; }
-  .products-section .container { width: 100%; }
-
-  .timeline-item {
-    min-height: 0;            /* fit content, no empty gap */
-    justify-content: flex-start;
-    padding: 1.75rem 1.5rem;
-    border-radius: 32px;
-    margin-bottom: 1.5rem;
-  }
-  .product-header-top { margin-bottom: 1.25rem; gap: 0.85rem; }
-  .product-icon-3d { width: 48px; height: 48px; border-radius: 13px; }
-  .product-header-top .product-title-top { font-size: 1.7rem !important; letter-spacing: -0.5px; }
-
-  /* Single column: info on top, dashboard below */
-  .timeline-content {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 1.5rem;
-  }
-  .product-info {
-    padding-right: 0;
-    flex-basis: auto;
-    max-width: 100%;
-    text-align: center;
-  }
+  .emv-featured-apps-container { flex-direction: column; }
+  .emv-agent-studio-card { flex: auto; }
+  .products-carousel-track { height: auto; }
+  .prod-carousel-slide { width: auto; }
+  .slide-content { flex-direction: column; gap: 2rem; height: auto; }
+  .product-info { flex: 1 1 100%; max-width: 100%; text-align: center; }
+  .product-dashboard { flex: 1 1 100%; transform: none; justify-content: center; }
+  .product-dashboard-inner { width: 100%; max-width: 590px; transform: none; }
+  .product-header-top { justify-content: center; }
   .industry-tags { justify-content: center; }
-  .product-industries { padding-left: 0; }
-  .product-desc { font-size: 0.95rem; line-height: 1.55; padding-left: 0; }
-
-  .product-dashboard { width: 100%; }
-  .detailed-dashboard {
+  /* Reset the desktop breakout so the dashboard fits when stacked */
+  .detailed-dashboard,
+  .active .detailed-dashboard {
     width: 100%;
-    max-width: 100%;
-    height: auto;
-    min-height: 360px;
+    max-width: 650px;
+    height: 480px;
+    margin: 0 auto;
+    transform: none;
   }
 }
-
-/* ---- SMALL PHONES (<=480px) ---- */
-@media (max-width: 480px) {
-  .products-section { padding: 2.5rem 0 3rem 0; }
-
-  .timeline-item { padding: 1.35rem 1.15rem; border-radius: 26px; }
-  .product-header-top { margin-bottom: 1rem; gap: 0.7rem; }
-  .product-icon-3d { width: 42px; height: 42px; border-radius: 11px; }
-  .product-header-top .product-title-top { font-size: 1.45rem !important; }
-
-  .product-desc { font-size: 0.9rem; line-height: 1.5; }
-  .product-industries { margin-top: 1.25rem; }
-  .industry-label { font-size: 0.72rem; }
-  .industry-tag { padding: 8px 14px; font-size: 0.82rem; }
-
-  .detailed-dashboard { min-height: 320px; }
+@media (max-width: 768px) {
+  .emv-apps-grid { grid-template-columns: repeat(2, 1fr); }
+  .products-carousel-stage { padding: 0 1rem; }
+  .prod-carousel-slide { padding: 2rem 1.5rem; }
+}
+@media (max-width: 500px) {
+  .emv-apps-grid { grid-template-columns: 1fr; }
 }

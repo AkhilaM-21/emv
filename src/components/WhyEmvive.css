@@ -7,10 +7,6 @@
   position: relative;
   background-color: #ffffff;
   overflow: hidden;
-  /* Slide up over the products' end-spacer so the last card stays covered
-     (like the next card) instead of leaving an empty gap. */
-  margin-top: -40vh;
-  z-index: 30;
 }
 
 .why-emvive-container {

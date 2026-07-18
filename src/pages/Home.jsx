@@ -1,24 +1,28 @@
 import React from 'react';
-import Hero from '../components/Hero';
+import AgenticHero from '../components/AgenticHero';
 import Products from '../components/Products';
 import WhyEmvive from '../components/WhyEmvive';
 import Features from '../components/Features';
 import AppBuilder from '../components/AppBuilder';
 import GlobeSection from '../components/GlobeSection';
 import Clients from '../components/Clients';
+import Testimonials from '../components/Testimonials';
+import CTA from '../components/CTA';
 import FAQ from '../components/FAQ';
 
 const Home = () => {
   return (
     <>
-      <Hero />
+      <AgenticHero />
+      <Clients />
       <Products />
       <WhyEmvive />
-      <Clients />
       <GlobeSection />
       <Features />
       <AppBuilder />
+      <Testimonials />
       <FAQ />
+      <CTA />
     </>
   );
 };
