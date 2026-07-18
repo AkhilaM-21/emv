@@ -42,12 +42,12 @@ const DASH_METRICS = [
   { label: 'UPTIME', value: '99.99%' },
 ];
 
-// floating feature pills on the right (blue theme)
+// floating product pills on the right of the dashboard (Emvive products, blue theme)
 const PILLS = [
-  { title: 'ERP', sub: 'Unified operations', icon: <Layers size={18} />, bg: 'linear-gradient(180deg,#3b82f6,#2563eb)' },
-  { title: 'CRM', sub: 'Deepen relationships', icon: <Home size={18} />, bg: 'linear-gradient(180deg,#2b70fa,#1e5fe0)' },
-  { title: 'HCM', sub: 'People management', icon: <UsersRound size={18} />, bg: 'linear-gradient(180deg,#60a5fa,#3b82f6)' },
-  { title: 'AI', sub: 'Intelligent insights', icon: <Cpu size={18} />, bg: 'linear-gradient(180deg,#4f7ef0,#2b5fd0)' },
+  { title: 'Cloud ERP', sub: 'Unified operations', icon: <Layers size={18} />, bg: 'linear-gradient(180deg,#3b82f6,#2563eb)' },
+  { title: 'HR & Payroll', sub: 'People & pay in sync', icon: <UsersRound size={18} />, bg: 'linear-gradient(180deg,#2b70fa,#1e5fe0)' },
+  { title: 'CRM & Sales', sub: 'Grow every relationship', icon: <Home size={18} />, bg: 'linear-gradient(180deg,#60a5fa,#3b82f6)' },
+  { title: 'Advanced Reporting', sub: 'Real-time insights', icon: <BarChart3 size={18} />, bg: 'linear-gradient(180deg,#4f7ef0,#2b5fd0)' },
 ];
 
 // dummy demo video (placeholder for now) — embedded YouTube link
